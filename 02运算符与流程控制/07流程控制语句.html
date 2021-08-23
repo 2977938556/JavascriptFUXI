@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06流程控制语句</title>
+</head>
+
+<body>
+    <input type="text" name="texts">
+    <span></span>
+</body>
+
+</html>
+
+<script>
+    document.querySelector('[name="texts"]').addEventListener('keyup', function () {
+        let masg = document.querySelector('span');
+        let lengtnts = this.value.length;
+        if (lengtnts > 16) {
+            masg.innerHTML = "密码很强"
+        } else if (lengtnts > 6) {
+            masg.innerHTML = "中等强度"
+        } else {
+            masg.innerHTML = "密码弱爆了"
+        }
+
+
+    })
+</script>

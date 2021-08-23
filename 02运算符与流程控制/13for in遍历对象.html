@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            float: left;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    let obj = {
+        a: "标题",
+        b: "首页",
+        c: "咨询",
+        d: "邮件",
+    }
+
+
+    // 用于遍历对象的所有属性，for/in主要用于遍历对象，不建议用来遍历数组。
+    // 遍历数组操作
+
+
+    for (const key in obj) {
+        console.log(key);
+        document.write(`<h1>${obj[key]}<h1/>`)
+        console.log(obj[key]);
+    }
+    console.log(obj);
+
+    
+</script>

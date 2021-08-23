@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    // switch 当数据匹配到case中的数据 会执行从那一行一下的代码段
+    // 如果加了break 会终止switch'的执行
+    //default
+
+
+    let name = "产品";
+    switch (name) {
+        case '产品':
+            console.log("1");
+            break
+        case '首页':
+            console.log("2");
+            break
+        case '视频':
+            console.log("3");
+            break
+        case '书籍':
+            console.log("4");
+            break
+        default:
+            console.log("我是不是");
+    }
+
+
+
+
+
+    // case 多个值判断
+    let str = 404;
+    switch (str) {
+        case 404:
+        case 302:
+            console.log("错误");
+            break
+        case 100:
+            console.log("成功")
+    }
+
+
+
+
+    let nbs = 30;
+    switch(true){
+        case nbs > 10:
+            console.log("你大于10");
+            break
+            case nbs > 20:
+            console.log("你大于20");
+            break
+            default:
+                console.log("你不是一个人");
+                
+    }
+
+
+</script>

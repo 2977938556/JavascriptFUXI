@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //三元表达式
+    function nbs(a) {
+        return Boolean(a);
+    }
+    let n = nbs(1) ? 1 : 2;
+    console.log(n); //1
+
+
+
+
+    //可爱的三元表达式
+    let hd = 1 ? (1 ? (1 ? (0 ? "我是1" : "我是2") : "我不是1") : "我不是三") : "我什么都不是";
+    console.log(hd) //;我是2
+
+
+
+    // 创建一个元素
+    function newobjs(options) {
+        let div = document.createElement("div");
+        div.style.width = options.width || "200px";
+        div.style.height = options.height || "200px";
+        div.style.background = options.background || "pink";
+        document.body.appendChild(div)
+    }
+    newobjs({
+        width: "800px"
+    })
+</script>

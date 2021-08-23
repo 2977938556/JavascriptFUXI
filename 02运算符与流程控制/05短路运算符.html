@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //短路运算符
+    // || 当a为真的时候就不会向后面判断了 ，反之则不一样
+    let a = true,
+        b = false;
+    let c = a || b;
+    console.log(c); //true
+
+
+    //&& 当第一个为真的时候就会向后面进行判断，必须两个都为真才会返回真
+    let aa = true,
+        bb = false;
+    let cc = aa && bb;
+    console.log(cc); //flase
+
+
+
+
+    //短路的特性
+    let sex = prompt("你的性别是？") || "保密";
+    console.log(sex);
+
+
+
+
+    //利用短路的特性赋值
+    let obj = { 
+        s: "",
+    };
+
+    function geturl(obj) {
+        obj.s = "miaoya";
+    }
+    obj.s || geturl(obj)
+    console.log(obj.s);
+
+
+
+    function strsr(num){
+        return "*".repeat(num || 5);
+    }
+    console.log(strsr());
+
+
+
+
+</script>

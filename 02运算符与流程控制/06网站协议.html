@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <form action="#nb">
+        请输入名称：<input type="text" name="emails" >
+        网站协议 ： <input type="checkbox" name="xieyi">
+        <input type="submit" value="提交">
+    </form>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    function quers(names) {
+        return document.querySelector(`${names}`);
+    }
+    quers('form').addEventListener("submit", function (event) {
+        let text = quers('[name = "emails"]').value;
+        let box = quers('[name ="xieyi"]').checked;
+        console.log(text,box);
+        if (!text || box == false){
+            alert('协议或者名称未填写');  
+            return;
+        }
+        alert('提交成功')
+    })
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    let s = 5;
+    //一定要写脱离循环的判断条件
+    while (s-- != 0) { //s 不等于0的时候就进来这里
+        console.log(s);
+    }
+    console.log(s);
+
+
+
+
+    let a = 100;
+    while (a-- > 0) {
+        console.log(a);
+    }
+
+
+
+
+
+    //把1-100的和加起来
+    let strs = 0;
+    let nb = [];
+    while (strs < 100) {
+        strs++;
+        nb.push(strs)
+    }
+    console.log(nb);
+    let p = 0;
+    nb.map(function (data) {
+        p += data
+    })
+
+    console.log(p);
+
+
+
+    let inputs = prompt("你爱我吗？");
+    while (inputs != "我爱你") {
+        inputs = prompt("你爱我吗？");
+    }
+
+
+
+
+
+</script>

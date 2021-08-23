@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比较运算符</title>
+</head>
+
+<body>
+    <span></span>
+</body>
+
+</html>
+<script>
+    //比较运算符返回的结果是波尔值 即真或者假
+
+    let a = 1,
+        b = 2,
+        c = 1,
+        d = "2";
+
+    console.log(a < b); //true 小于
+    console.log(a > b); //false 大于
+    console.log(a >= b); //flase  大于或者等于  
+    console.log(a <= b); //true   小于或者等于
+    console.log(b == d); //true  "==不会强制要求两个值类型一致，并且会隐示转换数据的类型"
+    console.log(b === d); //false "=== 会强制要求两个值类型一致"
+
+
+
+
+    //波尔s值其实就是 真= 1 假 = 0
+    let BOT = a > b; //false
+    console.log(Number(BOT)); //0
+
+
+
+    //         运算符 说明
+    //              
+    //      >   大于 
+    //      <   小于 
+    //      >=  大于或等于 
+    //      <=  小于等于 
+    //      ==   强制类型转换比较 
+    //      ===  不强制类型转换比较
+
+    
+    let inp = prompt("请输入你的年龄");
+    let span = document.querySelector('span');
+    span.innerHTML = inp >= 61 ?"年龄超出范围":"你在活动范围年龄中";
+
+</script>

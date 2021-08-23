@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+
+<script>
+    //continue 关键字退出当前次循环
+    for (let i = 1; i <= 5; i++) {
+        if (i == 3) {
+            continue
+        }
+        console.log(`我已经吃了第${i}个包子`);
+    }
+    // 结果如下
+    // 我已经吃了第1个包子
+    // 我已经吃了第2个包子
+    // 我已经吃了第3个包子
+    // 我已经吃了第4个包子
+
+
+
+    for (let i = 1; i <= 5; i++) {
+        if (i == 3) {
+            break
+        }
+        console.log(`我已经吃了第${i}个包子`);
+    }
+
+    // 结果如下
+    // 我已经吃了第1个包子
+    // 我已经吃了第2个包子
+
+
+
+</script>
