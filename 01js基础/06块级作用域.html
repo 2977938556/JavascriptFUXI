@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+
+<script>
+
+
+
+//函数声明是局部变量，局部变量可以访问全局变量，而全局变量访问不到局部变量
+//
+    const web = 1;
+
+    function nb() {
+        let web = 2;
+        console.log(web);
+        function nbs(){
+            let web = 3;
+            console.log(web);
+        }
+        nbs()
+    }
+    nb();
+    console.log(web);
+
+
+
+
+
+    let c = 2233
+
+
+
+
+    
+</script>

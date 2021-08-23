@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    // 基本数据类型指数值，字符串等简单数据类型，引用数据类型指
+
+    //基础数据类型（互不干扰）
+    let a = 100;
+    let b = a;
+    a = 2000;
+    console.log(b);
+
+
+
+
+
+
+    /*
+        对于引用类型来讲 变量保存的是引用对象的指针。变量赋值其实就是赋值给变量的指针，
+        这样多个变量引用就是同一个对象。
+    
+    */
+    let objs = {
+        web :'hodunren',
+    }
+    let str = objs;
+    objs.web = "feimao";
+    console.log(str); //"feimao"
+
+
+
+</script>

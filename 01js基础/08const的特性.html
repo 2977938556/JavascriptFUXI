@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    // 声明const
+    const a = 1;
+    console.log(a);
+
+
+
+
+    //const 的值不允许修改()
+    /*
+    const b = 1;
+    b= 2;//报错
+    */
+
+
+    //引用类型的值可以更改
+    const obj = {
+        a: 1,
+        b: 2,
+    }
+    obj.a = 2;
+    console.log(obj);
+
+
+
+
+    //没有变量提升
+    // function s() {
+    //     console.log(ss);
+    //     // const ss = 1; 报错
+    // }
+    // s()
+
+
+
+
+    //const 没有有变量提升
+    let opo = 1;
+    function vv() {
+        const opo = 2;
+        console.log(opo);//2
+        function srt(){
+            //const 拥有块级作用域
+            const sert = 22333;
+            console.log(sert);
+        }
+        srt()
+        // console.log(sert); 报错
+    }
+    vv()
+</script>

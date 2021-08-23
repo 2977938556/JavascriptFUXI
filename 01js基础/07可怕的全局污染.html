@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 21:13
+
+
+
+    //声明变量的时候最好使用let
+    //没有块级作用域很容易污染全局
+    a = 1;
+
+    function show() {
+    //    {
+        a = 233; //值被修改了
+        console.log(a);
+    //    }
+    }
+    console.log(a);
+    show()
+
+
+    //循环中也会被污染
+    for (var index = 0; index < 10; index++) {
+       console.log(index);
+    }
+    index = 1;
+    console.log(index);
+
+
+
+    //let 不存在与windows中
+    let aaa= 1;
+    console.log(windows.aaa);
+
+
+    
+
+</script>

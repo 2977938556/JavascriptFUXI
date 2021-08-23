@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+<script>
+    // let 声明必须使用  let 没有变量提升
+    // console.log(a);//报错
+    // let a = 1;  
+
+
+    //实例
+    /*
+        {
+            var b = 1;
+            let a = 10;
+
+        }
+        console.log(b);
+        console.log(a);//报错
+    */
+
+
+    // _______________________________
+    // let 适合在for 循环中使用 
+    /*
+
+    for (let i = 0; i <= 10; i++) {
+        console.log(i);
+    }
+    console.log(i); //报错  (let 声明的变量只能在for中使用)
+    
+    */
+
+
+
+    function b() {
+        let c = "abc";
+        for (let i = 0; i < 3; i++) {
+            let c = "aaa";
+            // let c = "233";//报错 同一个作用域不可以声明同样的变量
+            console.log(c); //输出三次aaa
+            //证明let的作用域与另一个作用域不受干扰
+        }
+    }
+    b();
+
+
+
+
+    //传入一个形参后不可以声明同一个名称的变量
+    function nbs(aa) {
+        // let aa = '1';//报错
+        console.log(aa);
+    }
+    nbs(2);
+
+
+
+
+
+    //死区
+    // let e = 1;
+    // if (true){
+    //     e = 2;
+    //     let e;//报错
+    // }
+
+
+    //如何避免死区
+    //在使用let声明的时候放到前面
+    //js查找变量是采用就近原则 先找块级作用域里面有没有没有就去外面找
+    let e = 1;
+    if (true) {
+        let e = 22;
+        console.log(e);
+    }
+
+
+
+
+    //总结
+    /*
+        1：let 声明的变量没有变量提升
+        2：let 必须要先声明后赋值
+        3：在同一个作用域中不可以声明多个一样的变量
+        4：在不同作用域下声明的let变量互不干扰
+        5：函数中传入的一个形参 不可以用let重新声明
+        6：就近原则
+        7：总之，在代码块内，使用let命令声明变量之前，该变量都是不可用的
+
+
+    */
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //使用var  var 声明的是全局变量
+    var a = 1;
+    console.log(a);
+
+    //变量提升
+    var a; //先声明
+    a = 2; //后赋值
+    console.log(a);
+
+
+    //声明多个变量（逗号隔海）
+    var b = 1,
+        c = 2,
+        d = 3;
+    console.log(b, c, d);
+
+
+    //变量赋同一个值类型
+    var f = g = h = i = 3333;
+    console.log(f, g, h, i);
+
+    //typeof检查值类型， js中变量的类型是根据你所给的值来决定的
+    console.log(typeof f);
+    f = "2222";
+    console.log(typeof f);
+
+
+
+
+
+
+
+
+</script>

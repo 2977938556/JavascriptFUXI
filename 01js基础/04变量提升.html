@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    // 变量提升
+    //在js中解析器会把所有的声明变量提升到最前面
+    /*模拟编译顺序
+    var a;
+    var class;  //不可以使用关键字保留字声明变量(报错)
+    a = 1;
+    console.log(a)
+    class = "2333";
+    */
+
+    // var a = 1;
+    // console.log(a);
+    // var class = "2333";//报错
+
+
+
+    //变量提升的展示
+    console.log(b);  //输出undefinde 为空
+    var b = "1";
+
+
+
+    // 函数 与 if 中是否会有变量提升
+
+    // if (false){
+    //    console.log("111");
+    // }.
+
+
+
+
+    function nb(){
+        //在if 中变量被提升到函数的最顶部（无论是真还是假，块级作用域）
+        //var = c;
+        if (false) {
+            var c = 1;
+        }
+        console.log(c);
+    }
+    nb();  //输出”undefinde
+
+
+
+
+
+
+
+
+
+</script>
