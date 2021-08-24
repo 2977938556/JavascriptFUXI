@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //repeat 重复生成
+    function nbs(name = 5){
+        return "*".repeat(name);
+    }
+    console.log(nbs());
+
+
+    //模糊手机号
+    let  sjh = "18770726349";
+    function mohu(nums,str=4){
+      return  nums.substr(0,nums.length - str) + "*".repeat(str)
+    }
+   console.log( mohu(sjh,9));
+
+
+</script>

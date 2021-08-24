@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    let a = "在线教程";
+    let b = "达到";
+    let d = "万大大";
+    let e = "啊实打实";
+    str(a,b,d,e);
+    
+
+    //点语法可以把多个数据变成数组
+    function str(s,...stringss){//前面写了一个会把第一个传入的参数接受
+        console.log(s);
+        console.log(stringss);//["在线教程", "达到", "万大大", "啊实打实"]
+        console.log(stringss[0]);//在线教程
+        console.log(stringss[1]);//万只
+    }
+</script>

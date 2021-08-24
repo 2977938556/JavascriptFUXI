@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //number 数字类型
+    //声明定义 
+    //使用构造函数 number
+    let hd = new Number(3);
+    console.log(hd + 3);//6
+    console.log(typeof hd);//object
+    console.log(hd.valueOf());//3
+
+
+
+    //使用字面量创建
+    let str = 123;
+    console.log(str + 1);//124
+    console.log(str.valueOf());//123
+    console.log(typeof str);//number
+
+
+
+
+
+
+
+
+    //Number用于表示整数和浮点数，
+    // 数字是 Number实例化的对象，可以使用对象提供的丰富方法。
+    let a = 10;
+    //isInteger 判断数字是否是整数
+    console.log(Number.isInteger(a)); //true
+
+    // toFixed
+    console.log(12.567.toFixed(1));//12.6
+
+
+
+
+    // NaN表示无效的数值
+    console.log(1 / "b");//nan
+
+    //NAN不可以使用==进行比较的
+    let sss = 1 / "b";
+    let ssss = 1 / "b";
+    console.log(sss == ssss);//flase
+
+    // 所以 可以使用isNaN进行比较
+    //is NaN 返回的是波尔类型的值 如果不是数字就返回true
+    console.log(Number.isNaN(sss));//true
+
+    // 或者使用 object.is
+    //返回值位
+    console.log(Object.is(sss,ssss));//true
+    
+    
+</script>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //查找字符串
+    let str = "12334315136789";
+
+    //indexOf 查找字符串的位置 寻找不到就返回-1；
+    console.log(str.indexOf("3")); //2
+    console.log(str.indexOf("4", 9)); //-1 第二个参数 表示从哪里开始 向后搜索
+
+
+    //lastindeOf 从后面开始查找字符 返回值为长度
+    console.log(str.lastIndexOf("3")); //7
+    console.log(str.lastIndexOf("3", 9)); //7 第二个参数是从哪里开始向前查找
+
+
+
+    // seach 用于检索字符串中的指定子字符串 返回值为长度 ，可以配合正则表达式搜索
+    console.log(str.search("89")); //10
+    console.log(str.search(/33/i)); //2
+
+
+
+    //includes 查找是否包含元素 返回值为 flase / true;
+    //第二个参数表示查找的开始位置
+    console.log(str.includes("3")); //true
+    console.log(str.includes("5", 1)); //true
+
+
+
+    // startswith 是否指定位置，第二个参数为查找的开始位置
+    console.log(str.startsWith("1")); //true
+    console.log(str.startsWith("1", 6)); //true
+
+
+
+    // endswith 是否总指定位置结束 第二个参数为查找的结束位置
+    console.log(str.endsWith("9")); //true
+    console.log(str.endsWith("3", 3)); //true
+
+
+
+
+
+
+    let arr = ["aa", "bb"];
+    let strss = "小米的成绩很aa也很bb";
+
+    let s = arr.some((item) => {
+        console.log(item);
+        return strss.includes(item);
+    })
+    if (s){
+        console.log("找到了关键子");
+    } 
+    
+    
+</script>

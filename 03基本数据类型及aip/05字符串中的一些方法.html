@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let str = "feimap";
+    //length 获取元素长度(返回值为number类型)
+    console.log(str.length); //6
+
+    //toUpperCase() 把字符串变成大写的 (返回值为string类型)
+    console.log(str.toUpperCase()); //FEIMAP
+
+    //toLowercase 把字符串变成小写的 
+    console.log(str.toLowerCase());
+
+
+
+    let num = ' feiMao ';
+    console.log(num.length); //8
+
+
+    //移除左右两边的空白 trim
+    console.log(num.trim().length); //6
+
+    //trimLeft删除左边空白 trimeright删除右边空白
+    console.log(num.trimLeft());
+    console.log(num.trimRight());
+
+
+
+
+
+
+    // 获取字符串
+
+
+    let rnm = "feimaos";
+
+    //根据位置查找字符串 （从0开始）
+    console.log(rnm.charAt(3)); //"m"
+
+    //或者使用索引值来获取字符串
+    console.log(rnm[3]); //m
+
+
+
+    for (let i = 0; i < rnm.length; i++) {
+        let span = document.createElement("span");
+        span.style.fontSize = (i + 2) * 10 + "px";
+        span.innerHTML = rnm.charAt(i);
+        document.body.appendChild(span);
+    }
+</script>

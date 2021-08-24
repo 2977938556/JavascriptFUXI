@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<script>
+
+    // typeof 可以返回以下原始类型
+    //typeof返回的是字符串数据
+    /*  
+        基本数据类型number、string.boolean,function,object,undefined
+    */
+
+    let a = 1;
+    console.log(typeof a);//"number"
+
+
+
+    let b = "str";
+    console.log(typeof b); //"string"
+
+
+    let c = !0;
+    console.log(typeof c);//boolean
+
+
+    //判断是否定义了
+    // let d ;
+    // if(typeof d =="undefined"){
+    //     throw new Error("未定义值")
+    // }
+    // console.log(typeof d);//undefined
+
+    function e(){
+
+    }
+    console.log(typeof e);//function
+
+
+
+
+    //对象比较特殊 比如 数组[]  对象{}   null   都是对象类型
+    let aa = {};
+    console.log(typeof aa);//object
+
+    console.log(aa);
+
+
+
+
+    //instanceof 运算符 用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型上
+    let ws = [];
+    let ss = {};
+    console.log(ws instanceof Array );//true
+    console.log(ss instanceof Array );//flase
+
+
+
+    // 值类型与对象
+    // 下面是使用字面量与对象方法创建字符串，返回的是不同类型。
+    let as = "1111111";
+    let s = new String("a1dasda");
+    console.log(typeof as, typeof s);//string object
+
+
+
+    // 只有对象才有方法使用
+    // 但在JS中也可以使用值类型调用方法，因为它会在执行时将值类型转为对象。
+    console.log(as.length);
+    console.log(s.length);
+
+
+    
+</script>

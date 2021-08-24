@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let strs = "123456789";
+
+    /*
+        slice ,substring,substr 都可以截取字符串
+
+        以上三个字符串 第一个参数为开始截取的位置(不填参数默认截取全部)
+    */
+    console.log(strs.slice(3)); //456789
+    console.log(strs.substring(3)); //456789
+    console.log(strs.substr(3)); //456789
+
+    console.log("________分割线__________");
+    // slice和substring 第二个参数为截取的前一位
+    //substring会自动把最小的设置为开始截取的位置
+    // substr 第二个参数是截取的数量
+    console.log(strs.slice(3, 6)); //456
+    console.log(strs.substring(3, 6)); //456
+    console.log(strs.substring(6, 3)); //456  
+    console.log(strs.substr(3, 2));
+
+
+
+    console.log("________分割线__________");
+    console.log(strs.slice(3, -2));//45678 表示截取到倒数第二个就可以
+    console.log(strs.slice(-2));//89 表示从末尾开始截取
+    console.log(strs.substring(3,-1));//123 负数会直接转化为 0
+    console.log(strs.substr(-3,2));//78 表示从后面第三个开始截取两个
+</script>

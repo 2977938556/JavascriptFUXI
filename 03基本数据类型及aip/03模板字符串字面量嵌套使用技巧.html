@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let str = "2021";
+    str += "feimao";
+    console.log(str); //2021feimao
+
+
+
+    // 模板字符串的内嵌使用
+    let obj = [{
+            title: "A",
+            const: "aaaaaaaaa"
+        },
+        {
+            title: "B",
+            const: "aaaaaaaaa"
+        },
+        {
+            title: "C",
+            const: "aaaaaaaaa"
+        }
+    ];
+
+    function temp(obj) {
+        return`<ul>${obj.map(function(item){return`<li>${item.title}</li>`}).join("")}</ul>`;
+    }
+    document.write(`${temp(obj)}`)
+
+
+
+
+
+    //内嵌套三元表达式还可以嵌套函数
+    let as = true;
+    let opo = `我是${as?"1":"0"}`
+    console.log(opo);
+</script>

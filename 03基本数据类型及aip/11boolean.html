@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+
+
+<script>
+    //布尔类型包括 true 和 false 两个值，开发中使用较多的数据类型
+    // false = 0; true = 1;
+
+    //如何定义
+    // 使用对象形式创建波尔类型
+    console.log(new Boolean(true)); //true
+    console.log(new Boolean(false)); //flase
+
+
+    //使用字面量的形式船舰波尔类型
+    let a = true;
+
+
+
+
+
+    //隐士转换
+    console.log("______________隐士转换_______________");
+    // 基本上所有的类型都可以隐式转换为boolean 类型
+
+    //number 数据类型
+    console.log(Boolean(1)); //true
+    console.log(Boolean(0)); //false
+
+
+    //string 数据类型
+    console.log(Boolean("1")); //true
+    console.log(Boolean("")); //false
+
+
+    //array 数据类型
+    console.log(Boolean([])); //true
+
+    //undefined null nan 转换为波尔值都为false
+    console.log(Boolean(undefined)); //false
+    console.log(Boolean(null)); //false
+    console.log(Boolean(NaN)); //false
+
+
+
+
+    //比较 
+    console.log("______________比较_______________");
+    //当Boolean进行比较的时候会 隐式转换 true = 1 flase 0
+    console.log(true == 1); //true;
+    console.log(false == 0); //true;
+
+
+
+
+
+
+    // 显式转换
+    // 使用 ！！转换为波尔类型
+    let styr = "";
+    console.log(!!styr); //false
+    let mndaf = "1";
+    console.log(!!mndaf); //true;
+    let hdss = new Date("2020-2-22 10:33");
+    console.log(!!hdss); //true
+
+
+
+
+
+
+    let opo = prompt("请输入肥猫成立的年份");
+    while (opo != "2021") {
+        if (!opo){
+            console.log("不可以为空");
+            opo = prompt("不可以为空/请输入肥猫成立的年份").trim();
+        } else if(opo == "2020"){
+            alert("回答正确")
+            break;
+        } 
+    }
+
+
+</script>
