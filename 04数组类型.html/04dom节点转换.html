@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>B</button>
+    <button>B</button>
+    <button>B</button>
+    <button>B</button>
+    <button>B</button>
+    <button>B</button>
+</body>
+
+</html>
+
+
+<script>
+    let btn = document.querySelectorAll("button");
+    console.log(btn);
+    //伪元素 不可以使用map 等方法因为是节点列表
+    //需要转换成数组
+    // btn.map((i,b)=>{
+    //     console.log(i);
+    // })
+
+
+   function nb(btn){
+   [...btn].map((item,i)=>{
+        item.style.background = "red"
+    })
+   }
+   nb(btn)
+
+
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 合并拆分
+    // 使用join连接成字符串
+    //不修改原数组
+    let a = [1, 2, 4, 5, 3, 4];
+    console.log(a.join("—")); //1_2_4_5_3_4
+    console.log(a.toString());
+
+
+
+    //求最大值
+    let str = [1, 2, 35, 116];
+    let maxa = str[0];
+    for (let i = 0; i < str.length; i++) {
+        if (maxa < str[i]) {
+            maxa = str[i]
+        }
+    }
+    console.log(maxa);
+
+
+    let aa = [1, 2];
+    let bb = [2, 3];
+
+    console.log(aa.concat(bb)); // [1, 2, 2, 3]
+</script>

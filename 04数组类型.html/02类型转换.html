@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>99</button>
+    <button>99</button>
+    <button>99</button>
+    <button>99</button>
+    <button>99</button>
+    <button>99</button>
+    <button>99</button>
+
+</body>
+
+</html>
+
+<script>
+    //01：把数组转换成字符串
+    //toStringg
+    console.log([1, 23, 4, 5].toString()); //1,23,4,5
+    //String
+    console.log(String([1, 23, 4, 5, 6])); //1,23,4,5
+    //JOIN()连接字符串
+    console.log([1, 23, 4, 5].join()); //1,23,4,5
+
+
+
+    //02:把类数组转换成 数组 ，类数组指包含 length 属性或者可迭代的对象
+    let str = "123456789";
+    console.log(Array.from(str)); //["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+
+
+    //把对象转化为数组，但是必须下标为数值或者数值的字符串
+    //并且需要设置length数学
+    let objs = {
+        0: "feimao",
+        1: "110",
+        length: 2
+    }
+    console.log(Array.from(objs));
+
+
+
+    //array.from是有第二个参数的第二个参数可以用来写函数方法
+    let btn = document.querySelectorAll("button");
+    Array.from(btn,function(item,i){
+      
+      item.style.fontSize = (i * 10 + 14) + "px"
+    })
+
+
+
+
+</script>

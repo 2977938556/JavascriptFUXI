@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>B</button>
+    <button>B</button>
+    <button>B</button>
+    <button>B</button>
+    <button>B</button>
+    <button>B</button>
+</body>
+
+</html>
+<script>
+    //展开语法...可以把伪数组转换成数组
+    let btn = document.querySelectorAll("button");
+   let arr =  [...btn];
+   console.log(arr);// [button, button, button, button, button, button]
+    arr.map((item,i)=>{
+        item.style.background = "red"
+    })
+
+
+
+    //合并数组
+    let a = [1,2,3,4];
+    let b = [5,6,7];
+    console.log(a.concat(b));// [1, 2, 3, 4, 5, 6, 7]
+    //或者使用 展开语法
+    let c = [...a,...b];
+    console.log(c);//[1, 2, 3, 4, 5, 6, 7]
+
+
+
+    //函数的参数
+    //在以往中我们使用arguments 用来接收的参数是一个伪数组
+    //并且不具备push.等数字的一些方法 我们可以使用展开语法接收并且变成数组
+    function nbs(...a){
+        console.log(a);//[1, 2, 3]
+    }
+    nbs(1,2,3)
+
+    //也可以用来接收一部分的参数
+    function mn(a,...b){
+        console.log(a);//1
+        console.log(b);//[111, 22, 33]
+    }
+    mn(1,111,22,33);
+
+
+
+    
+
+</script>

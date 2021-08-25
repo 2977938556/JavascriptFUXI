@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let arr = [1, 2, 3, 4, 5];
+    //arr 原数组
+    //max 需要转移的数据
+    //min 转移的位置
+    function nb(arr, max, min) {
+        //判断输入的值是否为负数
+        if (max < 0 || min > arr.length) {
+            console.log('不可以为负数');
+            return
+        }
+
+        let s = arr.splice(max, 1);
+        arr.splice(min, 0, ...s);
+        return arr;
+    }
+    console.log(nb(arr, 0, 1));
+
+
+
+    //交换两个数组的数据
+    let nbss = [1,2,3,4,5,6];
+    function nbs (nbss,i,k){
+        nbss[i] = nbss[k]
+        nbss[k] = nbss[i];
+       console.log(nbss);
+    }
+    console.log(nbs(nbss,0,1));
+    
+    
+    
+</script>

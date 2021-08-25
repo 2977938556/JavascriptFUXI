@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //pop剔除掉数组中的末尾元素
+    //返回值为删除的元素会改变元素组
+    let arr = [1,2,3,4,5];
+    console.log(arr.pop());//5
+    console.log(arr);//(4) [1, 2, 3, 4]
+
+
+
+
+    // shifit 从数组中剔除掉第一个元素
+    //返回值为删除的元素 会改变原数组
+    let m = [1,2,3,4,5];
+    console.log(m.shift());//1
+    console.log(m);//(4) [2, 3, 4, 5]
+
+
+
+    //unshif 从数组前面添加元素
+    //返回值为添加元素后的总长度
+    let opo = [1,2,3,4,5];
+    console.log(opo.unshift("向军大叔"));
+    console.log(opo);
+
+
+    //fill填充数组元素 
+    //返回值为修改好的数组
+    let nb  = new Array(5);
+    console.log(nb.fill("1"));//["1", "1", "1", "1", "1"]
+    console.log(nb);//["1", "1", "1", "1", "1"]
+
+    //设置指定填充位置
+    console.log(nb.fill("nb",1,2));//(5) ["1", "nb", "1", "1", "1"]
+
+
+
+
+
+
+    
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    let arra = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    //01： slice 截取字符串从数组中截取部分元素组合成新数组(不会改变原数组)
+    //不传第二个参数截取到数组的最后元素（使用方法基本上和截取字符串的一致）
+    console.log(arra.slice(0, 3)); //(3) [1, 2, 3]
+    console.log(arra.slice(0)); //(10)[1,2,3,4,5,6,7,8,9];
+
+
+
+    // splice 删除或者添加或者替换数组的元素，会对元素组修改，返回值伪删除的元素
+    //(0,3) 第一个参数是从哪里开始删除，第二个参数是删除第几个,第三个参数表示从删除的第一个元素添加数据
+    let arrb = ["a", "b", "c", "d", "e", "f", "g", "h"];
+    console.log(arrb.splice(1,1,...[1,2,3,4,5,6]));//(3) ["a", "b", "c"]
+    console.log(arrb);//["a", 1, 2, 3, 4, 5, 6, "c", "d", "e", "f", "g", "h"]
+
+
+
+
+    //splice 的实际运用
+    let arrc = [0,1,2,3,4,5];
+    //在数组末尾添加元素
+    console.log(arrc.splice(arrc.length,0,"nb"));
+    console.log(arrc);//(7) [0, 1, 2, 3, 4, 5, "nb"]
+
+
+    //向数组开头添加元素
+    console.log(arrc.splice(0,0,"nbMax"));
+    console.log(arrc);//(8) ["nbMax", 0, 1, 2, 3, 4, 5, "nb"]
+
+     //随机在数组中 修改一个元素
+     console.log(arrc.splice(1,1,"nb por max"));
+    console.log(arrc);//(8) ["nbMax", "nb por max", 1, 2, 3, 4, 5, "nb"]
+
+
+
+</script>
+
+
+
