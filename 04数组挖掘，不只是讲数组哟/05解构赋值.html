@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //解构是一种更简洁的赋值特性，可以理解为分解一个数据的结构
+    //右边必须是数组
+    let [a, b] = ["1", "b"];
+    console.log(a); //1
+
+
+    //结构赋值数组
+    function hd() {
+        return ["1", "2"];
+    }
+    let asb = hd();
+    console.log(asb); //["1", "2"]
+
+
+
+
+    //剩余参数
+    // 结构语法和展开语法接收剩余参数
+    //可以想象成函数接受形参一样
+    let [aa, ...bb] = ["hodunr", "11", "22"];
+    console.log(aa); //hodunr
+    console.log(bb); //["11", "22"]
+
+
+
+    //字符串解构
+    let [...mnb] = "1233"
+    console.log(mnb); //["1", "2", "3", "3"]
+
+
+
+
+    // 非严格模式可以不使用声明指令，
+    //严格模式下必须使用声明。所以建议使用 let 等声明。
+    function lkj() {
+        "use strict"
+        let [web, url] = ["feimao", "hodunr.com"];
+    }
+    lkj()
+
+
+
+
+
+
+
+
+    //简介定义
+
+    //取消接受多少个值就写多少个，
+    let [, url] = ["后盾人", "hundr.com"]
+    console.log(url); //hundr.com
+
+
+    //获取多个值
+    let [mkn, ...fsdfs] = ["1", 2, 3]
+    console.log(mkn, fsdfs); //(2) [2, 3]
+
+
+    //设置默认值 如果左边有传值过来就会覆盖所设置的默认值
+    let [opo, pou = 1] = [1, 11];
+    console.log(opo, pou); //1,11
+
+
+
+
+    //函数参数
+    //数组参数的使用
+    function s([a, b]) {
+        console.log(a, b); //1 2
+    }
+    s(["1", 2])
+</script>

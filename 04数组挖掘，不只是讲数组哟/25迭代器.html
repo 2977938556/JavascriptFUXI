@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let arr = ["miaoya", "xiaosil"];
+
+
+
+    //迭代器的一些APi
+    //keys() 获取索引值
+    for (const index of arr.keys()) {
+        console.log(index); //0 ,1
+    }
+
+
+
+
+    //values() 获取循环元素的素值
+    for (const items of arr.values()) {
+        console.log(items); //miaoya  xiaosil
+    }
+
+
+    //entries() 获取数组元素的【索引值,值】
+    for (const [a, b] of arr.entries()) {
+        console.log(a, b); //0 'miaoya'
+    }
+</script>

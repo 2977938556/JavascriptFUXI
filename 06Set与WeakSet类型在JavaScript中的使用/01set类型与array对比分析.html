@@ -1,0 +1,23 @@
+<script>
+    //通过·创建set对象的方式创建set
+    let set = new Set();
+    //添加元素使用add添加
+    set.add(1);
+    set.add(1);
+    set.add("1")
+
+    //在set中是严格类型执行的检测，比如填两个1就不行，但是如果填“1”就可以
+    console.log(set); //Set(2) { 1, '1' }
+
+
+
+    // 在对象中 <所有>的属性名称会被转换成字符串(这一点与set类型不一样)
+    let obj = {
+        name: 1,
+        "name": 2,
+    }
+    console.log(obj); //{name: 2}
+
+    //在数组中 可以有重复的值因为是按索引值索取的
+    let arr = [1, 1, 1, 1, 1, 1, 1];
+</script>

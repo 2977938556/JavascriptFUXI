@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+<script>
+    //全局变量：在全局有效的变量 谁都可以使用
+    let a = 1;
+
+    //局部变量：在某个特定的区间才可以使用的 例如函数体中
+    function nm() {
+        //如果在函数内部没有声明的变量，直接赋值这样会变成全局变量
+        s = 111;
+        console.log(a); //可以范围全局变量
+        let b = 2;
+        console.log(b);
+    }
+    nm()
+        // console.log(b); //报错 局部变量外部不可以使用
+
+
+
+    //执行效率
+    // 全局变量在关闭浏览器的时候就会销毁,比较占内存资源
+    //局部变量 当我们程序执行完毕就会销毁
+</script>

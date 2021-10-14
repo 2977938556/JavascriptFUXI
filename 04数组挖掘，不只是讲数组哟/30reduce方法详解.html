@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+
+
+    // reduce 有三个 四个参数 但是最后面也有一个参数 
+    //只要不返回值那就 第一个参数就是循环的第一个参数 如果添加了最后一个值 那么 第一个参数就是设置的值
+    //每次返回的一个值就是第一个参数的值
+    arr.reduce(function(prec, item, index, array) {
+        console.log(prec, item);
+        return 99;
+    })
+
+
+
+
+    let ss = [1, 2, 1, 2, 455, 1, 2, 1, 1, 1, 2];
+
+    //循环出出现最多次的数据
+    function maxreduxw(arr, el) {
+        return arr.reduce(function(prce, item) {
+            // console.log(prce, item);
+            //设置判断条件 如果 0 +1 等于1 那么就返回1 否则返回0
+            return prce += item === el ? 1 : 0;
+            //设置 第一个参数为0
+        }, 0)
+    }
+    console.log(maxreduxw(ss, 1));
+
+
+
+    //求数组中的最大值
+    let arrs = [1, 2, 587, 5];
+    let s = arrs.reduce(function(prce, item) {
+        //循环进行判断如果 第一个数小于 第二个参数那么 就返回第一个 否则返回第一个
+        if (prce > item) {
+            return prce;
+        } else {
+            return item
+        }
+    })
+    console.log(s); //587
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //函数是为了节约代码量 可以重复使用
+
+    //max 从哪里开始
+    //min 从哪里结束
+    function maxstr(max, min) {
+        let s = 0;
+        for (let i = max; i <= min; i++) {
+            s = s + i;
+        }
+        return s;
+    }
+    console.log(maxstr(1, 2));
+    console.log(maxstr(1, 89));
+
+
+
+
+
+    //声明函数的两种方法
+
+    //使用字面量的方式创建
+    let nb = function() {
+        return "1"
+    }
+    console.log(nb());
+
+    //使用 函数
+    function nbs() {
+        return "2"
+    }
+    console.log(nbs());
+</script>

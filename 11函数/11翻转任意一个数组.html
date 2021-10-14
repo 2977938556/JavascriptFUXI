@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //翻转任意一个数组
+    function remaArr() {
+        let arr = [];
+        console.log(arguments[0]);
+        for (let i = arguments[0].length - 1; i >= 0; i--) {
+            arr.push(arguments[0][i])
+        }
+        return arr;
+    }
+    console.log(remaArr([1, 2, 3, 4, 5, 6]));
+
+
+    //使用es6高级方法
+    function remaArrPOR([...a]) {
+        //reverse 翻转数组
+        return a.reverse()
+    }
+    console.log(remaArrPOR([1, 2, 3, 4, 5, 6]));
+</script>

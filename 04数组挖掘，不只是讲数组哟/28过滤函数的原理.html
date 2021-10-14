@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let arr = [{
+        name: "小白",
+        sex: "0"
+    }, {
+        name: "小狼",
+        sex: "1"
+    }, {
+        name: "小黑",
+        sex: "0"
+    }, {
+        name: "小了",
+        sex: "0"
+    }];
+
+
+    //过滤函数的原理 
+    //arr 传入的参数（数组/对象）
+    //callback 传入的回调函数  传入需要过滤的参数
+    function filterPor(arr, callback) {
+        //设置一个新数组接收过滤的参数
+        let s = [];
+        //循环 value 是值
+        for (const value of arr) {
+            //是哟回调函数里面的条件进行判断 如果为真就在
+            //s里 push 一个数据进去
+            if (callback(value) == true) {
+                s.push(value)
+            }
+        }
+        return s;
+    }
+    console.log(filterPor(arr, function(value) {
+        return value.sex === "0";;
+    }));
+
+
+    let arrc = [1, 2, 3, 89, 56, 7, 8, 9];
+
+    let s = filterPor(arrc, function(value) {
+        return value >= 20
+    })
+    console.log(s);
+</script>

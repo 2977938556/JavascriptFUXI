@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let user = [1, 2, 3, 4, 5];
+    let cms = user;
+
+    //把值 = []
+    user = [];
+    console.log(user); //[]
+    //为什么cms 还有值 因为user = [] 的时候重新开辟了一块内存空间
+    console.log(cms); //(5) [1, 2, 3, 4, 5]
+
+
+
+
+
+    //设置数组的长度为0
+    cms.length = 0;
+    console.log(cms); //[]
+
+
+    // 使用 splice 方法删除所有数组元素
+    //只写0一个数表示删除全部
+    let s = [1, 2, 3, 4, 6];
+    s.splice(0)
+    console.log(s); //[]
+
+
+    //使用 pot/shift + while循环
+    let y = [1, 2, 3, 4, 5];
+    while (y.pop()) {
+        console.log('删除成功');
+    }
+</script>

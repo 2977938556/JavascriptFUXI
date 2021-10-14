@@ -1,0 +1,41 @@
+<script>
+    let set = new Set("123456789");
+    //将set类型转换成 数组类型
+    console.log(Array.from(set)); // ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    console.log([...set]);  //['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+
+    // 把上面大于3的都选出来
+    //转换成数组后进行循环判断
+    set = [...set].filter((item) => {
+        return item < 5;
+    });
+    console.log(set); //['1', '2', '3', '4']
+    //获取结果后 直接把数据给转化成set数据类型
+    set = new Set(set);
+    console.log(set);
+
+
+
+
+
+
+    //set 数据原理
+    let s = [11, 2, 1, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 7, 8];
+
+    function ns(arr) {
+        let ss = [];
+        for (const keys of arr) {
+            //循环查找
+            if (ss.includes(keys) == false) {
+                ss.push(keys);
+            }
+
+        }
+        return {
+            ss
+        };
+    }
+    let mnnda = ns(s);
+    console.log(mnnda);
+</script>

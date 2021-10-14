@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //清除重复的字符串
+
+
+    //设置一个set 类型
+    let set = new Set(["aabbccddee"]);
+    //把set 对象转换为 字符串然后 set会自动把多余的给筛选出去
+    set = new Set([...set].join("")); //在把数组给 字符串化
+
+    console.log(set); // {'a', 'b', 'c', 'd', 'e'}
+
+
+    //简写模式
+    console.log([...new Set("aabbccdd")].join("")); //abcd
+
+
+
+
+
+    //去除数组重元素
+    let arr = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
+    console.log(new Set(arr)); // {1, 2, 3, 4, 5}
+</script>

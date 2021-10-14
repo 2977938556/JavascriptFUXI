@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+<script>
+    let goods = [{
+        name: "iphone",
+        price: 12000
+    }, {
+        name: "imac",
+        price: 25000
+    }, {
+        name: "ipad",
+        price: 3600
+    }, {
+        name: "iphone",
+        price: 12000
+    }, ];
+
+
+    //获取最超过多钱的
+    function preace(array, prmax) {
+
+        return array.reduce((preac, item) => {
+            //判断对象属性中是否有大于10000的产品
+            //如果有大于10000的产品那就添加到数组中
+            if (item.price >= prmax) {
+                preac.push(item)
+            }
+            return preac
+                //设置一个空数组 进行手机符合条件的 
+        }, []).map(function(item) {
+            return item.name;
+        })
+    }
+    console.table(preace(goods, 10000));
+    // [{…}, {…}]
+
+
+
+
+    //使用数组去重
+    function fills(array) {
+        //使用reduce方法循环遍历
+        return array.reduce((pre, item) => {
+            //判断第一个参数里面是否包含 元素 没有就存入
+            if (pre.includes(item) == false) {
+                pre.push(item)
+            }
+            //每次返回值 进行循环判断
+            return pre;
+            //设置一个空数组元素 进行接收
+        }, [])
+    }
+    console.log(fills(goods));
+    // [{…}, {…}, {…}, {…}]
+</script>

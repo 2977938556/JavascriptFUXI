@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function maopao([...arr], max) {
+        //判断用户是想从大到小还是从小到大
+        function maxtrues() {
+            return max
+        }
+
+        //循环判断
+        for (let i = 0; i < arr.length; i++) {
+            //每次循环都会减少一次 4，3，2，1， 公式 = 数组长度 - i - 1
+            for (let k = 0; k < arr.length - i - 1; k++) {
+                //循环判断 用户是想从大到小还是从小到大
+                //从大到小
+                if (maxtrues()) {
+                    if (arr[k] < arr[k + 1]) {
+                        let a = arr[k];
+                        arr[k] = arr[k + 1];
+                        arr[k + 1] = a;
+                    }
+                } else {
+                    //从小到大
+                    if (arr[k] > arr[k + 1]) {
+                        let a = arr[k];
+                        arr[k] = arr[k + 1];
+                        arr[k + 1] = a;
+                    }
+                }
+            }
+        }
+        //返回值
+        return arr;
+    }
+    console.log(maopao([5, 4, 3, 2, 1], false));
+
+
+
+
+
+
+    //se6高级写法
+    function maopao([...arr], panduan) {
+        return arr.sort((a, b) => {
+            //从小到大
+            if (panduan) {
+                return a - b;
+            } else { //从小到大
+                return a + b;
+            }
+        });
+    }
+    console.log(maopao([5, 4, 3, 2, 1], true));
+</script>

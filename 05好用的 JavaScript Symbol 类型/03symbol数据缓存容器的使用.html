@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //新建一个对象存储数据
+    let obj = {};
+    //存入数据 
+    function set(name, value) {
+        return obj[name] = value;
+    }
+    //获取数据
+    function get(name) {
+        return obj[name];
+    }
+
+
+    //两个测试数据存入到上方对象中
+    let usre = {
+        name: 'js',
+        price: 100,
+        //设置一个symbol数据 可以让数据不会被覆盖
+        key: Symbol("我是第一的数据")
+    }
+    let usre2 = {
+        name: 'js',
+        price: 100,
+        //设置一个symbol数据 可以让数据不会被覆盖
+        key: Symbol("我是第二的数据")
+    }
+
+
+    // 写入数据的时候使用symbo 的值
+    set(usre.key, usre);
+    set(usre2.key, usre2);
+    console.log(get(usre.key)); //{name: 'js', price: 100, key: Symbol(我是第一的数据)}
+    console.log(get(usre2.key)); //{name: 'js', price: 100, key: Symbol(我是第二的数据)}
+
+    //以后遇到需要多个值但是害怕会被覆盖的就可以使用symbol
+</script>

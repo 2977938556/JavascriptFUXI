@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let arr = [1, 2544, 3, 23, 4, 54, 47, 4854];
+    let s = null;
+
+    //arr 传入的数组
+    //s 用于两个数进行判断
+    function max(arr, s, ifs) {
+        //把第0个数给s 然后进行循环判断
+        s = arr[0]
+            //如果ifs 传入的是max 就表示要求最大值
+        if (ifs == "max") {
+            arr.forEach((item, i) => {
+                if (item > s) {
+                    s = item;
+                }
+            });
+            return s;
+        }
+        // 否则就是默认求最小值
+        arr.forEach((item, i) => {
+            if (item < s) {
+                s = item;
+            }
+        });
+        //把结果返回出去
+        return s;
+    };
+
+    console.log(max(arr, s, "max"));
+</script>

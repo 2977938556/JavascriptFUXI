@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //数据源
+    let seta = new Set(["a", "b", "c"]);
+    let setb = new Set(["b", "c", "e"]);
+    console.log(seta.delete("a"));
+
+
+
+
+    //交集 获取两个集合中共同存在的元素(需要在外面包含一个 new Set 去除多余的)
+    let s = new Set([...seta].filter(function(item) {
+        //每次循环的时候 把seb中含有的给返回出去
+        return setb.has(item)
+    }))
+    console.log(s); // ['b', 'c']
+
+
+
+    //差集 就是在第一个集合中出现了但是第二个集合没出现
+    let m = new Set([...seta].filter(function(item) {
+        //在集合a中出现但不在集合b中出现元素集合
+        return !setb.has(item)
+    }))
+    console.log(m);
+
+
+
+
+    //并集  将两个集合合并成一个新的集合，由于Set特性当然也不会产生重复元素。
+    let h = new Set([...seta, ...setb]);
+    console.log(h); //{'a', 'b', 'c', 'e'}
+</script>

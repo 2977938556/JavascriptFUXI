@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="gjc">
+    <ul>
+
+    </ul>
+</body>
+
+</html>
+<script>
+    //创建元素 obj对象
+    let obj = {
+        //新建一个set数据对象 存储 非重复型的数据
+        data: new Set(),
+        //设置一个储存数据的函数 （es6方法）
+        adds(word) {
+            this.data.add(word);
+        },
+        //设置 渲染 html 
+        show() {
+            //获取ul 添加数据 
+            let ul = document.querySelector("ul");
+            //每次调用的时候清空元素
+            ul.innerHTML = "";
+            //循环set数据并且生成 html字段 拼接到 ul中
+            this.data.forEach(function(value) {
+                ul.innerHTML += `<li>${value}</li>`
+            })
+        }
+    }
+
+
+    //设置input 失去焦点的时候 调用函数 
+    let input = document.querySelector("input");
+    //设置 input 失去焦点的时候  分别调用储存函数  和渲染函数
+    input.addEventListener("blur", function() {
+        obj.adds(this.value)
+        obj.show()
+    })
+</script>
+
+<!-- 
+<script>
+    //创建元素 obj对象
+    let obj = {
+        //新建一个set数据对象 存储 非重复型的数据
+        data: new Set(),
+        //设置一个储存数据的函数 （es6方法）
+        adds: function adds(word) {
+            this.data.add(word);
+        },
+        //设置 渲染 html 
+        show: function show() {
+            //获取ul 添加数据 
+            let ul = document.querySelector("ul");
+            //每次调用的时候清空元素
+            ul.innerHTML = "";
+            //循环set数据并且生成 html字段 拼接到 ul中
+            this.data.forEach(function(value) {
+                ul.innerHTML += `<li>${value}</li>`
+            })
+        }
+    }
+
+
+    //设置input 失去焦点的时候 调用函数 
+    let input = document.querySelector("input");
+    //设置 input 失去焦点的时候  分别调用储存函数  和渲染函数
+    input.addEventListener("blur", function() {
+        obj.adds(this.value)
+        obj.show()
+    })
+</script> -->

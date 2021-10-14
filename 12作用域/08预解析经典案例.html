@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    nb()
+    console.log(a);
+    console.log(b);
+    console.log(c);
+
+    function nb() {
+        var a = b = c = 9;
+        //相当于 var a = 9; b = 9; c = 9
+        console.log(b);
+        console.log(c);
+        console.log(a);
+    }
+
+    //预解析
+    function nb() {
+        var a;
+        a = 9;
+        b = 9;
+        c = 9;
+        console.log(a); //9
+        console.log(b); //9
+        console.log(c); //9
+    }
+    nb();
+    console.log(a); //a is not defined
+    console.log(b); //9
+    console.log(c); //9
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //案例1
+    var num = 10;
+    nb()
+
+    function nb() {
+        console.log(num);
+        var num = 20;
+    }
+
+
+
+    //解析过程
+    var num;
+
+    function nb() {
+        var num;
+        console.log(num);
+        num = 20;
+    }
+    num = 10;
+    nb()
+
+
+
+
+    //案例2
+    var num = 10;
+
+    function nb() {
+        console.log(num);
+    }
+    nb()
+
+
+
+    //预解析
+    var num;
+
+    function nb() {
+        var num;
+        console.log(num);
+        num = 20;
+        console.log(num);
+    }
+    num = 10;
+    fn()
+</script>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            transition: all 0.3s;
+        }
+        
+        ul {
+            width: 100%;
+            height: auto;
+            margin: 200px auto;
+        }
+        
+        ul>li {
+            text-align: center;
+            line-height: 30px;
+            width: 300px;
+            height: 30px;
+            background: #bd8cff;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 900;
+        }
+        
+        ul>li>a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            text-decoration: none;
+        }
+        
+        ul :nth-child(1) {
+            margin-top: 0px;
+        }
+        
+        .remove {
+            color: #fffefe;
+            background: #cbcbcb;
+        }
+        
+        .shwo {
+            background: #bd8cff;
+            color: black;
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+    <ul class="concat">
+        <li>JavaScript
+            <a href="#">X</a>
+        </li>
+        <li>css
+            <a href="#">X</a>
+        </li>
+        <li>HTML
+            <a href="#">X</a>
+        </li>
+    </ul>
+
+
+</body>
+
+</html>
+
+<script>
+    //获取元素
+    let li = document.querySelectorAll("li");
+    //创建一个weakset 数据结构
+    let weakset = new WeakSet();
+    //每次循环li元素并且存入 weakset 中
+    li.forEach((item) => {
+        weakset.add(item)
+    })
+
+    //获取li里面的所有的a元素
+    let a = document.querySelectorAll("a");
+
+    //把a元素每次循环
+    a.forEach(item => {
+        //每次循环并进行点击操作
+        item.addEventListener("click", function(e) {
+            //查找到 a 链接上方的父级元素也就是 li元素
+            let prand = item.parentNode;
+            //判断每次的weakset 元素中是否包含 li元素
+            if (weakset.has(item.parentNode)) {
+                //如果有的话就将样式显示为 注销状态
+                item.className = "remove"
+                prand.className = "remove"
+                    //并且删除掉 weakset 元素中的li元素 （便于下一次判断）
+                weakset.delete(prand)
+
+
+                //进行判断如果weakset 中不包含 当前a链接点击的父级元素的是否存在于weakset中 如果不在就的话就
+            } else if (weakset.has(item.parentNode) == false) {
+                //就把样式修改为  执行状态
+                item.className = "shwo"
+                prand.className = "shwo"
+                    //并且把上方判断删除掉的li 元素 给添加上去
+                weakset.add(prand)
+            }
+        })
+    })
+</script>

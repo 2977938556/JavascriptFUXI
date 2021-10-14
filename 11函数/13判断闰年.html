@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let imputs = prompt("请输入年份");
+    //isNaN：判断是否为数字 如果遇到中文会返回true 如果是数字则返回 false   
+    function ifrunnian(imputs) {
+        imputs = Number(imputs);
+        if (isNaN(imputs)) {
+            alert("你输入的不是数字")
+        } else if (imputs % 4 == 0 && imputs % 100 != 0 || imputs % 400 == 0) {
+            console.log("你输入的是闰年恭喜");
+        } else {
+            console.log("你输入的不是闰年");
+        }
+    }
+    ifrunnian(imputs)
+</script>

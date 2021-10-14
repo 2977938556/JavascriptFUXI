@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //split() 把字符串拆分成数组  返回值为一个数组  括号内可以填用树莓拆分
+    let str = "a11,b1,1c11d";
+
+    let a = str.split(",") //["a11", "b1", "1c11d"]
+
+    //把数组链接 返回值为链接好的字符串  括号内填需要使用链接的符号
+    console.log(a.join("_")); //a11,b1,1c11d
+
+
+    //concat 合并一个数组或者多个
+    let aa = [1, 2, 3];
+    let bb = [4, 5, 6];
+    console.log(aa.concat(bb)); //[1, 2, 3, 4, 5, 6]
+
+
+
+
+    //使用 copyWithin 从数组中复制一部分到同数组中的另外位置。
+    //第一个参数是 复制元素的所去的位置
+    //第二个参数是 复制元素的起始数量位置
+    //第三个参数是 复制元素的结束数量位置
+    let cc = ["A", "B", "C", "D", "E"];
+    console.log(cc.copyWithin(3, 0, 2));
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // math是js中的一个数学计算对象
+
+
+    //Math
+
+    //max  :取得最大值
+    console.log(Math.max(1, 2, 3, 45, 6)); //45
+
+
+    //min  最小值
+    console.log(Math.min(1, 24, 5, 0.1)); //0.1
+
+
+    //apply 从数组中 取最大值或者最小值
+    let arrb = [1, 2, 45, 7878, 33];
+
+
+    //Math.max.apply(Math,[数据])取最大值
+    console.log(Math.max.apply(Math, arrb)); //7878
+    //Math.min.apply(Math,[数据])取最小值
+    console.log(Math.min.apply(Math, arrb)); //1
+
+    //或者使用展开语法
+    console.log("展开语法", Math.min(...arrb)); //1
+
+
+
+
+    //向上取整  ceil
+    console.log("向上取整", Math.ceil(1.2)); //2
+
+    //向下取整   floor
+    console.log("向下取整", Math.floor(1.2)); //1
+
+
+    //四舍五入  toFixed
+    console.log("四舍五入", 1.4.toFixed()); //1
+    console.log("四舍五入", Math.round(1.5)); //2
+</script>

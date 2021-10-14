@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1" id="nb">
+    </table>
+</body>
+
+</html>
+
+<script>
+    //sort  进行排序数组，前提里面必须有数字类型
+    // 如果a-b 等于负数就从小到大排序
+    // 如果a-b 等于正数就从大到小排序
+    let arr = [9, 2, 3, 4, 54, 87, 5, 21, 5, 4];
+    arr = arr.sort(function(a, b) {
+        return a - b;
+    })
+    console.log(arr); // [2, 3, 4, 4, 5, 5, 9, 21, 54, 87]
+
+
+    let objs = [{
+        name: "a",
+        price: 3
+    }, {
+        name: "b",
+        price: 56
+    }, {
+        name: "c",
+        price: 99
+    }, {
+        name: "d",
+        price: 89
+    }, {
+        name: "e",
+        price: 36
+    }, {
+        name: "f",
+        price: 32
+    }]
+
+
+    //讲数据进行从小到大排序放入到表格里
+    function miaoya(objs) {
+        //排序完成
+        objs = objs.sort(function(a, b) {
+                return a.price - b.price;
+            })
+            //设置一个参数接收
+        let str = ""
+            //循环添加字符串
+        objs.find(function(item) {
+                str += `<tr><td>名称：${item.name}</td>
+                <td>价格：${item.price}</td></tr>`;
+            })
+            // 字符串返回出去
+        return str;
+    }
+    let s = miaoya(objs);
+    //渲染到页面上
+    document.querySelector("#nb").innerHTML += s;
+    console.log(s);
+</script>

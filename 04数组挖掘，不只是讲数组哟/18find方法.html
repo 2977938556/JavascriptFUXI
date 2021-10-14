@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    //find 是用来循环数组的 函数内部写条件如何查找到相应的值会返回出去 
+    //第一个参数是  每个数组元素
+    //第二个是 每个元素的索引值
+    //第三个是整体的数组元素
+    arr.find(function(item, index, s) {
+        console.log(item, index, s);
+    })
+
+
+
+    let obj = [{
+        name: "feimao"
+    }, {
+        age: 45
+    }, {
+        sex: 0
+    }]
+
+    //使用includex 查找会出问题
+    //使用includes等不能查找引用类型，因为它们的内存地址是不相等的
+    console.log(obj.includes({
+        name: "feimao"
+    })); //false
+
+
+
+    //find 可以解决引用类型的查找
+    //find 是禁止贪婪的 找到一个元素就返回出去返回的是值
+    let s = obj.find(function(item) {
+        return item.name = "feimao"
+    })
+    console.log(s); //{name: 'feimao'}
+
+
+
+
+
+
+
+
+
+    //findindex 查找到就返回索引值，没有查找到就返回-1
+    let arrt = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let ss = arrt.findIndex(function(item) {
+        return item > 2;
+    })
+    console.log(ss); //2
+</script>

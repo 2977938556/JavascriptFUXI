@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="text">
+    <span></span>
+</body>
+
+</html>
+<script>
+    let arr = [1, 2, 3, 4, 5, 6];
+
+
+
+    //every  必须全部都为真就返回真   否则返回假
+    //every 有三个参数 一个是 每次循环值，第二个是索引值，第三个是循环体
+    let s = arr.every(function(item, index, sonny) {
+        return item > 3
+    })
+    console.log(s); //false
+    let obj = [{
+            name: "张三",
+            js: 90
+        }, {
+            name: "里斯",
+            js: 89
+        }, {
+            name: "肥猫",
+            js: 69
+        }]
+        //循环判断 成绩是否全部合格
+    let ss = obj.every(function(item) {
+        //判断是否都合格
+        return item >= 60;
+    })
+    console.log(ss); //flase
+
+
+
+
+
+
+    // Some 只要有一个为真就返回真
+    //every 有三个参数 一个是 每次循环值，第二个是索引值，第三个是循环体
+    let arrb = [10, 23, 45, 56, 78];
+    let nb = arrb.some(function(item) {
+        return item >= 40
+    })
+    console.log(nb); //true
+
+
+
+
+
+
+    //案例 查找input中是否输入了 相应的关键字
+    let sss = ["js", "css", "php", "html"];
+    //获取input 中的元素
+    let inputs = document.querySelector("[name=text]");
+
+    //监听input 的键盘弹起事件 
+    inputs.addEventListener('keyup', function() {
+        //循环数组中的 的在input 中是否包含 关键字
+        let s = sss.some(function(item) {
+                //如果 用户输入了 包含了关键字 那么 进行 比较返回 真假
+                return inputs.value.indexOf(item) != -1;
+            })
+            //判断一般先判断错误的再判断正确的
+            //如果为false的话那么没有关键字 
+        if (s === false) {
+            document.querySelector("span").innerHTML = "没有关键字"
+        } else {
+            document.querySelector("span").innerHTML = "查找到了"
+        }
+    })
+</script>

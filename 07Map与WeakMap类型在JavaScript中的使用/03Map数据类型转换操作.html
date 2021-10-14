@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+
+<script>
+    let map = new Map([
+        ["name", 1],
+        ["sex", 2],
+        ["age", 3]
+    ])
+
+
+    //使用点语法 转换成数组类型 【...]
+    console.log([...map]); //[Array(2), Array(2), Array(2)]
+
+    //使用 Array.form 转换成数组
+    console.log(Array.from(map)); //[Array(2), Array(2), Array(2)]
+
+    //使用点语法和 keys 遍历 map数据的键名 并转换成数组类型
+    console.log([...map.keys()]); // ['name', 'sex', 'age']
+
+    //使用点语法和 values() 遍历 map的数据 并转换成数组类型
+    console.log([...map.values()]); //[1, 2, 3]
+
+    //使用点语法和 enteries() 遍历 map数据和键名的值键对 并转换成数组类型
+    console.log([...map.entries()]); //[Array(2), Array(2), Array(2)]
+</script>

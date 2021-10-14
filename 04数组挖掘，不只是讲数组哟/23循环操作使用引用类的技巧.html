@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="nbs"> </div>
+</body>
+
+</html>
+
+
+
+<script>
+    let a = [{
+        name: "鼠标",
+        peace: "100",
+    }, {
+        name: "电脑",
+        peace: "3500",
+    }, {
+        name: "风扇",
+        peace: "24",
+    }];
+
+
+
+    //引用类型就可以进行循环修改值
+
+    //fo  in   key  是索引值  
+    for (const key in a) {
+        a[key].peace = a[key].peace * 1 + 100;
+    }
+    //for of    key 是每一个值
+    for (const key of a) {
+        // console.log(key);
+        key.peace = key.peace * 1 + 100;
+    }
+    console.log(a);
+
+
+
+
+
+    //值类型  进行循环修改是不会进行改变的
+    let arr = [1, 2, 3, 4, 5, 6];
+    for (let key of arr) {
+        arr += 10;
+    }
+    console.log(arr); //1,2,3,4,5,6101010101010
+</script>

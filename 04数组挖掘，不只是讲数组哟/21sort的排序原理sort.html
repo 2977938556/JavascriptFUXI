@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+<script>
+    // let arr = [1, 2, 345, 7, 8, 9];
+
+    // //sort 原理
+    // //给回调函数设置默认值 防止用户未传参
+    // function sortPorMax(arr, callback = function() {
+    //     return true
+    // }) {
+    //     //双重for循环  第一层循环一次里面循环全部
+    //     for (let i = 0; i < arr.length; i++) {
+    //         //每次循环的数据会随着 数组里面的元素而减少  所以需要 -i
+    //         for (let k = 0; k < arr.length - i; k++) {
+    //             //使用回调函数进行是升序还是降序
+    //             //升序
+    //             if (callback() == true) {
+    //                 if (arr[k] < arr[k + 1]) {
+    //                     //使用解构语法进行 交换数据
+    //                     [arr[k], arr[k + 1]] = [arr[k + 1], arr[k]]
+    //                 }
+    //                 //降序
+    //             } else if (arr[k] > arr[k + 1]) {
+    //                 // 使用解构语法进行 交换数据
+    //                 [arr[k], arr[k + 1]] = [arr[k + 1], arr[k]]
+    //             }
+    //         }
+    //     }
+    //     return arr;
+    // }
+
+    // //第一个参数是 传入的数组，第二个参数是 回调函数 
+    // // 返回 true 是升序
+    // // 返回 false 是降序
+    // console.log(sortPorMax(arr, function() {
+    //     return false;
+    // }));
+
+
+
+
+
+
+
+
+    let arr = [1, 2, 34, 5, 54, 89];
+
+
+    function sortfun(arr, callback) {
+        for (const i in arr) {
+            for (const k in arr) {
+                //每次循环判断
+                if (callback(arr[i], arr[k]) > 0) {
+                    let temp = arr[i];
+                    arr[i] = arr[k];
+                    arr[k] = temp
+                }
+            }
+        }
+        return arr;
+    }
+    console.log(sortfun(arr, function(a, b) {
+        return a - b;
+    }));
+</script>

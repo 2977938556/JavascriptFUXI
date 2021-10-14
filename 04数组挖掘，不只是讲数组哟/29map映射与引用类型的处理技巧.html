@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let arr = [{
+        name: "小白",
+        sex: "0"
+    }, {
+        name: "小狼",
+        sex: "1"
+    }, {
+        name: "小黑",
+        sex: "0"
+    }, {
+        name: "小了",
+        sex: "0"
+    }];
+
+
+    //map 循环数组 有三个值 （目的是返回一个新数组）
+
+
+    //map 处理数值类型不会修改原数据
+    let str = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let ss = str.map(function(item) {
+        return item += 10;
+    })
+    console.log(ss); //循环后的数据[11, 12, 13, 14, 15, 16, 17, 18, 19]
+    console.log(str); //原数据 [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+    //map 处理引用类型的时候会修改原数据
+    let s = arr.map(function(item) {
+        item.click = 100;
+    })
+    console.log(arr); // {name: '小白', sex: '0', click: 100}
+
+
+    //解决上面会修改原数据的方法
+    let sss = arr.map(function(item) {
+        return Object.assign({
+            click: 200,
+        }, item)
+    })
+    console.log(sss); //修改
+    console.log(arr); //未修改
+
+    //或者使用下面的方法 (不修改原数组)
+    let sssss = arr.map(function(item) {
+        return {
+            name: item.name,
+            sex: item.sex,
+            click: 100,
+        }
+    })
+    console.log(sssss);
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let nb = [{
+        name: "小白",
+        sex: "0"
+    }, {
+        name: "小狼",
+        sex: "1"
+    }, {
+        name: "小黑",
+        sex: "0"
+    }, {
+        name: "小了",
+        sex: "0"
+    }]
+
+
+    //filter 过滤
+    // 可以设置指定的条件返回指定的数据
+    let s = nb.filter(function(item) {
+        return item.sex == 0;
+    })
+    console.log(s);
+    // 0: {name: '小白', sex: '0'}
+    // 1: {name: '小黑', sex: '0'}
+    // 2: {name: '小了', sex: '0'}
+</script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //对象如果重名称会被覆盖掉 每一个对象属性名称都会转换成字符串成字符串
+    let obj = {
+        a: "1",
+        "c": "2",
+        e: "3",
+    }
+    console.log(obj); //{ a: '1', c: '2', e: '3' }
+
+
+    //循环每次的对象属性名称并判断  如以下都是string类型
+    for (const key in obj) {
+        console.log(typeof key); //string
+    }
+
+
+
+    //对于对象设置属性名称的方法
+    let objs = {
+        name: "feimao",
+    }
+    console.log(objs); //{ name: 'feimao' }
+
+    //把上方的对象写入到下方对象的属性名称中
+    let stringobj = {
+        [objs]: "hello word",
+    }
+
+    //下面为什么会输出【object object】因为对象会默认把属性名称转换成字符串
+    console.log(stringobj); //{ '[object Object]': 'hello word' }
+
+    //需要输出指定的对象需要转换成字符串
+    console.log(stringobj[objs.toString()]); //hello word
+    console.log(stringobj["[object Object]"]); //hello word
+
+
+    //《通过上面的案例我们可以知道对象中的键只能为字符串》
+
+
+
+
+
+
+
+
+
+    //map 中 不会存在多个同样名称的数据
+    //已构造函数的方式添加 多个数据 对象名称使用字符串
+    let map = new Map([
+        ["namesss", 1],
+        ["sex", 1],
+        ["namess", 1]
+    ])
+
+    let miaoya = 1;
+    //链式操作的添加
+    map.set("miaoya", 1).set(miaoya, 2);
+
+    console.log(map);
+</script>

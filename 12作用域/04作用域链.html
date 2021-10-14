@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //内部函数可以访问外部函数
+    // 内部函数访问外部函数由 里到外开始查找 就近原则
+    var a = 2;
+    //作用域链
+    function fn1() { //外部函数
+        var a = 1;
+
+        function fn2() { //内部函数
+            console.log(a); //1
+        }
+        fn2()
+    }
+</script>

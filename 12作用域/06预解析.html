@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //预解析
+    // 预解析和代码执行
+    //(1),与解析js引擎会把js里面所有的var  还有 function 提升到当前作用域的最前面
+    //(2）代码执行，按照代码书写的顺序从上往下执行
+    //1_1预解析分为，变量预解析(变量提升)和函数预解析（函数提升）
+    //变量提升 就是把所有的变量声明提升到当前作用域的最前面。不提升赋值操作
+    //函数提升 就是把所有的函数声明提升到最前面。不调用函数
+
+
+    //1问
+    console.log(num); //unfined
+    var num = 10;
+    //解析步骤
+    var num;
+    num = undefined
+    console.log(num);
+    num = 10
+
+
+
+    //3问 
+    fn() //为什么这个有用 ，因为js会把 函数整体提升到函数的最前面
+    function fn() {
+        console.log("11"); //11
+    }
+
+
+    //4问
+    fn2() //报错
+    let fn2 = function() {
+        console.log("22");
+    }
+
+    //解析步骤
+    var fn2;
+    fn2()
+    fn2 = function() {
+        console.log("22");
+    }
+</script>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //声明symbol的第一种方式(内部定义)
+    //每声明一个 symbol数据类型就在内存中开辟一个空间储存
+    let a = Symbol("我是symbol数据类型"); //在括号里可以填写symbol 的描述
+    let b = Symbol("我是symbol数据类型");
+
+
+    //toString获取symbol 数据的描述
+    console.log(a.toString()); //Symbol(我是symbol数据类型)
+
+    //系统自带的api 获取描述
+    console.log(a.description); //我是symbol数据类型
+
+    //下面比较判断we为 false 因为 这个声明symbol 数据的类型是不在同一个地址下的
+    console.log(a === b); //false
+
+
+
+
+
+
+    //声明symbol的第二种方式(全局定义)
+    //每使用symbol.for 声明相同的值的值 symbol会自动查找是否声明过 如果声明了就指向声明了的,没有就新开辟一个空间
+    let c = Symbol.for("我是symbol数据类型");
+    let d = Symbol.for("我是symbol数据类型");
+
+
+
+    //下面的判断为true 因为symbol 数据类型会去查找用此声明的相同的值 这样会让两个数据指向同一个地方
+    //所以以后有相同的数据类型可以用此声明方式
+    console.log(c == d); //true
+
+
+    //获取symbol 数据类型的说明
+    console.log(Symbol.keyFor(c)); //我是symbol数据类型
+
+
+
+
+    //总结(symbol 产生唯一数据)
+    //遇到不同的值就可以使用 第一种方式声明
+    //遇到很多相同的值可以使用第二种声明方式
+
+
+
+
+
+
+
+    // 课外知识
+    //symbol 的使用及作用
+    let f = Symbol(1);
+    let e = Symbol(2);
+    let g = Symbol(3);
+
+
+    //比如说我们有一个对象里面需要 大量的数据但是害怕会被 相同名称的代替
+    //这个时候就可以使用symbol 来代替>属性名称<
+    let s = {
+
+    };
+
+    console.log(s);
+
+    function ss() {
+        let nb = [];
+        for (let i = 0; i < 100; i++) {
+            let s = {
+                nams: Symbol.for("我是")
+            }
+            nb.push(s)
+        }
+        return nb;
+    }
+
+    let ssss = ss().reduce(function(prce, item) {
+        if (prce.includes(item) == false) {
+            prce.push(item)
+        }
+        return prce;
+    }, [])
+    console.log(ssss);
+</script>

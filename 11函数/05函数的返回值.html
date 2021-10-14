@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //Return 返回值 return 后面的值不会执行了
+    function max(a = "肥猫") {
+        return `${a}已经做好了请享用`
+    }
+    console.log(max("秒呀"));
+
+
+
+    //求任意两个数的最大值
+    function maxpor(a, b) {
+        return a >= b ? a : b;
+    }
+    console.log(maxpor(8, 1)); //8
+</script>

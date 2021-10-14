@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    // let symbol = Symbol("这是一个容器");
+    let aa = {
+            name: 6,
+            [Symbol("我是一个人容器")]: "秒呀",
+        }
+        //普通的遍历是遍历不出symbol属性的
+        // for (const key in aa) {
+        //     console.log(aa[key]);
+        // }
+
+    //getOwnPropertySymbols//只可以遍历出symbol属性但是 普通属性不可以遍历出去
+    for (const key of Object.getOwnPropertySymbols(aa)) {
+        console.log(key); //Symbol(这是一个容器)
+    }
+
+
+    for (const key of Reflect.ownKeys(aa)) {
+        console.log(key); //Symbol(这是一个容器)
+    }
+    // name
+    // 04 循环遍历symbol属性.html: 73 Symbol(我是一个人容器)
+</script>

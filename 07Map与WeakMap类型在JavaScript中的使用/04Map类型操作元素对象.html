@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button name="1">1</button>
+    <button name="2">2</button>
+    <button name="3">3</button>
+    <button name="4">4</button>
+    <button name="5">5</button>
+</body>
+
+</html>
+
+<script>
+    //创建一个map 数据类型
+    let map = new Map();
+    //获取所有的按钮元素
+    let btn = document.querySelectorAll("button");
+
+
+
+    //循环按钮 然后 将map 的键  = itme 对象（每一个按钮元素）/ 值 = 每个按钮的自定义属性
+    // 以后遇到需要获取全部元素又想获取全部的元素的某些属性 可以使用 map方法
+    btn.forEach((item) => {
+        map.set(item, {
+            names: item.getAttribute("name"),
+        })
+    });
+
+
+
+    console.log(map);
+
+    //item = 值，index = 序号 就是上方存储的 键（每一个item 对象）
+    map.forEach((item, index) => {
+        //indx 点击时 输出 每个按钮下面的 name属性
+        index.addEventListener('click', () => {
+            console.log(item.names);
+        })
+    });
+
+
+
+
+
+    //使用非 forEach进行隔离数据
+
+    //也可以使用 keys 和 values 方法
+    [...map.keys()].forEach((item, index) => {
+        console.log(item);
+    });
+    [...map.values()].forEach((item, index) => {
+        console.log(item.names);
+    });
+
+
+
+
+    //map 目的 保存dom 元素 并且 键值对可以 存不同的数据 方便循环遍历
+</script>

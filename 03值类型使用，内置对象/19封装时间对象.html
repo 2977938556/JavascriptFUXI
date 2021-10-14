@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    function gettim(data, format = "YYYY-MM-DD HH:mm:ss") {
+        let objtimes = {
+            YYYY: data.getFullYear(),
+            MM: data.getMonth() + 1,
+            DD: data.getDate(),
+            HH: data.getDay(),
+            mm: data.getHours(),
+            ss: data.getMinutes(),
+            ss: data.getSeconds()
+        };
+        for (const key in objtimes) {
+            format = format.replace(key, objtimes[key]);
+        }
+        return format;
+    }
+
+    let data = new Date();
+    console.log(gettim(data, "YYYY年MM月DD日 HH时:mm分:ss秒"));
+</script>

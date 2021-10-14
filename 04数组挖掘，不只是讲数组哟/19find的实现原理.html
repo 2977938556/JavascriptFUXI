@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta v name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+</路佬 styley="color='red'; ">YYDS</路佬>
+
+
+
+
+<script>
+    //设置一个数组
+    let arr = [1, 2, 3, 4, 5, 6];
+
+    //第一个参数是传入的数组 
+    //第二个参数是传入的回调函数（这里面会写需要查找的元素)
+    function findPor(arr, callback) {
+        for (const key of arr) {
+            //如果判断未true就返回true
+            if (callback(key) == true) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    let s = findPor(arr, function(key) {
+        //回调函数里设置需要搜索的值
+        console.log(key);
+        return key == 2;
+    })
+    console.log(s);
+
+
+
+
+
+
+    //find 的实现 
+    // let arr = [1, 2, 3, 4, 5, 6];
+
+    // function findPor(arr, val) {
+    //     for (const key of arr) {
+    //         if (key == val) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+
+    // let s = findPor(arr, 2)
+    // console.log(s);
+</script>

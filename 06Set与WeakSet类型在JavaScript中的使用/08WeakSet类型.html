@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1我是seakset类型</div>
+    <div>2我是seakset类型</div>
+    <div>3我是seakset类型</div>
+    <div>4我是seakset类型</div>
+    <div>5我是seakset类型</div>
+</body>
+
+</html>
+
+
+<script>
+    //垃圾回收机制 垃圾回收不考虑WeakSet，
+    //即被WeakSet引用时引用计数器不加一，所以对象不被引用时不管WeakSet是否在使用都将删除
+
+
+    //WeakSet 是只能存对象类型的数据 不会有重复的数据
+    //因为WeakSet 是弱引用 由于其他的1地方成员可能会不存在所以不可以进行 
+    // forEach 遍历等操作
+
+
+    //weakset 通常用于保存dom节点
+    //WeakSet的值必须为对象类型
+
+
+
+    let a = new WeakSet([
+        ["name"],
+        ["sex"]
+    ])
+    console.log(a);
+
+
+
+
+    //把dom 数据存入weakset 中
+    let divs = document.querySelectorAll("div");
+    let sets = new WeakSet();
+    //循环遍历 div dom 元素添加其中
+    divs.forEach(itme => {
+        sets.add(itme);
+    })
+
+    divs.forEach(itme => {
+        sets.add(itme);
+    })
+    divs.forEach(itme => {
+        sets.add(itme);
+    })
+    divs.forEach(itme => {
+        sets.add(itme);
+    })
+    divs.forEach(itme => {
+        sets.add(itme);
+    })
+
+    console.log(sets); // {div, div, div, div, div}
+
+
+
+    // 就是 当weakset类型引用该对象时如果该对象被删除了，无论weakset是否引用了都会被删除  因为weakset是弱引用类型
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //WeakSet 的常用操作
+    let nb = new WeakSet();
+    let arr = ["name"];
+    //添加操作
+    nb.add(arr);
+    console.log(nb); // {Array(1)}
+
+
+    //删除操作
+    nb.delete(arr);
+    console.log(nb); //{}
+
+    //查询操作(查询到了 就返回 true 没有就返回false)
+    console.log(nb.has(arr)); //false
+</script>

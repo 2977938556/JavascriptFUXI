@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let objs = [{
+        name: "ipthon",
+        prace: 10000
+    }, {
+        name: "ipad Por",
+        prace: 5000
+    }, {
+        name: "HwaWei Mate 50 POR",
+        prace: 12000
+    }];
+
+
+    //求商品的总和
+    function maxPor(arr) {
+        return arr.reduce((pre, item) => {
+            //每次循环的时候 把pre和item 的和加起来然后 接着下次继续循环累加
+            return pre = pre + item["prace"]
+
+        }, 0)
+    }
+    console.log(maxPor(objs));
+
+
+
+    //求商品最便宜的
+    function maxMin(arr) {
+        return arr.reduce((pre, item) => {
+            //每次循环判断第一个对象的价格 是否小于第二个
+            //如果小于就返回第一个数据，否则返回第二个
+            return pre.prace < item.prace ? pre : item;
+        })
+    }
+    console.log(maxMin(objs));
+    //{name: 'ipad Por', prace: 5000}
+</script>

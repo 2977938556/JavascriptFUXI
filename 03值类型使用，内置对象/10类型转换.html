@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //类型转换
+    //split 把字符串转换成数组 类型
+    let name = "feimao";
+    console.log(name.split("")); //["f", "e", "i", "m", "a", "o"]
+
+
+
+    //把数字转化位数字 以逗号开始
+    let nmd = '1,2,3,4';
+    console.log(nmd.split(","));
+    ["1", "2", "3", "4"]
+
+
+
+
+    //隐士转换
+    let nbs = 99 + "";
+    console.log(typeof nbs); //string
+
+
+    //单纯的使用+号会拼接字符串 可以使用*号进行转换、numbar
+    nbs = nbs * 1 + 1;
+    console.log("sss", nbs); //100
+
+
+
+
+    //使用string 构造函数可以转换字符串的类型
+    let hd = "99";
+    console.log(String(hd)); //99
+    //使用*1 进行隐士转换
+    console.log(hd * 1); //99
+
+
+
+    // 数值转成字符串
+    //JS中大部分类型都是对象，可以使用类方法toString 转换为字符串
+    let mm = 99;
+    console.log(mm.toString()); //"99"
+    //或者使用mm + ”“加上一个字符串
+    console.log(mm + "");
+
+
+    let arr = [1, 3];
+    console.log(arr.toString()); //1,3
+</script>

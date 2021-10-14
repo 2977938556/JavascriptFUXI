@@ -1,0 +1,21 @@
+<script>
+    //对象类型的引用 当你没有引用的时候就会 进行垃圾回收机制 会被删除
+    // 如果引用了就不会被 垃圾回收机制
+
+
+    //引用第一次
+    let a = {
+        name: 1
+    };
+    //引用第二次
+    let b = a;
+    //引用第三次
+    let arr = [a];
+    //清除数据
+    a = null;
+    b = null;
+
+    console.log(a); //null
+    console.log(b); //null
+    console.log(arr); //[{…}]
+</script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //日期对象
+    let data = new Date();
+    console.log(typeof data, data); //object 类型    Sun Sep 05 2021 08:54:25 GMT+0800 (中国标准时间)
+
+    //字面量的形式创建时间对象，对于需要进行运算需要转化成number类型
+    let hd = Date();
+    console.log(typeof hd, hd); //string 类型  Sun Sep 05 2021 08:54:25 GMT+0800 (中国标准时间)
+
+
+    //把时间对象 设置 返回时间戳（秒）
+    let hdsm = new Date();
+    //乘 1 
+    console.log(hdsm * 1); //1630803501400
+    //时间对象 + new date
+    console.log(hdsm = +new Date()); //1630803501400
+    //事件对象.valueOF()方法
+    console.log(hdsm.valueOf()); //1630803501400
+    //获取时间对象下的now 方法返回时间戳
+    let ds = Date.now();
+    console.log(ds); //1630803501400
+
+
+
+
+
+
+    //计算脚本计算的时间
+    let a = Date.now()
+    for (let i = 0; i < 50000000; i++) {
+
+    }
+    let b = Date.now();
+    //使用两个时间戳相互减去
+    console.log((b - a) / 1000 + "s"); //0.048s
+
+
+
+
+    //系统自带的计算
+    console.time("for");
+    for (let i = 0; i < 50000000; i++) {
+
+    }
+    console.timeEnd("for");
+    //for: 42.891845703125 ms
+
+
+
+
+
+    //自定义时间
+    //使用字符串 时间
+    let times = new Date("2021-9-5 9:24:48");
+    console.log(times); //Sun Sep 05 2021 09:24:48 GMT+0800 (中国标准时间)
+    //使用数值类型
+    console.log(new Date(2021, 9, 5, 9, 26, 16)); //Tue Oct 05 2021 09:26:16 GMT+0800 (中国标准时间)
+    //使用数组类型 自定义时间
+    let arrb = [2021, 9, 5, 9, 26, 16];
+    console.log(new Date(...arrb)); //Tue Oct 05 2021 09:26:16 GMT+0800 (中国标准时间)
+</script>

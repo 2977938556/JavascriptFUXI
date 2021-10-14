@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #34495e;
+        }
+        
+        div {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #9b59b6;
+        }
+        
+        div>span {
+            position: relative;
+            cursor: crosshair
+        }
+        
+        .color {
+            /* 第一个是 设置动画的名称  第二个是动画的秒数 第二个是动画执行的次数 第三个是线性动画  第四个是  */
+            animation: color 1s 2 linear alternate;
+        }
+        /* 设置动画 名称未color */
+        
+        @keyframes color {
+            50% {
+                color: yellow;
+                transform: scale(2);
+            }
+            to {
+                color: #e74c3c;
+                transform: scale(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>123456789</div>
+</body>
+
+</html>
+<script>
+    //先获取元素
+    let divs = document.querySelector("div");
+    //再把元素的innertHTML的值给变成数组 这里可以使用很多方法
+    //比如   divs.innerHTML.split("");;
+    //比如   Array.from(divs.textConcar);
+    [...divs.innerHTML].reduce(function(prce, item, index) {
+        console.log(item);
+        //清空span标签内容
+        if (prce == index) {
+            divs.innerHTML = "";
+        }
+        //循环产生span标签
+        let span = document.createElement("span");
+        //把每个item 的值给span标签
+        span.innerHTML = item;
+        divs.appendChild(span);
+
+        span.addEventListener("mouseover", function() {
+                this.classList.add("color");
+            })
+            //动画结束后就将class类移除
+        span.addEventListener("animationend", function() {
+            this.classList.remove("color");
+        })
+    }, 0)
+</script>

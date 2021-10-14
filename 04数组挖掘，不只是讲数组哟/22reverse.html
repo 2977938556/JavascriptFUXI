@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+</script>
+
+
+<script>
+    //reverse 将数组元素颠倒顺序
+    let s = [1, 2, 3, 4, 56, 8];
+    // console.log(s.sort().reverse().reverse());
+    let ss = [];
+    //这里for 循环减一是因为数组是从0开始计算的
+    for (let i = s.length - 1; i >= 0; i--) {
+        ss.push(s[i])
+    }
+    console.log(ss); //[8, 56, 4, 3, 2, 1]
+</script>

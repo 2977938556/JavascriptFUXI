@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //因为有些时候 对象里会有相同的属性名称这样我们就可以使用symbol 设置属性名称
+    // let obj = {
+    //     [Symbol("李四")]: {
+    //         js: 30,
+    //         node: 59
+    //     },
+    //     [Symbol("李四")]: {
+    //         js: 98,
+    //         node: 15
+    //     }
+    // }
+    // console.log(obj);
+
+
+
+    //设置两个变量 里面key设置成symbol类型
+    let a = {
+        name: '李四',
+        key: Symbol()
+    }
+    let b = {
+        name: '李四',
+        key: Symbol()
+    }
+
+    //将上面声明的key类型设置成 属性名称
+    let obj = {
+        [a.key]: {
+            js: 30,
+            node: 59
+        },
+        [b.key]: {
+            js: 98,
+            node: 15
+        }
+    }
+    console.log(obj[a.key]);
+</script>

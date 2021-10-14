@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="http://www.baidu.com" method="post">
+        请勾选这个A
+        <input class="a" type="checkbox" name="a" xiaosi="请勾选这个A"> 请勾选这个B
+        <input class="a" type="checkbox" name="b" xiaosi="请勾选这个B">
+        <input class="c" type="submit" onclick="return test()"> 提交
+    </form>
+
+</body>
+
+</html>
+
+
+
+<script>
+    //下面的是一个判断案例 
+    // 就是如果未勾选 其中的参数就 提交不了
+    // 使用map 进行循环每次 循环的时候添加值进 map中 并把复选款的状态添加至 map至中
+
+
+
+
+    let map = new Map();
+    let sub = document.querySelectorAll(" [type='checkbox' ] ")
+
+
+
+    function post() {
+        document.querySelector(".c ").addEventListener("click ", function() {
+
+            sub = document.querySelectorAll("[type='checkbox' ] ")
+            sub.forEach(item => {
+                map.set(item, {
+                    xiaosi: item.getAttribute('xiaosi'),
+                    checkbox: item.checked,
+                })
+            })
+
+            console.log(map);
+            return false;
+
+            map.forEach(item => {
+                if (item.checkbox === false) {
+                    alert(item.xiaosi, )
+                    return false;
+                } else if (item.checkbox === false) {
+                    alert(item.xiaosi)
+                    return false;
+                } else if (item.checkbox === true && item.checkbox == true) {
+                    return true;
+                    // window.location.replace("https://www.bilibili.com/ ")
+                }
+            })
+
+        })
+    }
+</script>

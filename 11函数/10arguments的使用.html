@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // argumnet 是函数中的内置的一个对象 arguments 是存储了传毒的所有的实参的数据
+
+
+    //求任意个数的最大值
+    function getMax() {
+        // console.log(arguments[0]);
+        let a = arguments[0];
+        for (let i = 1; i < arguments.length; i++) {
+            if (a < arguments[i]) {
+                a = arguments[i];
+            }
+        }
+        return a;
+    }
+    console.log(getMax(1, 2, 3, 4, 5, 6, 4, 8));
+
+
+
+    //使用先进的es6的写法  解构数组
+    function getMaxPOR([...b]) {
+        let a = b[0];
+        b.map((item, i) => {
+            if (a < item) {
+                a = b[i]
+            }
+        })
+        return a;
+    }
+    console.log(getMaxPOR([1, 2, 3, 4, 5, 6, 4, 8]));
+</script>

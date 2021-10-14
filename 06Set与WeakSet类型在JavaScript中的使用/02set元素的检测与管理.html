@@ -1,0 +1,29 @@
+<script>
+    //不写中括号会直接将输入的字符串给转换成每一个数据
+    let set = new Set("123456");
+    console.log(set); // {'1', '2', '3', '4', '5', …}
+
+    //上面相当于把这个
+    let sets = new Set([...
+        "123456"
+    ])
+    console.log(sets); //{'1', '2', '3', '4', '5', …}
+
+
+
+
+
+
+
+
+    let a = new Set([1, 2, 3, 4]);
+    console.log(a.add(7)); //添加
+    console.log(a.size); //查看数量
+    console.log(a.has(1)); //查找元素是否有 返回的是Boolean
+    console.log(a.delete(1)); //查找的包含的元素并且删除（删除成功返回true否则false）
+    console.log(a.values()); //查看元素的值
+    console.log(a.keys()); //查看元素的值
+    console.log(a.clear()); //清空元素  返回undefined
+    console.log(typeof a); //object
+    console.log(set.entries()); //{'1' => '1', '2' => '2', '3' => '3', '4' => '4'}
+</script>

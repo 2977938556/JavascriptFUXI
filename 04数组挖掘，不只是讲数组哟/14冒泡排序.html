@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //冒泡排序就是 每次比较两个数如果如果左边的大于右边的就相互交换位置
+    //同理 内部循环的时候 循环次数会随着外部循环的值 而变化 因为排序
+    let arr = [5, 4, 3, 2, 1]
+        //5个数只需要循环4次
+    for (let i = 0; i < arr.length; i++) {
+        //内部循环会随着外部而减少
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[j] > arr[j + 1]) {
+                let nb = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = nb;
+                console.log(arr);
+            }
+        }
+
+    }
+
+    console.log(arr);
+</script>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            /* border: 1px solid red; */
+            box-sizing: border-box;
+        }
+        
+        .head {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .head p {
+            font-size: 10px;
+        }
+        
+        .head ul:nth-child(1) {
+            width: 100%;
+            list-style-type: none;
+            line-height: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            line-height: 80px;
+        }
+        
+        .head ul:nth-child(1) li h1 {
+            padding-left: 10px;
+        }
+        
+        .head ul:nth-child(2) {
+            width: 100%;
+            height: 80px;
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+            line-height: 80px;
+        }
+        
+        .head ul:nth-child(2) h1 {
+            font-size: 9px;
+        }
+        /* 主体 */
+        
+        .commit {
+            width: 100%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            box-shadow: inset 0px 0px 5px #888888;
+        }
+        
+        .commit h3 {
+            height: 40px;
+            line-height: 40px;
+            padding-left: 10px;
+            font-size: 14px;
+            border-bottom: 1px solid gainsboro;
+        }
+        
+        .commit ul {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 20px;
+        }
+        
+        .commit ul li {
+            list-style: none;
+            height: 76px;
+            width: 80px;
+            border-radius: 10px;
+            box-shadow: inset 0px 0px 5px #888888;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul>
+            <h1>加油~ </h1>
+        </ul>
+    </div>
+    <div class="commit">
+        <h3>九九距离考试时间约：2023/3/21/9:30</h3>
+        <ul>
+            <li>天：</li>
+            <li>时</li>
+            <li>分</li>
+            <li>秒</li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    function gettim(data) {
+        //格式化 年月日周
+        let f = data.getFullYear() //获取当前年份
+        let m = data.getMonth() + 1; //获取当前是几月 默认是从0开始
+        m = m < 10 ? "0" + m : m;
+        let s = data.getDate() //获取当前是几号
+        s = s < 10 ? "0" + s : s;
+        let q = data.getDay(); //获取当前是星期几 星期日是0
+
+
+
+
+        //格式化时分秒
+        let ss = data.getHours(); //时
+        let ff = data.getMinutes() //分
+        let mm = data.getSeconds() //秒
+
+        //处理星期几
+        var arr = ['日', '一', '二', '三', '四', '五', '六'];
+        q = arr[q];
+
+        // 数据
+        let sj = [f, m, s, q, ss, ff, mm]
+
+        return sj;
+
+
+    }
+    //获取当前时间
+    let tim = new Date();
+    let jt = gettim(tim)
+    let box = document.querySelectorAll(".head>ul>li");
+    for (let i = 0; i < box.length; i++) {
+        box[i].innerHTML += `<h1>${jt[i]}/</h1>`
+    }
+
+
+
+    function feimao() {
+        //未来时间
+        let timpor = new Date(2023, 3, 22, 9, 30, 00);
+        //未来时间戳
+        let timpormax = timpor * 1;
+
+        //未来时间戳减去当前时间戳就是距离未来还剩下多久的时间
+        //总秒数
+        let data = new Date()
+        let weili = parseInt((timpormax - data.valueOf()) / 1000);
+        //求出距离还剩下多少天
+        let t = parseInt(weili / 60 / 60 / 24)
+            //求出距离还剩下多少小时
+        let h = parseInt(weili / 60 / 60 % 24)
+        h = h < 10 ? "0" + h : h;
+        //求出分钟
+        let m = parseInt(weili / 60 % 60)
+        m = m < 10 ? "0" + m : m;
+        //求出秒数
+        let s = parseInt(weili % 60)
+        s = s < 10 ? "0" + s : s;
+
+        return [`天：${t}`, `时：${h}`, `分：${m}`, `秒：${s}`];
+    }
+
+
+    //获取所有的元素
+    let boxpor = document.querySelectorAll(".commit>ul>li");
+
+    function as() {
+        let miaoya = feimao();
+        for (let i = 0; i < boxpor.length; i++) {
+            boxpor[i].innerHTML = `<h1>${miaoya[i]}</h1>`
+        }
+        console.log(miaoya);
+    }
+
+    //首次调用
+    as()
+        //定时调用
+    setInterval(() => {
+        as()
+    }, 1000);
+</script>

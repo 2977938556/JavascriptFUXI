@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //indexOf 查找元素的位置 返回值为元素的索引值  查找不到就返回-1
+    let str = [1, 2, 3, 4, 5];
+    console.log(str.indexOf(1)); //0
+
+
+    //lastIndexOf 查找元素位置 从右边开始查找 查询不到就返回 -1
+    //第二个值为开始查找的位置  严格匹配
+    let art = [1, 2, 1, 8, 9];
+    console.log(art.lastIndexOf(1, 2)); //2
+
+
+
+
+    //includes() 查找元素 更方便 返回值为 波尔值
+    let arty = [1, 2, 3, 4, 1, 5, 6];
+    console.log(arty.includes(1)); //true
+    if (arty.includes(1)) {
+        console.log("找到了");
+    }
+
+
+
+    //查找元素  第一个是查找的元素  第二个是从哪里开始查找
+    //indexOf 
+    //lastIndexOf
+
+
+    //includes
+</script>
