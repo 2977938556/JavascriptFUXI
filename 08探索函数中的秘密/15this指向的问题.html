@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    // //1:在箭头函数中的this指向 其上下文
+    // let obj = {
+    //     name: "111",
+    //     shows: function() {
+    //          showsss: () => {
+    //             console.log(this); //指向于obj这个对象
+    //             console.log(this.name);
+    //         }
+    //     }
+    // }
+    // console.log(obj.shows());
+
+
+    // //2:this指向的是 window
+    // console.log(this === window); //true
+
+
+    // //3:this指向 如果函数里面包含一个函数那么这个函数会指向于windos
+    // let objs = {
+    //     sex: "男",
+    //     show: function() {
+    //         function sexs() {
+    //             console.log(this);
+    //         }
+    //         sexs()
+    //     }
+    // }
+    // objs.show()
+
+
+
+
+    // //4:构造函数中的thsi指向
+    // function nb(a, b, c) {
+    //     this.a = a;
+    //     this.b = b;
+    //     this.c = c;
+    //     this.max = function() {
+    //         console.log("11" + this);
+
+    //         function maxs() {
+    //             console.log(this);
+    //         }
+    //         maxs()
+    //     }
+    // }
+    // let ass = new nb(1, 2, 3);
+    // console.log(ass);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    let objs = {
+        names: "2333",
+        show: function() {
+            console.log(this); //这个this指向于这个对象
+        }
+    };
+    objs.show();
+
+    //this == window
+    console.log(window == this); //true
+
+
+
+
+    //对象中函数中的函数中的this 指向
+    let repeat = {
+        names: "2333",
+        edu: function() {
+            //因为这个函数是这个对象的一个属性
+            console.log(`我的thsi指向于${this}`); //这个this指向于这个对象
+
+            function max() {
+                //这个thsi指向于 windows全局
+                console.log(`我的thsi指向于${this}`);
+            }
+            max()
+        }
+    };
+    repeat.edu()
+
+
+
+    //构造函数中的this指向
+    function User(name) {
+        this.name = name;
+        this.shwo = function() {
+            //这个this指向于 user这个对象
+            console.log(this);
+
+            function edu() {
+                //这个this指向于全局
+                console.log(this);
+            }
+            edu();
+        }
+    }
+    let a = new User("李四");
+    a.shwo();
+</script>

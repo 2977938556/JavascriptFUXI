@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击我</button>
+
+
+
+
+
+</body>
+
+
+</html>
+<script>
+    let obj = {
+        titles: "加油学习~",
+        lists: ["Javascript", "Css", "Html"],
+        shwo: function() {
+            return this.lists.map((value, index, arr) => {
+                //箭头函数中的this指向的是 上下文
+                return `${this.titles}_${value}`
+            })
+        }
+
+    }
+    console.log(obj.shwo());
+
+
+
+
+    //但是呢 箭头函数也会有一些弊端 需要酌情使用
+    let sos = {
+        names: "javascript",
+        lookup: function() {
+            //1:使用普通函数的this指向到 btn自己
+            // document.getElementById("btn").addEventListener('click', function(e) {
+            //     console.log(this);
+            // });
+
+            //2：可以声明 this指向常量进行修改
+            let This = this;
+
+            //3:使用箭头函数中的this就会指向于上下文
+            document.getElementById("btn").addEventListener('click', function(e) {
+
+                //设置一个需求 当点击按钮让 sos 对象中的names 的数据拼接到上面
+                //此时该对象是指向于 obj这个对象想要获取按钮的文本需要使用事件对象 Event
+                console.log(This.names + this.innerHTML); //javascript点击我
+            })
+        }
+    }
+
+
+
+    //总结1： 如果按钮元素需要大量的调用那么就 使用普通函数
+    //总结2： 如果需要使用大量的对象中发方法的话就可以使用箭头函数 DOM元素就可以使用事件对象
+
+    sos.lookup()
+</script>

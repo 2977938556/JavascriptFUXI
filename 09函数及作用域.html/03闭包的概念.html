@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //问：闭包是什么？ 
+    //答：闭包就是一个作用域可以访问一个函数内部的变量
+    function funs() {
+        let num = 1;
+        //返回一个函数
+        return function() {
+            console.log(num);
+        }
+    }
+
+
+    //返回一个函数
+    let f = funs();
+    f()
+</script>

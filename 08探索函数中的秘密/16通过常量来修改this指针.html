@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //修改this指向达到修改数据的作用
+    let obj = {
+        titles: "加油学习~",
+        lists: ["Javascript", "Css", "Html"],
+        shwo: function() {
+            //1：这个作用域的this指向于 这个obj对象
+            //2：新建一个变量把this传出
+            let This = this;
+            return this.lists.map(function(value, index, arr) {
+                //3：然后由于作用域链的问题就可以把this传入到里面
+                // console.log(This); //
+                return `${this.titles}_${value}`
+
+
+                //在有些 方法也可以修改this指向 这样就不需要设置一个常量是改变this指向了
+            }, this)
+        }
+
+    }
+    console.log(obj.shwo());
+    // console.log();
+    console.log(obj.lists);
+</script>

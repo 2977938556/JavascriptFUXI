@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let obj = [{
+        name: "javascript",
+        click: 60
+    }, {
+        name: "Node.js",
+        click: 98
+    }, {
+        name: "CSS",
+        click: 46
+    }];
+
+
+
+    function fna(obj, num = 100, i = 0) {
+        if (i == obj.length) {
+            return obj;
+        }
+        obj[i].click += num;
+        return fna(obj, num = 100, ++i);
+    }
+    fna(obj)
+    console.log(obj);
+</script>

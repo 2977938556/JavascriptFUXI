@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>A1</div>
+    <div>A2</div>
+    <div>A3</div>
+    <div>A4</div>
+</body>
+
+</html>
+
+<script>
+    //weakMap 键只能使用对象的形式 否则会报错
+    let s = new WeakMap();
+    s.set([], "xiaosile")
+    console.log(s);
+
+
+    //可以存储dom元素 
+    let divs = document.querySelectorAll("div");
+    let domsmap = new WeakMap();
+
+
+    //循环添加元素
+    divs.forEach((item, index) => {
+        //添加元素 set 
+        domsmap.set(item, item.innerHTML)
+    })
+    console.log(domsmap);
+    //查找元素hans 方法
+    console.log(domsmap.has(divs[0])); //true
+    //获取元素的值方法
+    console.log(domsmap.get(divs[0])); //"A1"
+    //删除元素 delete 删除成功就返回true
+    console.log(domsmap.delete(divs[0])); //true
+
+
+
+    //在weakmap中是使用不了 循环 等操作的 size大小
+    // console.log([...domsmap.keys()]);
+</script>

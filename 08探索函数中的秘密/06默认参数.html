@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //默认参数
+    //在以往的情况下使用
+    function names(a, b) {
+        //使用短路运算符设置一个默认值
+        b = b || 10;
+        return a + b;
+    }
+    console.log(names(5)); //15
+
+    //新版的es6可以直接设置默认参数
+    function nss(a, b = 6) {
+        return a + b;
+    }
+    console.log(nss(3)); //9
+
+
+
+
+
+    //映射关系
+    //如果形参与实参谁不为undefined 那么就选谁的值，如果都undefined 那么就都为undefined
+    console.log("一个难题");
+    //如果 a我使用默认值，b需要使用传入的参数那么 在第一个实参修改伪 undefined
+    function xiaosi(a = 2, b) {
+        console.log(a);
+        console.log(b);
+    }
+    xiaosi(undefined, 3);
+
+
+
+    function mas(a, b) {
+        a = a || 2;
+        b = b || 3;
+        return a + b;
+    }
+    console.log(mas());
+
+
+
+    //打折的案例 折上折
+    function max(nume, a = 0, b = 0) {
+        return nume * (1 - a) * (1 - b);
+    }
+    console.log(max(1000, 0.1, 0.2)); //720元
+
+
+
+
+
+    //在默认参数上可以使用 typeof 进行判断，不然传入0的时候 会转换成 波尔类型出错
+    function sex(a, b) {
+        if (typeof a !== "undefined") {
+            a = a;
+        } else {
+            a = 1;
+        }
+        if (typeof b !== "undefined") {
+            b = b;
+        } else {
+            b = 1;
+        }
+        console.log(a + b);
+
+    }
+    sex(0);
+</script>

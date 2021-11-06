@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+</body>
+
+</html>
+
+<script>
+    let arr = [1, 2, 4, 5, 6, 7, 8, 9];
+    let s = arr.filter((item) => {
+        //在箭头函数中 只要外部没有函数或者花括号包括其中的this就会指向 window
+        //所以在使用事件处理的时候不建议使用箭头函数
+        // console.log(this); //window
+        return item > 5;
+    })
+    console.log(s); // [6, 7, 8, 9]
+
+
+
+
+
+
+    //在没有参数的时候直接填写一个括号 花括号这些都可以省略
+    let a = () => 1 + 2;
+    console.log(a()); //3
+
+
+
+    //箭头函数在事件操作上的使用
+    //在这里的this指向中 箭头函数一般指向于 词法作用域就上下文作用域 否则都是指向于window
+    let objs = {
+        btn: document.querySelectorAll('button'),
+        btnclick: () => {
+            console.log(this.btn);
+
+        }
+    }
+    console.log(objs.btnclick());
+
+
+
+
+
+    //在箭头函数中使用不了 arguments 属性
+    let ss = () => {
+        console.log(arguments);
+    }
+    ss(1, 2, 3, 4, 5)
+</script>

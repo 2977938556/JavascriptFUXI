@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //立即执行函数的目的是为了防止私有作用域污染全局作用域
+    (function(window) {
+        //里面的属性方法等只在函数内部使用有效外部没有用
+        //除非开放一部分的数据给外部
+        var s = 2;
+        var nb = {
+            name: 22222,
+            sex: 3
+        }
+
+        //使用window开放数据给外部
+        window.open = {
+            s,
+            nb,
+        };
+    })(window)
+    console.log(open.nb.name); //22222
+
+
+
+    //当然可以使用 let const 等关键字产生私有作用域
+    {
+        let s = 111;
+        console.log(s); //111
+    }
+    console.log(s); //报错
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="Css">
+    <input type="button" value="JS">
+    <input type="button" value="Node">
+    <input type="button" value="Vue">
+</body>
+
+</html>
+
+<script>
+    let obj = {
+        name: "你好",
+        lookup: function() {
+            let btn = document.querySelectorAll("input");
+            //循环 每次的按钮 并进行
+            btn.forEach((item) => {
+                //这里普通函数 的this指向于window 但是修改成为了箭头函数就 把this指向于 上下文 obj
+                item.addEventListener('click', (e) => {
+                    console.log(this); //这里的 this指向于 上下文 因为修改成为了 箭头函数
+                    console.log(this.name + e.target.value);
+                })
+            })
+        }
+    }
+    obj.lookup()
+
+
+    //总结 可以使用箭头函数就使用箭头函数 只要结果ok代码ok就行
+</script>
+
+
+Hello world

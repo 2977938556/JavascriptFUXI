@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击我</button>
+</body>
+
+</html>
+<script>
+    let aobj = {
+        name: "一"
+    }
+    let bobj = {
+        name: "二"
+    }
+
+
+    function output(url, sex) {
+        console.log(this.name);
+        console.log(url, sex);
+    }
+
+
+    //修改 output函数的this指向
+    output.call(aobj, "baidu.com", "男") //输出 "一",
+        // output.apply(bobj, "cmd.com", "女") //输出 "一",
+
+
+
+
+
+
+    //call 与 apply 的区别就是 传入的值不同 
+    let arr = [1, 2, 3, 4, 5, 6];
+
+
+    //求最大的值
+    //在call 中 第二个传入的值是只能一个一个传入值
+    console.log(Math.max.call(Math, arr)); //NaN 无穷大
+
+    //在apply 中 第二个参数可以以数组方式传入 
+    console.log(Math.max.apply(Math, arr)); //6
+
+
+
+    //以上就是他们两个的区别 ，相同点就是都会立即执行函数
+
+
+
+    //apply 可以直接传入数组
+    let arrs = [1, 2, 3, 4, 5, 7, 8, 9];
+    console.log(arrs);
+    console.log(Math.min.apply(Math, arrs)); //1
+
+
+    //call 只能传入一个一个的值
+    console.log(Math.min.call(Math, ...arrs)); //1
+
+
+
+
+
+
+
+
+
+    //使用 apply 设置this指针方向， 并且调用函数
+    function maxmin() {
+        console.log(this.innerHTML);
+    }
+    let s = document.querySelector("button");
+    // console.log(s);
+    s.addEventListener('click', function(event) {
+        maxmin.apply(event.target) //传入事件对象
+    })
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    function aricle() {
+        this.url = "www.baidu.com";
+        this.get = function(params) {
+            // 使用对象的方法循环出标题并且凭借出去
+            let str = Object.keys(params).map((a) => {
+                return `${a}=${params[a]}`;
+            }).join("&");
+            return `${this.url}?${str}`;
+        }
+    }
+    let a = new aricle();
+    let s = a.get({
+        name: "小白",
+        sex: "girl"
+    })
+    console.log(s);
+
+    let b = new aricle();
+    let xiaoso = b.get({
+        name: "小莫",
+        sex: "boy"
+    })
+    console.log(xiaoso);
+</script>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .concat {
+            width: 260px;
+            height: 200px;
+            background: white;
+            border-radius: 10px;
+            margin: 50px auto;
+            display: flex;
+            /* box-shadow: black 10px 10px 10px; */
+            box-shadow: #878787 0px 0px 18px 0px;
+        }
+        /* 左边 */
+        
+        .left {
+            width: 50%;
+            height: 100%;
+        }
+        
+        .left p {
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 10px;
+            font-weight: 100%;
+        }
+        
+        .left ul {
+            list-style: none;
+        }
+        
+        .left ul li {
+            width: 100%;
+            height: 30px;
+            padding-left: 10px;
+        }
+        
+        .left ul li a {
+            font-size: 24px;
+            text-decoration: none;
+        }
+        /* 右边 */
+        
+        .right {
+            width: 50%;
+            height: 100%;
+            background: #eeeeee;
+        }
+        
+        .right span {
+            width: auto;
+            height: 20px;
+            background: greenyellow;
+            padding: 2px;
+            border-radius: 5px;
+            border: 1px solid #eeeeee;
+            box-shadow: inset #005d03 0px 0px 18px 0px;
+        }
+        
+        .right h5 {
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="concat">
+        <!-- 左边 -->
+        <div class="left">
+            <p>请选择课程:</p>
+            <ul>
+                <li>javascript
+                    <a href="#">+</a>
+                </li>
+                <li>CSS
+                    <a href="#">+</a>
+                </li>
+                <li>Node.js
+                    <a href="#">+</a>
+                </li>
+                <li>HTML
+                    <a href="#">+</a>
+                </li>
+                <li>Vue.js
+                    <a href="#">+</a>
+                </li>
+            </ul>
+        </div>
+        <!-- 右边 -->
+        <div class="right">
+            <h5>已选择0项</h5>
+            <div id="neiron">
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+
+
+
+<script>
+    //获取点击的元素和 需要修改的元素
+
+    //获取所有的li元素
+    let leftlis = document.querySelectorAll('.left li a');
+    //获取选择多少项的dom元素
+    let numbers = document.querySelector(".right h5");
+    //获取选择渲染数据的元素
+    let neirons = document.querySelector("#neiron");
+    //新建一个 weakmap数据
+    let weakmaps = new WeakMap();
+
+
+
+    leftlis.forEach(function(item, index) {
+        item.addEventListener('click', function(e) {
+            if (!weakmaps.has(item)) {
+                item.innerHTML = '-'
+                weakmaps.set(item, {
+                    name: item.parentNode.textContent,
+                })
+            } else if (weakmaps.has(item)) {
+                item.innerHTML = '+'
+                weakmaps.delete(item)
+            }
+
+            let ss = maxnumber()
+            numbers.innerHTML = `已选择${ss}项`
+
+
+        })
+
+    })
+
+    //渲染选择的个数
+    function maxnumber() {
+        xuanranshujul()
+        let s = 0;
+        leftlis.forEach(function(item) {
+            if (weakmaps.has(item)) {
+                s = s + 1;
+            }
+        })
+        return s;
+    }
+
+
+    //渲染产生的数据
+    function xuanranshujul() {
+        let htmls = '';
+        neirons.innerHTML = '';
+        leftlis.forEach(function(item) {
+            if (weakmaps.has(item) || htmls.innerHTML == '+') {
+                neirons.innerHTML += `<span>${weakmaps.get(item).name}</span>`.replace('+', '')
+            }
+        })
+    }
+</script>

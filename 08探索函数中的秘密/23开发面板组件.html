@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            transition: all 0.5s;
+        }
+        
+        .concat {
+            width: 600px;
+            height: auto;
+            margin: 0 auto;
+        }
+        
+        li {
+            width: 600px;
+            height: auto;
+        }
+        
+        li h1 {
+            width: 600px;
+            height: 80px;
+            background: orange;
+            border-bottom: 4px solid white;
+            cursor: pointer;
+        }
+        
+        li div {
+            width: 600px;
+            height: 200px;
+            background: gray;
+            display: none;
+        }
+        
+        .show {
+            height: 200px;
+            display: block;
+        }
+        
+        .hidden {
+            height: 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="concat">
+        <li>
+            <h1>JS</h1>
+            <div>A</div>
+        </li>
+        <li>
+            <h1>Node.js</h1>
+            <div>A</div>
+        </li>
+        <li>
+            <h1>Css</h1>
+            <div>A</div>
+        </li>
+
+    </ul>
+</body>
+
+</html>
+
+<script>
+    let btns = document.querySelectorAll('.concat h1');
+    btns.forEach(function(item, index) {
+        item.addEventListener('click', function() {
+            let s = document.querySelectorAll('.concat div');
+            s.forEach(function(item, index) {
+                item.className = 'hidden';
+            })
+            s[index].className = 'show'
+
+
+
+
+        })
+    })
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //函数表达式不会把函数体给提升所以执行的时候会报错
+    let hd
+    hd(233);
+    hd = function(s) {
+        console.log(s);
+    }
+
+
+
+    //如果是标准的函数声明的话就每次js执行预解析就会把整个函数体给提升所以不会报错
+    function name(s) {
+        console.log(s);
+    }
+    name(360) //360
+
+
+
+    //函数也是一个对象
+    console.log(name instanceof Object); //true
+
+
+    //匿名函数在把值给其他变量就相当于把指针传递给其
+    //注意事项：在创建匿名函数的时候需要添加引号
+    let hanshs = function() {
+        console.log(1);
+    };
+    //把hanshs传递给其他变量
+    let a = hanshs;
+    a() //1
+
+
+    //与赋值指针的匿名函数对比一下 返回的结果为true
+    console.log(a == hanshs); //true
+</script>

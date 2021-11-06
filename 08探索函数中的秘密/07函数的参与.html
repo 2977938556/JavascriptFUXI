@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击我</button>
+
+</body>
+
+</html>
+
+<script>
+    function nbs() {
+        alert(this.innerHTML);
+    }
+    //可以将函数写在外部然后进行调用
+    document.querySelector('button').addEventListener('click', nbs);
+
+
+
+    //将定时器的执行函数写到外部去
+    function tims() {
+        console.log(1);
+    }
+    setTimeout(tims, 1000)
+
+
+
+
+
+    //函数中的argumnet 伪数组
+    // arguments是一个伪数组，数组中的一些方法是使用不了的需要转换成数组
+    function maxnum() {
+        let s = 0;
+        for (let i = 0; i < arguments.length; i++) {
+            s = s + arguments[i]
+        }
+
+        //转换成数组就可以使用数组中的方法
+        [...arguments].forEach(element => {
+            console.log(element);
+        });
+
+        return s;
+    }
+    let s = maxnum(1, 2, 3, 4, 5, 64, 89, 78, 98);
+    console.log(s); //344
+</script>

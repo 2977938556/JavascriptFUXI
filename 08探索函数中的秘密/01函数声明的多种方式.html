@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //创建函数的方式 
+
+    //1 使用创建对象的方式创建
+    let fun = new Function('a', 'console.log(a)');
+    fun('1');
+
+
+
+    //2 使用函数声明进行创建
+    function str(a) {
+        console.log(a);
+    }
+    str(1)
+
+
+
+    //3使用函数表达式创建函数
+    let nb = function(s) {
+        console.log(s);
+    }
+    nb(1);
+
+
+
+    //在对象中使用函数
+    let obj = {
+        //这个是之前常用的形式
+        getname: function(a) {
+            console.log(a);
+        },
+        //下面的这个函数是简写的形式把function给去掉了
+        nb(s) {
+            console.log(s);
+        }
+    }
+
+
+    obj.getname(22222);
+    obj.nb(33333);
+</script>

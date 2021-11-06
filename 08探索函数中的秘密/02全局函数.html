@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //在定义函数名称的时候可能会产生覆盖
+    //2,平常定义的函数声明都会被压入windows中
+    function namers(a) {
+        console.log(a);
+    }
+    window.namers(1); //1
+
+
+
+    //3,var 声明的变量也会被压入windows中
+    //前提是外部没有任何函数包裹
+    var aa = function(a) {
+        console.log(a);
+    }
+    window.aa(2) //2
+
+
+
+
+    //3根据以上情况，我们可以使用let 进行声明函数
+    let hanshu = function(a) {
+            console.log(a);
+        }
+        // window.hanshu(3);//报错
+    hanshu(3); //3
+
+
+    const hanshus = function(a) {
+            console.log(a);
+        }
+        // window.hanshus(3);//报错
+    hanshus(4); //3
+
+
+
+
+    //一般情况下我们不会把函数单独写出来一般是写在类里面进行
+</script>

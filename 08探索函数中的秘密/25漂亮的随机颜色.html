@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript</h1>
+</body>
+
+</html>
+
+
+<script>
+    function RandomColor(doms) {
+        //颜色
+        this.color = ["#f8c291", "#4a69bd", "#78e08f", "#b8e994", "#fa983a"];
+        this.numrandom = function() {
+            setInterval(function() {
+                //设置每次的循环随机数
+                let i = Math.floor(Math.random() * this.color.length);
+                doms.style.background = this.color[i];
+                console.log(this);
+                //这里使用bind 的目的是把 当前可以读取到this.color 给传入进去 
+            }.bind(this), 1000);
+            //每隔一秒钟调用一次
+        }
+    }
+
+
+
+    //实例化一个构造函数
+    let bodys = new RandomColor(document.body);
+    bodys.numrandom();
+
+    //可以构造很多函数
+    let h1 = new RandomColor(document.querySelector('h1'));
+    h1.numrandom()
+</script>

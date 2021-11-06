@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //回调函数 在被其他函数调用的函数称为回调函数，比如事件处理
+    let arr = [1, 2, 3, 4, 5, 6];
+
+
+    function bgj(checkout) {
+        let s = [];
+        arr.forEach(function(item) {
+            if (checkout(item)) {
+                s.push(item);
+            }
+        })
+        return s;
+    }
+    //回调函数 可以在里面写一个条件返回相应的值
+    let s = bgj(function(item) {
+        return item > 5
+    })
+    console.log(s);
+
+
+
+    //使用回调函数进行计算
+    arr.map(function(item, index, arrays) {
+        arrays[index] += 10;
+    })
+    console.log(arr); //[11, 12, 13, 14, 15, 16]
+</script>

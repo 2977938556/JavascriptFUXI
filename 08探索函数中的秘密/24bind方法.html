@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击我呀</button>
+</body>
+
+</html>
+
+
+<script>
+    //一：bind
+    function binds(a) {
+        console.log(a);
+        console.log(this.name);
+    }
+
+    let obj = {
+        name: "猫"
+    };
+    //bind 不会直接调用 函数，然后传入的值是以数组的方式传入
+
+    //返回的值是 一个重新复制的函数
+    let s = binds.bind(obj, [1, 2, 3]);
+    s();
+
+
+    //二：bind 关于传入参数的问题
+    function max(a, b) {
+        console.log(this.f + a + b);
+    }
+    let objb = {
+        f: 10
+    }
+    let b = max.bind(objb, 10);
+    console.log(b);
+    b(10)
+
+
+
+
+
+    let sss = document.querySelector('button');
+    sss.addEventListener('click', function(e) {
+        console.log(this.name + e.target.innerHTML);
+    }.bind({
+        name: "秒呀"
+    }));
+    console.log(sss);
+</script>

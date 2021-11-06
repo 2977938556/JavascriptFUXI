@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //《块级作用域》
+    //块级作用域 = 一个小范围的作用域 块级作用域可以访问全局的作用域 正如上面的公园和家的案例
+
+
+    //花括号就可以生成一个块级作用域
+    //定义一个全局作用域
+    var c = 1;
+    //定义一个块级作用域
+    {
+        let a = c;
+    }
+    //输出a  为什么是输出1 呢因为 块级作用域是私有的，只能在块级作用域里面进行使用
+    console.log(a); //1
+
+
+
+    //在新版本的js中 let 和 const 是由块级作用域的 而 var声明的没有块级作用域这种概念
+</script>

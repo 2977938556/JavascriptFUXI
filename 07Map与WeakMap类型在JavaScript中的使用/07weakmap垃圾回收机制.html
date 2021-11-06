@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //垃圾回收机制（回收机制基本上和weakset的回收机制差不多）
+
+    //每次使用一个对象赋值就会 给计数器引用一次 +1
+    let obja = { //计数器 +1
+        name: 1
+    };
+    let objb = obja; //计数器 +1
+    let s = new WeakMap(); //计数器不 +1；
+    s.set(obja, "xiaosi")
+
+
+    //清除数据 
+    obja = null;
+    objb = null;
+
+
+
+    //无论 weakmap 数据是否引用了对象数据 只要该对象没有被其他对象引用
+    //对象就会被销毁 weakmap 数据中的也会被删除 垃圾回收机制不会考虑
+    // weakSet and weakMap 这理两个属性 所以这两个都不可以有遍历的操作和
+    //size 的方法属性
+    setTimeout(function() {
+        console.log(s); //输出一个空的 weakmap数据
+    }, 1000)
+</script>
