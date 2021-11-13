@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //循环
+    let arr = [];
+    for (let i = 1; i <= 3; i++) {
+        //这样做的目的就把每次循环的时候都会保存当前作用域及变量的值 
+        arr.push(function() {
+            return i;
+        })
+    }
+
+
+
+
+    //每次调用的时候调用的不同的环境变量
+    console.log(arr[0]()); //1
+    console.log(arr[1]()); //2
+    console.log(arr[2]()); //3
+
+
+
+    //使用var的时候
+    let arrs = [];
+    for (var i = 1; i <= 3; i++) {
+        //需要使用立即执行函数做出一个作用域
+        (function(i) {
+            arrs.push(function() {
+                return i;
+            })
+        })(i)
+    }
+</script>

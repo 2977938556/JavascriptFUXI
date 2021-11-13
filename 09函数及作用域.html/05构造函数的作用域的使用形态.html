@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //其实构造函数的形态其实和我们之前延长函数的使用周期是一样的原理
+    // function Price() {
+    //     this.a = 1;
+    //     this.sun = function() {
+    //         console.log(++a);
+    //     }
+    // }
+
+
+    // let fna = new Price();
+    // console.log(fna);
+    // fna.sun()//2
+
+
+
+    //构造函数的原理
+    function a() {
+        let a = 1;
+
+        function student() {
+            console.log(++a);
+        }
+        return {
+            student: student,
+        }
+    }
+
+
+
+    //只要 外界有使用 函数中的数据那么这个函数作用域就不会被删除掉
+    //所以以下的数据会在同一个作用域中产生作用
+    let b = a();
+    console.log(b);
+    b.student() //2
+    b.student() //3
+    b.student() //3
+
+
+
+    //但是多个对象创建的是不不会共享的
+    let c = a();
+    console.log(c);
+    c.student() //2
+    c.student() //3
+    c.student() //3
+</script>

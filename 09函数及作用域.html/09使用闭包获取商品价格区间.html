@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    // let price = [132, 423, 333, 545, 657, 423];
+
+
+    // //使用闭包的方式获取价格的区间
+    // function beteenn(a, b) {
+    //     return function(v) {
+    //         return v > a && v < b;
+    //     }
+    // }
+    // let s = price.filter(beteenn(300, 500))
+    // console.log(s); // [423, 333, 423]
+
+
+
+
+
+
+    let objs = [{
+        name: "ipthon",
+        prace: 3000
+    }, {
+        name: "ipad Por",
+        prace: 2000
+    }, {
+        name: "HwaWei Mate 50 POR",
+        prace: 12000
+    }];
+
+
+    function price(a, b) {
+        return function(v) {
+            return v.prace > a && v.prace < b;
+        }
+    }
+    let s = objs.filter(price(3000, 13000))
+    console.log(s); //{name: 'HwaWei Mate 50 POR', prace: 12000}
+</script>

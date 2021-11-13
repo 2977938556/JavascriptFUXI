@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    function a() {
+        let num = 1;
+        return function() {
+            let sex = 1;
+            return function() {
+                console.log(++sex);
+            }
+        }
+    }
+
+    //调用两次把函数给返回出去
+    //当外界在使用内部的数据的时候就不会被删除掉
+    let fn = a()();
+    console.log(fn);
+    fn() //2
+    fn() //3
+    fn() //4
+</script>

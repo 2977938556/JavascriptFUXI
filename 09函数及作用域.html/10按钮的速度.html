@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <button>我是风</button>
+</body>
+
+</html>
+
+<script>
+    let btn = document.querySelector("button");
+
+
+    //递增 数据
+    let lefts = 1;
+    //止流阀 一般用于只执行一次
+    let fals = false;
+    btn.addEventListener('click', function(e) {
+        //当为 false 就把这个转转换真的并且 执行里面的定时器
+        if (!fals) {
+            //修改为 真在下一次判断转换为假 并且不执行定时器
+            fals = true;
+            setInterval(() => {
+                this.style.left = lefts++ + 'px'
+            }, 5);
+        }
+    })
+</script>

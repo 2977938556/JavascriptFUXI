@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //函数被执行后会把环境变量从内存中删除掉
+    function shwo() {
+        let s = 1;
+    }
+    shwo()
+
+
+
+
+
+    //函数的作用域及环境变量
+    function max() {
+        let title = "秒呀";
+
+        function min() {
+            let ss = 1 + 1;
+            console.log(ss);
+        }
+        min()
+    }
+
+
+    //下面的函数在每次执行完都会创建一个新的作用域
+    max();
+    max();
+    max();
+    max();
+
+
+
+
+
+    //如果把 函数给返回出去的话那么浏览器就不会从内存中删除函数
+    //这也是后面学的闭包的概念
+    function xiaos() {
+        let a = 1;
+        return function() {
+            console.log(++a);
+        }
+    }
+
+
+    //当每次调用函数的时候会不会被删除掉这个函数空间
+    let mm = xiaos();
+    mm(); //2
+    mm(); //3
+    mm(); //4;
+
+
+    //当你重新开始调用函数的时候就会重新开辟一个内存地址
+    let lll = xiaos();
+    lll(); //2
+    lll(); //3
+    lll(); //4
+</script>

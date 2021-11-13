@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //确定数据 
+    let objs = [{
+        name: 'javascript',
+        click: 30,
+        price: 60
+    }, {
+        name: 'node,j',
+        click: 40,
+        price: 30
+    }, {
+        name: 'html',
+        click: 40,
+        price: 30
+    }, {
+        name: 'css',
+        click: 20,
+        price: 70
+    }, {
+        name: 'less',
+        click: 40,
+        price: 80
+    }, ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //这里的 运用到了闭包 就是返回一个函数 然后外部会保留这个函数作用域 不会被清除
+    function sorts(sexname, type = 'decline') {
+        //这里的一个函数就是sort 中的 函数的函数
+        return function(a, b) {
+            if (type == 'decline') {
+                return a[sexname] > b[sexname] ? 1 : -1;
+            } else {
+                return a[sexname] > b[sexname] ? -1 : 1;
+            }
+
+        };
+    }
+
+    //第二个值是 设置降序还是升序
+    let clicks = objs.sort(sorts('click', 'up'))
+    console.log(clicks);
+
+
+
+
+    let prcies = objs.sort(sorts('price'))
+    console.log(prcies);
+</script>

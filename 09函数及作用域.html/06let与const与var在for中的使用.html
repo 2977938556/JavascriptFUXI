@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //var 循环
+    //在没有函数代码块包裹的var for循环中 i是声明在全局的 所哟呢 每次循环都会覆盖上一次的数据
+    for (var i = 1; i <= 3; i++) {
+        //使用 定时器测验
+        setTimeout(function() {
+            console.log(i); //4
+        }, 1000);
+
+    }
+    console.log(i); //4
+
+
+
+    //当使用 let 或者const 的循环中 ，因为块级作用域的原因每次循环的时候就把数据存入到一个块级作用域中
+    for (let i = 1; i <= 3; i++) {
+        setTimeout(function() {
+            console.log(i);
+        }, 1000);
+    }
+</script>
