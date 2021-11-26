@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //在解构中可以添加默认值设置参数
+    // let arr = [1, 2];
+    // let [a, b, c = 3] = arr;
+    // console.log(a, b, c); //1,2,3
+
+
+
+    //解构在对象中的默认值
+    let obj = {
+        name: 1,
+        ager: 2
+    };
+    let {
+        name,
+        ager,
+        //设置默认值
+        sex = '♂'
+    } = obj;
+    console.log(name, ager, sex);
+
+
+
+
+    //创建一个 Dom元素
+    function fna(params) {
+        //只要params 未传入相应的参数那么就使用以及设置好的默认值
+        let {
+            width = 100, height = 100, background = 'red'
+        } = params;
+
+        console.log(width);
+        //创建一个dom元素
+        let div = document.createElement('div');
+
+        //设置相应的样式
+        div.style.width = width + 'px';
+        div.style.height = height + 'px';
+        div.style.background = background;
+        document.body.appendChild(div);
+
+
+    }
+
+
+
+    //调用函数
+    fna({
+        width: 900
+    })
+</script>

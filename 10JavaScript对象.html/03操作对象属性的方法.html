@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let obja = {
+        name: "feimao",
+        age: '19',
+        sex: '♂',
+    }
+
+    //获取对象属性的方法
+    //使用点语法获取
+    console.log(obja.name);
+
+    //使用 [] 获取
+    console.log(obja['name']);
+
+
+
+    //如果是不合法的变量必须使用[]括号 
+    obja['a-b'] = 1;
+    console.log(obja['a-b']);
+
+
+
+    //遍历对象
+    for (const key in obja) {
+        //使用 []的方法获取属性数据
+        console.log(obja[key]);
+    }
+
+
+
+    //添加属性  add
+    obja.a = 19;
+    obja.set = function() {
+        return 1;
+    }
+    console.log(obja.set());
+
+
+    //删除掉属性  delete
+    delete obja.a;
+    console.log(obja);
+
+
+
+    //检测对象属性的操作
+    //只针对 该 函数obj 中有效
+    console.log(obja.hasOWnProperty('a'));
+</script>

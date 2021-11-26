@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //结构赋值 {相当于把 对象中的每个属性 拆成一个单独的 变量接收着这个值}
+    let user = {
+        name: "FeiMao@110",
+        clcik: '100'
+    };
+
+
+
+
+    //如果结构的属性名称一致 也可以省略不写 
+    let {
+        name,
+        clcik: b,
+    } = user;
+    console.log(name, b); //FeiMao@110   100
+
+
+
+
+
+
+
+
+    //函数中的形式参数也可以使用函数的结构
+    function fna({
+        name,
+        ager
+    }) {
+        console.log('我是a' + name, '我是b' + ager);
+    }
+
+    let userb = {
+        name: "MdengMao",
+        ager: '30'
+    };
+    fna(userb, 1);
+
+
+
+    //函数的返回值 也可以使用结构
+    function fnb() {
+        return {
+            name: "MdengMao",
+            ager: '30'
+        }
+    }
+
+
+    //函数的返回值也可以使用 结构赋值
+    let {
+        name: names,
+        ager: agers
+    } = fnb();
+
+    console.log(names, agers);
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //添加DOM元素练习
+    let user = [{
+        name: 'js',
+        click: 100,
+    }, {
+        name: 'css',
+        click: 69,
+    }];
+
+
+
+    for (const key in user) {
+        //创建h1对象
+        let h1 = document.createElement('h1');
+        //键值写入 h1中的innerHTML中
+        h1.innerHTML = `课程名称：${user[key].name}|| 点击数${user[key].click}`;
+        //插入元素
+        document.body.appendChild(h1);
+    }
+
+
+
+
+    //使用 for of 循环
+    for (const key of user) {
+        //创建h1对象
+        let h1 = document.createElement('h1');
+        //键值写入 h1中的innerHTML中
+        h1.innerHTML = `课程名称：${key.name}|| 点击数${key.click}`;
+        //插入元素
+        document.body.appendChild(h1);
+    }
+</script>

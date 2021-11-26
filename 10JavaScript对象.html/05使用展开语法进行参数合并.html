@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //展开语法可以让 让数据展开并且合并到其他数据当中
+    let arra = [1, 2, 3];
+    let arrb = [...arra, 4, 5, 6, 7, 8, 9, 10];
+    console.log(arrb); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+
+
+
+
+
+    //这个案例是把对象展开并且放入另一个对象中去
+
+    //对象A
+    let obja = {
+        name: 'FeiMao@100',
+        restlt: '1',
+    };
+    //对象B
+    let objb = {...obja,
+        age: 19,
+        sex: '♂',
+    };
+
+    //修改对象B里面的属性
+    objb.name = 1000;
+    //打印 对象A中的数据 发现没有变化 说明 展开语法相当于深拷贝
+    console.log(obja);
+    console.log(objb); //{name: '1000', restlt: '1', age: 19, sex: '♂'}
+</script>

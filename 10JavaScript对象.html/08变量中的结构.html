@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let arr = [1, 2];
+
+    //如果只想取一个值的话那么就可以填一个参数，另一个参数省略
+    let [a] = arr;
+    console.log(a); //1
+
+
+
+    let obj = {
+        name: "肥猫",
+        age: 19
+    };
+    console.log(obj);
+
+
+
+    //有些时候 如果对象属性的值与需要传递的名称是一致的那么就可以省省略
+    let {
+        name,
+        age
+    } = obj;
+    console.log(name, age); //肥猫 19
+
+
+
+
+    //如果遇到需要将变量变成一个 对象那么就可以使用简写的形式
+    let aa = 1,
+        bb = 2;
+
+
+    let pop = {
+        aa,
+        bb
+    }
+    console.log(pop); //{aa: 1, bb: 2};
+</script>

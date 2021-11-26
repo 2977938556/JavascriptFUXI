@@ -15,17 +15,17 @@
 </html>
 
 <script>
-    // //1:在箭头函数中的this指向 其上下文
-    // let obj = {
-    //     name: "111",
-    //     shows: function() {
-    //          showsss: () => {
-    //             console.log(this); //指向于obj这个对象
-    //             console.log(this.name);
-    //         }
-    //     }
-    // }
-    // console.log(obj.shows());
+    //1:在箭头函数中的this指向 其上下文
+    let obj = {
+        name: "111",
+        shows: function() {
+            showsss: () => {
+                console.log(this); //指向于obj这个对象
+                console.log(this.name);
+            }
+        }
+    }
+    console.log(obj.shows());
 
 
     // //2:this指向的是 window
@@ -33,36 +33,36 @@
 
 
     // //3:this指向 如果函数里面包含一个函数那么这个函数会指向于windos
-    // let objs = {
-    //     sex: "男",
-    //     show: function() {
-    //         function sexs() {
-    //             console.log(this);
-    //         }
-    //         sexs()
-    //     }
-    // }
-    // objs.show()
+    let objs = {
+        sex: "男",
+        show: function() {
+            function sexs() {
+                console.log(this);
+            }
+            sexs()
+        }
+    }
+    objs.show()
 
 
 
 
     // //4:构造函数中的thsi指向
-    // function nb(a, b, c) {
-    //     this.a = a;
-    //     this.b = b;
-    //     this.c = c;
-    //     this.max = function() {
-    //         console.log("11" + this);
+    function nb(a, b, c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.max = function() {
+            console.log("11" + this); //指向于 ass 这个构造函数
 
-    //         function maxs() {
-    //             console.log(this);
-    //         }
-    //         maxs()
-    //     }
-    // }
-    // let ass = new nb(1, 2, 3);
-    // console.log(ass);
+            function maxs() {
+                console.log(this); //指向于 window
+            }
+            maxs()
+        }
+    }
+    let ass = new nb(1, 2, 3);
+    console.log(ass);
 
 
 

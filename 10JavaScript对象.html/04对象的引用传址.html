@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //传值与传址
+
+
+    //在js中传值与传址是不一样的   
+    //传值 只是把值传入到里面并不会直接修改 原数据
+    //传址 只是把对象的地址传入到里面当对象发生改变那么 被引用过的对象都会被修改掉
+
+
+
+    //传值案例
+    //分析：因为max中a 的和外部声明的let a 是不同的作用域所以不会修改外界的数据
+    function max(a) {
+        return a = a + 100;
+    }
+    let a = 1;
+    //把 a 传入到max 函数中
+    console.log(max(a)); //101
+    console.log(a); //1
+
+
+
+
+
+
+    //传址案例
+    let user = {
+        click: 50,
+    }
+
+    //传入的 user 对象 是将地址传入进去而不是把值传入进去，当里面的值发生改变外部传入的也会变化
+    function min(urls) {
+        urls.click = 100;
+    }
+    min(user)
+    console.log(user); //{clcik:100}
+
+
+
+
+    //深入理解 《传值与传址》
+    let obja = {};
+    let objb = obja;
+    let objc = {}
+
+    //比较地址
+    console.log(obja == objb); //true
+    console.log(obja === objb); //true
+
+    //无论对象中的值是否是一样的只要你创建了那么就会在内存中开辟一个空间，并且比较是比较地址的
+    console.log(objb == objc); //false
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //构造函数与 工厂函数有点相似
+
+
+    function Parce(name) {
+        this.name = name;
+        this.show = function() {
+            console.log(this);
+            console.log(this.name);
+        }
+
+        //不需要返回this 系统会自动返this出去
+        // return this; 
+    }
+
+
+
+
+    //创建一个实例对象
+    let fna = new Parce('Feimao');
+
+
+    //可以创建多个实例对象
+    let fnd = new Parce('Miaoya@110');
+
+
+
+    //如果把实例对象中的某些属性或者方法赋值给另一个变量中
+    //__那么 this会指向被调用的实例对象中
+    let fnb = fna.show;
+
+
+    fnb(); //输出的this指向与于调用的函数
+
+
+
+
+
+
+
+    //如果构造函数中返回的是一个对象那么，实例化后的对象就是此对象
+    function Parter(...arrs) {
+        let arr = [...arrs];
+
+        return arr;
+    }
+
+
+    let objsss = new Parter(1, 2, 3, 4, 6);
+    console.log(objsss); // [1, 2, 3, 4, 6]
+
+
+
+
+
+
+
+
+
+    //js中绝大多数的数据都是通过构造函数创建的
+</script>

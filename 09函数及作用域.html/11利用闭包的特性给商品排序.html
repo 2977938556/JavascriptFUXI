@@ -40,6 +40,21 @@
 
 
 
+    function saixuan(filde, type = 'up') {
+        return function(a, b) {
+            if (type == 'up') {
+                return a[filde] > b[filde] ? 1 : -1;
+            } else {
+                return a[filde] > b[filde] ? -1 : 1;
+            }
+        }
+    }
+
+
+
+    let data = objs.sort(saixuan('click', 'up'));
+    console.log('我是数据', data);
+
 
 
 
@@ -63,13 +78,14 @@
             } else {
                 return a[sexname] > b[sexname] ? -1 : 1;
             }
-
         };
     }
 
     //第二个值是 设置降序还是升序
     let clicks = objs.sort(sorts('click', 'up'))
     console.log(clicks);
+
+
 
 
 

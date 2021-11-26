@@ -14,10 +14,20 @@
 
 </html>
 
+
 <script>
-    function max(a, b = 2) {
-        console.log(a);
-        console.log(b);
-    };
-    max(undefined, 1)
+    //函数中也可以使用对象的解构 并且可以只匹配一部分的数据
+    function hd(a, {
+        b,
+        c
+    }) {
+        console.log(a, b, c); //111 222 333
+    }
+
+
+
+    hd('111', {
+        b: '222',
+        c: '333'
+    });
 </script>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let obj = [{
+        name: '小莫',
+        age: 19,
+        sex: '♂'
+    }, {
+        name: '小莫',
+        age: 19,
+        sex: '♂'
+    }, {
+        name: '小莫',
+        age: 19,
+        sex: '♂'
+    }, {
+        name: '小莫',
+        age: 19,
+        sex: '♂'
+    }, {
+        name: '小莫',
+        age: 19,
+        sex: '♂'
+    }];
+
+
+
+
+    //使上面的数据变成下面的形式
+    // let obj = [a: {
+    //         name: '小莫',
+    //         age: 19,
+    //         sex: '♂'
+    //     },
+    //     a: {
+    //         name: '小莫',
+    //         age: 19,
+    //         sex: '♂'
+    //     }
+    //     a: {
+    //         name: '小莫',
+    //         age: 19,
+    //         sex: '♂'
+    //     }
+    // ]
+
+
+    //设置有规律的 属性名称
+    let s = obj.reduce(function(a, b, c) {
+        a[`${b.name}${c}`] = b
+        return a;
+    }, {})
+
+
+    console.log(s);
+
+
+    //转字符串
+    //转换完后可以使用JSON进行转换成字符串 序列
+    let str = JSON.stringify(s);
+    console.log(str);
+
+
+    //转对象
+    //也可以使用 JSON 转换成对象
+    let objs = JSON.parse(str);
+    console.log(objs);
+
+
+
+
+
+
+
+    //assign 复制对象并且进行合并
+    let objaaa = {
+        name: 'feimao@110',
+        sex: '♂'
+    };
+    let objbbb = {
+        ager: 19
+    };
+
+    //assign合并对象
+    let objccc = Object.assign(objaaa, objbbb);
+    console.log(objccc);
+    //{name: 'feimao@110', sex: '♂', ager: 19}
+
+
+
+
+    // assign 在函数中的做哟
+    function upload(params) {
+        let option = {
+            size: 199
+        };
+        //设置一个合并方法这样就可以增加数据和修改数据了
+        option = Object.assign(option, params);
+        console.log(JSON.stringify(option)); //{"size":0,"type":"&jpg"}
+    }
+
+    upload({
+        type: '&jpg',
+        size: 0
+    });
+</script>

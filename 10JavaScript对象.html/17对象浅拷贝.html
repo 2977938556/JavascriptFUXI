@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //1：对象的拷贝
+    let a = {
+        name: '肥猫'
+    };
+    let b = a
+
+    //修改 a 中的属性 ，b中的属性也会被修改掉
+    a.name = '橘猫';
+    console.log(b); //{name:'橘猫'}
+
+
+
+    //2：浅拷贝（下面将会使用 多种方式实现浅拷贝）
+    let c = {
+        ager: 100
+    };
+    let d = {};
+
+    //2_1使用循环实现浅拷贝
+    // for (const key in c) {
+    //     d[key] = c[key];
+    // }
+
+    // c.ager = 200;
+    // console.log(d); // ager: 100
+
+
+
+    //2_2使用assign 复制实现浅拷贝
+    // d = Object.assign(d, c);
+    // c.ager = 200;
+    // console.log(d); //ager: 100
+    // console.log(c); //ager: 200
+
+
+    //2_3使用 展开语法进行浅拷贝
+    // d = {...c
+    // };
+    // c.ager = 200;
+    // console.log(d); //ager: 100
+    // console.log(c); //ager: 200
+</script>

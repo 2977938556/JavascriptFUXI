@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let obj = {
+        user: '肥猫',
+        show: function() {
+            return function() {
+                //这里的this 指向于window 因为不是一obj 的一个属性 
+                //可以使用箭头函数 进修改
+                return this.user
+            }
+        }
+    }
+
+
+
+
+    let b = obj.show()();
+    console.log(b); //undefined
+</script>

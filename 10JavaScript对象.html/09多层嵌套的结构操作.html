@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //多层嵌套的数据
+    let hd = {
+        namr: '小白',
+        lesson: {
+            title: {
+                ager: 19
+            }
+        }
+    }
+
+    //进行结构分解数据
+    //其实就是 和数据元的结构一致只是结构的数据可能不会修改属性名称而已所以会懵住
+    let {
+        name,
+        lesson: {
+            title: {
+                ager
+            }
+        }
+    } = hd;
+    console.log(ager); //19
+</script>

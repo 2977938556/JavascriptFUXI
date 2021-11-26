@@ -13,10 +13,17 @@
 </body>
 
 </html>
-<script>
-    //变量是单独存在的 
-    //对象的属性是寄托在对象下面
 
-    //函数是单独存在单独调用
-    //对象的方法需要 在对象下面进行调用
+<script>
+    "use strict";
+
+    //在严格模式中必须使用let const var等关键字 进行定义不然会报错
+    let {
+        name = a,
+            age = b,
+    } = {
+        name: 1,
+        age: 2
+    };
+    console.log(name, age);
 </script>

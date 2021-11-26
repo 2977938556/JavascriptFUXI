@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //工厂函数
+    //可以减少重复创建的代码块
+    //修改工厂函数的代码可以影响全局的函数数据，
+
+
+
+    //简单的示例
+    function Gchang(name, upload) {
+        //返回一个对象出去
+        return {
+            name,
+            upload,
+            show() {
+                console.log(`我是${this.name}我的访问地址是${this.upload}`);
+            }
+        }
+    }
+
+
+
+
+    //可以分别创建不同的函数如果工厂被修改那么就会修改创建的函数
+    let a = new Gchang('FeiMao@110', 'www.feimao.com');
+
+    let b = new Gchang('MiaoYa@119', 'www.miaoya.com');
+
+
+
+
+    a.show(); //我是FeiMao@110我的访问地址是www.feimao.com
+    b.show(); //我是MiaoYa@119我的访问地址是www.miaoya.com
+</script>

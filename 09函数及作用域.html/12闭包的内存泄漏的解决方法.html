@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 dec='a'>A</h1>
+    <h1 dec='b'>A</h1>
+</body>
+
+</html>
+
+
+
+
+<script>
+    let element = document.querySelectorAll('h1');
+
+    element.forEach(function(item) {
+        //在每次循环的时候 会产生一个函数作用域 所以每次就会获取到一个dec自定义属性 
+        let dec = item.getAttribute('dec');
+        item.addEventListener('click', function() {
+                console.log(this.getAttribute('dec'));
+                console.log(item);
+            })
+            //在获取成功数据后 就把item 给从内存中删除掉 这样就可以阻止内存泄漏
+            // 这样内存中就不会有大量的不需要的数据 减少内存的泄漏
+
+        item = null;
+
+    })
+</script>

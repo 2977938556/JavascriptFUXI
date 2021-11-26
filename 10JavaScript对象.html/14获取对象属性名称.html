@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    // Object.getOwnPropertyNames 这个方法可以获取对象中全部的属性明名称
+    let obj = [{
+        name: '小莫',
+        age: 19,
+        sex: '♂'
+    }, {
+        miaoya: '小莫',
+        max: 19,
+        min: '♂'
+    }];
+
+
+
+    //存储
+    let arr = [];
+    for (let i = 0; i < obj.length; i++) {
+        //将属性名称压入进去
+        arr.push(Object.getOwnPropertyNames(obj[i]))
+    };
+
+
+
+
+    let id = 0;
+    let atr = {
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+        [`我是${id++}`]: `${id++}`,
+    }
+
+    console.log(atr);
+</script>

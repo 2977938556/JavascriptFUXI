@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let a = {
+        name: '1'
+    };
+
+
+    //1：hasOwnProperty 检测的是 该对象中是否包含这个属性不会向上级查找
+    let s = a.hasOwnProperty('name');
+    console.log(s); //true
+
+
+    //2：因此我们可以使用这个进行一个判断】
+    if (!a.hasOwnProperty('url')) {
+        console.log('未传入url 参数');
+    }
+
+
+
+    //3：如果需要查找父级和自己的数据那么就需要使用 in 
+    // console.log('fill' );
+    console.log('url' in a); //true
+
+
+
+    //4：修改对象的父级
+    let b = {
+        url: 'www.baidu.com'
+    }
+
+    // 将 a 的父级修改成为 b，这样就可以使用 b 里面的属性了
+    Object.setPrototypeOf(a, b);
+    //再次检测 url 属性
+    console.log('url' in a); //true
+
+
+    console.log(a);
+</script>
