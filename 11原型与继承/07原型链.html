@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    function Max(uname, ager) {
+        this.uname = uname;
+        this.ager = ager;
+    }
+
+    let a = new Max('呵呵呵', '100');
+
+
+
+    //原型结构
+    //1：在构造函数中 下有一个 prototype原型对象
+    //2：在原型对象下面有一个__proto__属性，这个属性指向于 由Object的构造函数下面的  object原型对象下面的 prototype原型下面
+    //3：在object对象中有一个__proto__属性，这个属性指向于 null  
+    //4:通过上面的链接形成了一个原型链
+    //5：具体的理解建议看图理解在 笔记软件上记录了
+
+
+    console.log(Max.prototype); //Max 下的原型对象prototype
+    console.log(Max.prototype.__proto__); //Max 下的原型对象下的prototype下面的__proto__ 的指向
+    console.log(Max.prototype.__proto__.constructor); //Object构造函数  是由这个来创建 prototype属性的
+    console.log(Object.prototype.__proto__); //最终的指向于null
+</script>

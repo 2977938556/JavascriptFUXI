@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    // 'use strict'
+    let obj = {
+        name: '123',
+        age: 19,
+        sex: '♂'
+    }
+
+
+
+    //（1）设置属性特征
+    Object.defineProperty(obj, 'name', {
+        //设置禁止 修改
+        writable: false, //是否读取
+        enumerable: false, //是否遍历
+        configurable: false //是否可以被删除  是否可以重新配置一下属性特征
+    });
+    //修改属性
+    obj.name = 'FeiMao@110';
+    console.log(obj.name); //输出123 修改数值失败
+
+    //遍历数据 
+    //下面只输出了 两个对象属性 一个name 被禁止遍历了
+    console.log(Object.keys(obj)); // ['age', 'sex']
+
+    //删除测试
+    //删除不了被禁止了
+    delete obj.name
+    console.log(obj); //{age: 19, sex: '♂', name: '123'}
+
+
+
+    console.log(JSON.stringify(Object.getOwnPropertyDescriptors(obj), null, 2));
+
+
+
+
+
+
+
+
+
+    //（2）设置多个属性特征   "defineProperties"
+    Object.defineProperties(obj, {
+        name: {
+            writable: false,
+            enumerable: false,
+            configurable: false
+        },
+        age: {
+            writable: false,
+            enumerable: false,
+            configurable: false
+        },
+        sex: {
+            writable: false,
+            enumerable: false,
+            configurable: false
+        },
+    })
+
+
+
+    obj.sex = '♀';
+    console.log(obj.sex); //输出123 修改数值失败
+</script>

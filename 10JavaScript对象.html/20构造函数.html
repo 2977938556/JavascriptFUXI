@@ -16,8 +16,6 @@
 
 <script>
     //构造函数与 工厂函数有点相似
-
-
     function Parce(name) {
         this.name = name;
         this.show = function() {
@@ -74,4 +72,14 @@
 
 
     //js中绝大多数的数据都是通过构造函数创建的
+    let a = new Number(1);
+    console.log(a);
+    let b = new String('2');
+    console.log(b);
+    let c = new Boolean(false);
+    console.log(c);
+    let d = new Object({
+        'name': 1
+    });
+    console.log(d);
 </script>

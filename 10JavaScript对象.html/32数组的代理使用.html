@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    const lessons = [{
+        title: "媒体查询响应式布局",
+        category: "css"
+    }, {
+        title: "FLEX 弹性盒模型",
+        category: "css"
+    }, {
+        title: "MYSQL多表查询随意操作",
+        category: "mysql"
+    }];
+
+
+
+
+    let proxy = new Proxy(lessons, {
+        //下面使用了 proxy进行代理操作进行截取字符串标题
+        get(array, key) {
+            //第一个参数是 原数组 
+            //第二个参数是 数组的索引值
+            let title = array[key].title;
+            //进行判断如果长度大于了5就截取并且使用·进行结尾
+            // return {
+            //     title: title.length > 5 ? title.substr(0, 5) + '.'.repeat(5) : title,
+            //     category: array[key].category,
+            // }
+
+            //返回一个 array 对象
+            array[key].title = title.length > 5 ? title.substr(0, 5) + '.'.repeat(5) : title;
+            return array[key]
+
+
+        }
+    });
+    console.log(proxy[0]);
+</script>

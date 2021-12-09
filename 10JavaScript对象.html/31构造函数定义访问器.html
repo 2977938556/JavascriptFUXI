@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    function User(name, ager) {
+        let data = {
+            name,
+            ager
+        };
+        //defineProperties设置读取数据的入口和出口
+        Object.defineProperties(this, {
+            name: {
+                get() {
+                    return data.name
+                },
+                set(value) {
+                    if (value == '') {
+                        throw new Error('数据错误');
+                    } else {
+                        data.name = value;
+                    }
+                }
+            },
+            //分别设置不同的对象操作
+            ager: {
+                get() {
+                    return data.name
+                },
+                set(value) {
+                    if (value == '' || value > 100) {
+                        throw new Error('数据错误');
+                    } else {
+                        data.name = value;
+                    }
+                }
+            }
+        })
+    }
+
+
+
+    let a = new User();
+    a.name = '肥猫';
+
+
+    a.ager = 13;
+    console.log(a.name);
+</script>

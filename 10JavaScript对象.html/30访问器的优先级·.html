@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+<script>
+    // getter方法用于获得属性值， setter方法用于设置属性， 这是JS提供的存取器特性即使用函数来管理属性。
+
+    // 用于避免错误的赋值
+    // 需要动态监测值的改变
+    // 属性只能在访问器和普通属性任选其一， 不能共同存在# getter / setter
+
+
+    // let obj = {
+    //     name: 'Feimao',
+    //     //访问器的属性优先级比原数据更高
+    //     set name(value) {
+    //         console.log(value + this.name);
+    //     }
+    // }
+    // obj.name = 1
+    // console.log(obj); //丢失name 属性
+
+
+
+
+
+
+
+
+    //为解决上面的问题
+    let obj = {
+        //新建一个对象包裹在里面
+        data: {
+            name: 'Feimao',
+        },
+        //访问器的属性优先级比原数据更高
+        set name(value) {
+            console.log(value + this.data.name);
+        },
+        get name() {
+
+            console.log(this.data.name);
+        }
+    }
+    obj.name = 1
+    console.log(obj); //丢失name 属性
+</script>

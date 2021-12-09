@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    let obj = {
+        lists: [{
+            name: "js",
+            price: 100
+        }, {
+            name: "mysql",
+            price: 212
+        }, {
+            name: "vue.js",
+            price: 98
+        }],
+
+        //使用访问器来写一个计算最大值的
+        get max() {
+            let mins = null;
+            this.lists.forEach(function(item) {
+                if (mins < item.price) {
+                    mins = item.price;
+                }
+            })
+            return mins;
+        }
+
+
+    }
+
+
+
+
+    console.log(obj.max); //410
+
+    console.log(obj.lists);
+</script>

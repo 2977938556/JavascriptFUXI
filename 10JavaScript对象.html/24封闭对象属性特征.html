@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let obj = {
+        name: '123',
+        age: 19,
+        sex: '♂'
+    }
+
+    //seal 可以封闭对象属性特征 就是不能删除并且不能重新定义里面的对象属性特征
+    //isSealed 检测是否是封闭的对象
+
+    Object.seal(obj); // 使用了这个属性之后 那么就会将对象中所有的属性特征的 configurable 给修改为 false
+
+    console.log(Object.isSealed(obj)); // true 表示不可以添加 不可以删除 不可以设置特征
+    //取反结果 如果为 false 的话就 可以修改属性
+    if (!Object.isSealed(obj)) {
+        console.log('可以删除添加修改特征');
+    } else {
+        console.log('不可以删除添加修改特征');
+    }
+
+    console.log(obj);
+    console.log(JSON.stringify(Object.getOwnPropertyDescriptors(obj), null, 2));
+</script>

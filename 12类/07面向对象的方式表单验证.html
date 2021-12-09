@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .err {
+            color: red;
+        }
+        
+        .correct {
+            color: green;
+        }
+        /* //提示框 */
+        
+        .alert {
+            margin: 0 auto;
+            width: 300px;
+            height: 100px;
+            background: gray;
+            color: white;
+            border-radius: 10px;
+            font-size: 24px;
+            text-align: center;
+            line-height: 100px;
+            position: relative;
+            display: none;
+        }
+        
+        .alert span {
+            color: red;
+            cursor: pointer;
+            position: absolute;
+            top: -30px;
+            right: 200px;
+        }
+        
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    账户 :<input type="text" name="text">
+    <p class="errora"></p>
+    密码： <input type="text" name="password">
+    <p class="errorb"></p>
+    <button name="button">提交</button>
+
+    <div class="alert">
+        <h5>3秒后即将跳转到官网</h5>
+        <span>X</span>
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    //设置每次点击获取数据
+    //设置判断
+    //设置提示
+    //设置成功
+    class Iinputs {
+        constructor() {
+            //提示框
+            this.alerts = document.querySelector('.alert'); //提示框
+            this.nobtn = this.alerts.querySelector('span'); //关闭按钮
+            this.alertInner = document.querySelector('.alert h5') //提示框
+
+            this.text = document.querySelector('[name=text]'); //文本框
+            this.password = document.querySelector('[name=password]'); //密码框
+            this.btn = document.querySelector('[name=button]'); //提交按钮
+            this.errora = document.querySelector('.errora'); // 错误 账户
+            this.errorb = document.querySelector('.errorb') //错误 密码
+            this.This = this;
+            //调用提交按钮
+            this.init()
+        };
+
+
+
+        //初始化函数 调用 btn点击的时候执行一系列的操作
+        init() {
+            this.btn.addEventListener('click', () => {
+                this.subText()
+            })
+        };
+
+
+
+        //提交数据
+        subText() {
+            console.log('我执行了');
+            this.getData();
+        };
+
+
+        //获取数据
+        getData() {
+            let valueText = this.text.value;
+            let valuePasswod = this.password.value;
+
+            //调用判断条件并传入参数
+            this.ifData([{
+                    text: 'text',
+                    value: valueText
+                }, {
+                    password: 'password',
+                    value: valuePasswod
+                }]) //text/password
+
+        };
+
+
+        //设置text 判断条件
+        ifData([a, b]) {
+            //设置一个变量用于 后期判断是否通过
+            let fage = false;
+
+            if (a.text == 'text') {
+                if (a.value.length < 2 || a.value.length > 6) {
+                    //设置一个innerHTML 的错误 提示
+                    this.errora.innerHTML = 'X：账户格式小于2位并且不得大于6位';
+
+                    //调用 正确颜色样式
+                    this.redError(a.text);
+                    fage = false;
+
+
+
+                } else {
+                    //设置一个inner HTML 的 提示
+                    this.errora.innerHTML = '✔：该昵称未被别人使用';
+
+                    //调用 正确颜色样式
+                    this.goodError(a.text);
+
+
+                    //设置网站控制阀
+                    fage = true;
+                }
+
+            };
+
+            //判断密码的
+            if (b.password == 'password') {
+                if (b.value.length < 6) {
+                    this.errorb.innerHTML = 'X:密码长度需要达到6位并且不低于12位';
+
+                    //调用 错误颜色样式
+                    this.redError(b.password);
+                    fage = false;
+
+                } else if (b.value.length > 12) {
+                    this.errorb.innerHTML = 'X:密码长度高于12位数';
+
+                    this.redError(b.password);
+                    fage = false;
+                } else {
+                    this.errorb.innerHTML = '✔：密码是合法的';
+                    //设置正确的颜色
+                    this.goodError(b.password);
+
+                    //设置网站控制阀
+                    fage = true;
+
+                }
+
+            }
+
+
+            //判断完之后就开始 设置最后的提交操作了
+            this.jumpUrl(fage);
+
+
+
+
+        };
+
+        //颜色 显示错误还是正确的
+
+        //错误
+        redError(name) {
+            if (name == 'text') {
+                this.errora.classList.add('err');
+            } else if (name == 'password') {
+                this.errorb.classList.add('err');
+            }
+        };
+        //正确
+        goodError(name) {
+            console.log(name);
+            if (name == 'text') {
+                this.errora.classList.add('correct');
+            } else if (name == 'password') {
+                this.errorb.classList.add('correct');
+            }
+
+        }
+
+        //设置一个 方法用于最后的判断
+        jumpUrl(fage) {
+            //设置一个 错误的
+            console.log(fage);
+            //倒计时
+            let str = 3;
+
+            //指向筏
+            if (fage) {
+                this.alerts.className = 'show';
+                setInterval(() => {
+                    console.log(str);
+                    this.alertInner.innerHTML = str-- + "秒后即将跳转到官网"
+                    if (str == 0) {
+                        //当倒计时达到0 的时候就开始跳转页面
+                        location.href = 'https://doc.houdunren.com/js/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html#%E5%85%B1%E5%90%8C%E7%82%B9';
+                    }
+                }, 1000);
+            }
+        }
+
+
+    }
+
+
+
+
+
+
+    let input = new Iinputs();
+</script>

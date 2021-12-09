@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //利用 new Object
+    let obja = new Object();
+    console.log(obja);
+
+
+
+    //构造函数
+    function Ma(name, ager, sex) {
+        //特征
+        this.name = name;
+        this.ager = ager;
+        this.sex = sex;
+        //方法
+        this.show = function(a, b) {
+            alert('我会唱歌拍电影');
+        }
+    }
+
+
+
+
+
+    let objb = new Ma('刘德华', '38', '♂');
+    let btn = document.querySelector('button');
+
+
+
+
+    //学习目标
+    //能够使用构造函数创建对象
+    //能够说出原型的作用 
+    //能够说出访问对象成员的规则
+    //能够使用 ES5中新增的一些方法
+</script>

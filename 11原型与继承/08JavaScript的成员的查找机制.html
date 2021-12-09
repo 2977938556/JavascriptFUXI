@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    function Max(uname, ager) {
+        this.uname = uname;
+        this.ager = ager;
+        this.show = function() {
+            console.log('秒呀');
+        };
+        this.mm = '123'
+
+    }
+
+
+    //在原型上设置一个方法
+    Max.prototype.show = function() {
+        console.log(this);
+    }
+    Max.prototype.mm = '223333';
+
+
+
+    //ObJECT的原型上设置一个方法
+    Object.prototype.miaoya = function() {
+        console.log(this);
+    }
+
+
+
+
+
+    let a = new Max('秒呀', '100');
+    a.mm = '233333'
+
+
+
+    //01：查找机制第一是先在对象实例上是否有这些属性或者方法
+    console.log(a.mm); //2333
+    //02:如果没有查找到那么就会Object在原型链上进行查找
+    a.show(); //秒呀
+    //03:如果没有查找到就直接返回null
+    //return null;
+
+
+    console.log(a);
+
+
+    //总结以上规律  就是  ”就近原则“；
+</script>

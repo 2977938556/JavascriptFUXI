@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" v-model="concat" />
+    <input type="text" v-model="concat" />
+    <hr>
+    <input type="text" v-model="title" />
+    <input type="text" v-model="title" />
+    <div v-bind="title">我会变化</div>
+</body>
+
+</html>
+
+
+
+<script>
+    function Agent(name) {
+        //定义一个 代理池
+        let proxy = new Proxy({}, {
+
+            //获取对象
+            get(obj, property) {
+                console.log(obj);
+            },
+            //渲染数据
+            set(obj, property, value) {
+                //获取相应的dom元素进行修改value值
+                document.querySelectorAll(`[v-model="${property}"],[v-bind="${property}"]`).forEach(function(item) {
+                    item.value = value
+                    item.innerHTML = value
+                })
+
+            }
+        })
+
+        //当抬起键盘的时候就执行以下代码
+        this.init = function() {
+            //获取所有的input值
+            const inputs = document.querySelectorAll('[v-model]');
+            //循环将每一个input设置一个keyup 键盘抬起事件
+            inputs.forEach(function(item, index) {
+                item.addEventListener('keyup', function() {
+                    //将数据存入proxy代理容器中
+                    proxy[`${this.getAttribute('v-model')}`] = this.value;
+                })
+            })
+        }
+    }
+
+    //新建一个构造函数
+    new Agent().init()
+
+
+
+    // 以上的的逻辑就是 
+    //1；新建一个构造函数
+    //2：设置一个代理
+    //3：设置一获取所有元素 并且给其添加一个 keyup键盘抬起事件并且将当前点击的this.value 添加到代理池数据库中
+    //4：设置一个查找到全部元素并且设置他们所有的 value和innerHTML的值
+</script>

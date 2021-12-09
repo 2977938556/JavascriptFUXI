@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    let obj = {
+        name: '123',
+        age: 19,
+        sex: '♂'
+    }
+
+
+    //Object.freeze 冻结对象后不允许添加、删除、修改属性，writable、configurable都标记为false
+    Object.freeze(obj);
+
+
+
+    //使用 isFrozen可以检测对象是被冻结的  返回为true就代表被冻结了 否则可以修改
+    let data = Object.isFrozen(obj);
+    console.log(data); //true
+
+
+
+    console.log(JSON.stringify(Object.getOwnPropertyDescriptors(obj), null, 2));
+    /*
+                            {
+                            "name": {
+                                "value": "123",
+                                "writable": false,
+                                "enumerable": true,
+                                "configurable": false
+                            },
+                            "age": {
+                                "value": 19,
+                                "writable": false,
+                                "enumerable": true,
+                                "configurable": false
+                            },
+                            "sex": {
+                                "value": "♂",
+                                "writable": false,
+                                "enumerable": true,
+                                "configurable": false
+                            }
+                    } */
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    function Max(uname, ager) {
+        this.uname = uname;
+        this.ager = ager;
+        this.show = function() {
+            console.log(this);
+        };
+        this.mm = '123'
+    }
+
+    //原型中的this指向问题
+    Max.prototype.shows = function() {
+        //1：在原型中的this指向于实例对象自己
+        console.log(this);
+    }
+    let a = new Max('feimao', '1000');
+    //2:在构造函数中，里面的this指向是对象实例中的
+    a.show() //Max {uname: 'feimao', ager: '1000', mm: '123', show: ƒ}
+</script>

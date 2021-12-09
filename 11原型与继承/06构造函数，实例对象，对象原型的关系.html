@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+<script>
+    function Max(uname, ager) {
+        this.uname = uname;
+        this.ager = ager;
+    }
+
+    let a = new Max('呵呵呵', '100');
+
+
+
+
+    //构造函数中有三个常用的属性
+    //prototype ：原型对象
+    //__proto__:对象的原型
+    //constructor :是构造器，指向于构造函数
+
+
+    //以上三个属性 组成了一个铁三角的关系
+    //相互联系
+    //            ————————>  Max.prototype原型对象
+    //构造函数Max 
+    //            <———————— Max.prototype.cnstrunctoe 构造器指向于构造函数中
+    //          |        |
+    //            \       \
+    //               \      |
+    //                  \\
+    //  实例对象A 有__proto__属性指向于原型对象中
+    //实例对象下还有一个 a.__proto__.construnctor 属性这个属性指向于构造函数，但是因为__proto__的属性所以默认就指向过去了
+    //
+</script>

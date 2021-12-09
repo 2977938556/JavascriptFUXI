@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let obj = {
+        data: {
+            name: '后盾人',
+            age: 100,
+        },
+        //写入数据
+        set age(value) {
+            console.log(typeof value);
+            if (typeof value != 'number' || value >= 100 || value < 10) {
+                consoel.log('数据错误');
+            } else {
+                this.data.age = value;
+            }
+        },
+
+        //输出数据
+        get age() {
+            return this.data.age + '岁';
+        }
+
+
+    }
+
+    obj.age = 50;
+    console.log(obj.age); // 50岁
+</script>

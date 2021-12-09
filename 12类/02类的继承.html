@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    // 子承父业
+    class Father {
+        constructor(name) {
+            this.name = name
+        }
+        showfather() {
+            console.log('我是父级的方法');
+        }
+    }
+
+
+    //extends 继承父级的方法
+    class Subset extends Father {
+        show() {
+            console.log('我是字类的方法');
+        }
+    }
+
+
+    let subset = new Subset();
+    subset.showfather() //我是父级的方法
+</script>

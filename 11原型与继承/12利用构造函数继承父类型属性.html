@@ -1,0 +1,29 @@
+<script>
+    //父级构造函数
+    function Father(name, ager) {
+        //构造函数中的this指向于构造函数的实例对象
+        this.name = name;
+        this.ager = ager;
+        this.show = function() {
+            console.log(this.name);
+        }
+    }
+
+
+
+    //子集构造函数
+    function Subset(fna) {
+
+        //使用 call 进行修改this指向并调用函数让父级函数给我生产数据
+        Father.call(this, 'FeiMao', 19);
+        //也可以自定义自己的数据
+        this.fna = fna
+    }
+
+
+
+    let subset = new Subset('miaoya');
+    subset.show();
+    console.log(subset.fna); //miaoya
+    console.log(subset); //Subset {name: 'FeiMao', ager: 19, fna: 'miaoya'}
+</script>

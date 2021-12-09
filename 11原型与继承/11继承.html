@@ -1,0 +1,15 @@
+<script>
+    function fna(name, ager) {
+        console.log(this);
+        console.log(name, ager);
+    }
+
+
+    let obja = {
+            name: '2',
+        }
+        //call 
+        //可以修改this指向
+        //可以调用函数
+    fna.call(obja, '肥猫', '19')
+</script>

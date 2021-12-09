@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+
+
+<script>
+    // 1:构造函数中发属性与方法我们称之为成员，成员是可以添加删除的        
+    function Max(uname, ager) {
+        this.uname = uname;
+        this.ager = ager;
+        this.show = function() {
+            console.log('喵喵喵');
+        }
+    }
+
+    let zs = new Max('张三', 19);
+    //2:实例成员：就是构造函数中通过this添加的成员 比如上面的 uname，ager等
+    //实例成员只能通过实例化的对象来访问
+    console.log(zs.uname);
+
+
+
+
+
+    //3:静态成员：就是在构造函数中添加的成员
+    //静态成员只能通过构造函数进行访问，不可以通过对象进行访问
+    Max.sex = '♂';
+    console.log(Max.sex); //‘♂’
+</script>

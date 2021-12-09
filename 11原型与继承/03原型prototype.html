@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //构造函数方法很好用，但是存在浪费内存的问题
+    //比如 一个构造函数中 有很多不同实例对象那么 里面实例化的方法会是在不同的内存中
+    function Max(uname, ager) {
+        this.uname = uname;
+        this.ager = ager;
+        // this.show = function() {
+        //     console.log('喵喵喵');
+        // }
+    }
+    let a = new Max('哈哈哈', '16');
+    let b = new Max('嘿嘿嘿', '18');
+    //由于在不同的地址所以就会 返回false
+    console.log(a.show === b.show); //false
+
+
+    //因此我们希望 所有的对象使用同一个函数 ，这样比较节约内存 
+
+
+    //《构造函数原型 prototype》
+    //在JavaScript中规定， 在每一
+    //注意这个 prototype 就是一个对象 这个对象中的所有属性与方法都会被 构造函数所拥有
+    // 个构造函数中有一个prototype属性 指向另一个对象
+
+    //我们可以把那些不变的方法直接定义在prototype对象上，这样所有的对象的实例就可以共享这些方法
+
+    //console.dir 可以打印出一个对象中所有属性与方法
+    console.dir(Max);
+
+
+
+    Max.prototype.show = function() {
+        console.log('咩咩咩咩');
+    }
+
+    console.log(a.show === b.show); //true
+
+
+
+
+
+
+    //学习目标
+    //能够使用构造函数创建对象 ✔
+    //能够说出原型的作用  （共享方法/节约内存） 原型的作用是节约内存让相同属性与方法在同一个内存中
+</script>

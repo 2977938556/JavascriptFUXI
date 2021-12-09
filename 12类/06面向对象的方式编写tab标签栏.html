@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        /* 主体 */
+        
+        h4 {
+            text-align: center;
+        }
+        
+        .tabsbox {
+            width: 504px;
+            height: auto;
+            margin: 0 auto;
+            background: gray;
+        }
+        
+        .tabsbox .fisrstanv {
+            width: 504px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .tabsbox .fisrstanv ul {
+            width: 504px;
+            height: 50px;
+            line-height: 50px;
+        }
+        
+        .tabsbox .fisrstanv .tabadd {
+            font-size: 24px;
+            line-height: 50px;
+            background: greenyellow;
+            cursor: pointer;
+        }
+        
+        .tabsbox .fisrstanv ul li {
+            float: left;
+            width: 80px;
+            height: 50px;
+            text-align: center;
+            /* border-right: 2px solid white; */
+            background: turquoise;
+            cursor: pointer;
+        }
+        
+        .tabscon {
+            width: 504px;
+        }
+        
+        .tabscon div {
+            width: 504px;
+            height: 400px;
+            background: gainsboro;
+        }
+        
+        .tabscon div {
+            display: none;
+            font-size: 24px;
+            line-height: 40px;
+            padding-left: 24px;
+        }
+        
+        .change {
+            background: chartreuse !important;
+        }
+        
+        .show {
+            display: block !important;
+            background: chartreuse !important;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>JS 面向对象 动态添加标签页😭😭😭😭😭😭😭</h4>
+    <div class="tabsbox" id="tab">
+
+
+
+
+        <!-- 头部 -->
+        <nav class="fisrstanv">
+            <ul>
+                <li class="change"><span class="liactive">测试1</span><a>❎</a></li>
+                <li><span class="liactive">测试2</span><a>❎</a></li>
+                <li><span class="liactive">测试3</span><a>❎</a></li>
+            </ul>
+            <div class="tabadd">
+                <span>＋</span>
+            </div>
+        </nav>
+
+
+        <!-- //内容 -->
+        <div class="tabscon">
+            <div class="show">测试1</div>
+            <div>测试2</div>
+            <div>测试3</div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+<script>
+    let This = null;
+    class Tab {
+        constructor() {
+            //获取所有的页面关闭按钮
+            this.deletedAdd = document.querySelectorAll('.fisrstanv a');
+            //获取页面添加按钮
+            this.add = document.querySelector('.tabadd span');
+
+
+            //初始化的时候就开始调用 需要使用 this关键字进行调用
+            this.init();
+
+
+            //将this 添加到一个全局变量中
+            This = this;
+        }
+
+
+
+        //初始化 函数
+        init() {
+            //重新调用获取元素方法
+            this.updataNode();
+
+            //初始化所有的元素绑定事件
+            this.add.onclick = this.addTab
+            for (let i = 0; i < this.titleTab.length; i++) {
+                //设置每一个属性都有
+                this.titleTab[i].index = i;
+                //调用函数 切换功能
+                this.titleTab[i].onclick = this.taggleTab;
+            }
+
+        };
+
+        //重新获取所有的元素
+        updataNode() {
+            //获取所有的 tab 标题元素
+            this.titleTab = document.querySelectorAll('.fisrstanv li');
+            //获取所有的内容显示页面
+            this.main = document.querySelectorAll('.tabscon div');
+        }
+
+        //1:设置一个切换功能
+        taggleTab(e) {
+
+            //调用清空元素
+            This.clearCalss();
+            //设置当前点击的为 选中状态
+            this.className = 'change';
+            //设置一个 作用于下面内容的显示隐藏
+            This.main[this.index].className = 'show'
+
+
+        };
+
+        //隐藏 “排他思想”
+        clearCalss() {
+            //使用排他思想 进行设置
+            for (let index = 0; index < This.titleTab.length; index++) {
+                This.titleTab[index].className = '';
+                This.main[index].className = ''
+            }
+        }
+
+
+        //2:添加功能
+        addTab() {
+            This.clearCalss()
+            let lengths = document.querySelectorAll('.fisrstanv li').length;
+            if (lengths === 6) {
+                alert('最多添加6个')
+                return true;
+            }
+
+            //标题按钮 字符集
+            let str = `<li class="change"><span class="liactive">测试${lengths}</span><a>❎</a></li>`;
+            document.querySelector('.fisrstanv ul').innerHTML += str;
+
+            //内容div 字符集
+            let constr = `<div classs="show">测试${lengths}</div>`
+            document.querySelector('.tabscon').innerHTML += constr;
+
+
+            //每次添加完元素就将重新调用 初始化元素
+            This.init()
+        };
+
+        //3:删除功能
+        removeTab() {
+
+        };
+        //4:修改功能
+        editTab() {
+
+        };
+
+
+
+    }
+
+
+
+
+    let tab = new Tab();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

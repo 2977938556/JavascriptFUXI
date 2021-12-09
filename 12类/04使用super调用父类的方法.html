@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    class Falther {
+        say() {
+            return '我是父级'
+        }
+    }
+
+
+    class Son extends Falther {
+        //1:super 关键字可以调用父类的方法 但是需要写在函数中
+        // super.say();
+        say() {
+            //2:如果我需要调用父级的方法那么就需要 使用 super.say
+            return '我是子集' + super.say(); //我是子集我是父级
+        }
+    }
+
+
+    let son = new Son();
+    //3:查找机制:就近原则
+    console.log(son.say()); //我是子集
+</script>

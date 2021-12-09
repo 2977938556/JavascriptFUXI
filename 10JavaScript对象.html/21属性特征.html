@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let obj = {
+        name: '123',
+        age: 19,
+        sex: '♂'
+    }
+
+
+
+    //查看属性的特征
+    //getOwnPropertyDescriptor是会输出四个值
+    // value 是值的意思
+    // writable 是指是否可以"读取"
+    // enumerable 是指 是否可以"遍历"
+    // configurable 是指 是否可以被"删除"
+    console.log(JSON.stringify(Object.getOwnPropertyDescriptor(obj, 'name'), null, 2));
+
+
+
+    //可以在这个检测属性的后面添加一个”s“ 这样就可以查找到全部的属性名称的特征
+    console.log(JSON.stringify(Object.getOwnPropertyDescriptors(obj), null, 2));
+</script>

@@ -1,0 +1,49 @@
+<script>
+    //<父级构造函数>
+    function Father(name, ager) {
+        //构造函数中的this指向于构造函数的实例对象
+        this.name = name;
+        this.ager = ager;
+    }
+    Father.prototype.money = function() {
+        console.log('我是父级的方法');
+    }
+
+
+
+
+
+    //<子集构造函数>
+    function Subset(fna) {
+        this.fna = fna;
+    }
+
+
+    //这样直接符原型是错误的会将当前的子集的私有方法继承给父级了
+    // Subset.prototype = Father.prototype;
+
+
+    //我们一般是使用 将原型链接到 一个父级的实例对象上（图解更为详细）
+    //但是我们发现当把子集的构造函数的原型修改了指向那么 就产生问题了 子集的原型构造器指向于父级
+    Subset.prototype = new Father();
+    //因此我们需要将子集的构造器指向修改为 子集的构造函数
+    Subset.prototype.constructor = Subset
+
+
+
+    //子集的原型对象的方法都是在修改原型链接和构造器修正的情况下之后进行添加的
+    Subset.prototype.MASs = function() {
+        console.log('我是子集的方法');
+    }
+
+
+
+    let subset = new Subset('miaoya');
+
+    subset.money() //我是父级的方法
+    subset.MASs() //我是子集的方法
+
+    console.log(Father.prototype);
+
+    console.log(Subset.prototype);
+</script>

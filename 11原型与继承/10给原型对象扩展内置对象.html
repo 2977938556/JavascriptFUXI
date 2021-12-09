@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let arrs = [1, 2, 3, 4, 5];
+
+
+    Array.prototype.max = function() {
+        //声明一个新的数组进行接收并且 返回值
+        let maxs = '';
+        this.forEach(element => {
+            //判断 把值給切换掉
+            if (element >= maxs) {
+                maxs = element
+            }
+        });
+        //返回值
+        return [maxs]
+    }
+
+    // 调用的时候也可以使用 点语法进行调用 因为this指向于 调用本身
+    let s = arrs.max();
+    console.log(s); //[5]
+
+
+
+
+    let ss = [25, 55, 656, 558, 7877, 555].max()
+    console.log(ss); //[7877]
+
+
+
+
+
+
+
+
+    //批量添加多个对象 (但是这种方式会修改掉原型对象中的constructor)
+    //导致代码运行错误
+
+    //所以还是上面的那种添加单个 的方式比较好一些
+    // Array.prototype = {
+    //     constructor: Array,
+    //     max: function() {
+    //         //声明一个新的数组进行接收并且 返回值
+    //         let maxs = '';
+    //         this.forEach(element => {
+    //             //判断 把值給切换掉
+    //             if (element >= maxs) {
+    //                 maxs = element
+    //             }
+    //         });
+    //         //返回值
+    //         return [maxs]
+    //     }
+    // }
+
+    // console.log(arrs.sum());
+    // console.log([1, 2, 4, 5, 6, 6, 6].sum());报错
+</script>

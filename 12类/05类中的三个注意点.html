@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点我</button>
+</body>
+
+</html>
+
+
+<script>
+    //1：在类中是没有 变量提升的必须先要定义类 ，才能通过实例化对象
+
+    //2.类里面的共有属性和方法一定需要添加this 
+
+
+
+
+    class Father {
+        constructor(a, b) {
+
+            //  this指向问题  
+            //在constructor中指向的 this 就是指创建的实例对象
+            this.a = a;
+            this.b = b;
+            this.btn = document.querySelector('button');
+            this.btn.onclick = this.sing();
+            this.data = this;
+        }
+        sing() {
+            //方法里面的this 也是指向与 实例对象 
+            console.log(this == this.data); //true
+            console.log(this.a);
+        }
+    }
+
+    let father = new Father('刘德华', '19岁');
+
+    console.log(father.data === father); // true
+</script>

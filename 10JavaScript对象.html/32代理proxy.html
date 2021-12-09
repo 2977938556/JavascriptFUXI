@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    "use strict"
+    /*
+        代理（拦截器）是对象的访问控制，setter/getter 是对单个对象属性的控制，而代理是对整个对象的控制。
+
+        读写属性时代码更简洁
+        对象的多个属性控制统一交给代理完成
+        严格模式下 set 必须返回布尔值
+        #使用方法
+        */
+    let obj = {
+        name: '肥猫'
+    };
+    let a = new Proxy(obj, {
+        //在代理中的get中有两个参数
+        // 第一个参数就是 对象 
+        //第二个参数就是属性名称
+        get(obj, property) {
+
+            return obj[property]
+        },
+        //在 set 中有三个参数
+        //第一个参数是对象
+        //第二个参数是属性名称
+        //第三个 参数是传入的值
+        set(obj, property, value) {
+            //判断出传入的参是否是 空的如果是空的数据那么就返回一个错误
+            if (value == '') {
+                throw new Error('数据不可以为空')
+            }
+            //传入的数据无误就将数据更新到原对象中
+            obj[property] = value;
+
+            //在严格模式中必须返回一个 true 否则报错
+            return true;
+        }
+    });
+
+    console.log(a.name);
+    a.name = 'FeiMao'
+
+    console.log(a);
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    let obj = {
+        name: 'miaoya',
+        objs: {
+            ager: '19',
+            sex: '1',
+        }
+    }
+
+
+    //在js中可以使用 js提的方法转换为 json数据结构的
+    //第一个参数是 需要json化的对象 
+    //第二个参数是指需要保留的元素
+    //第三个是json化的对象需要多少个空格
+    let s = JSON.stringify(obj, ['name', 'objs', 'ager', 'sex'], 2);
+    console.log(s);
+
+    //可以使用 JSON.parse(json数据)；转换为对象了
+    let sobj = JSON.parse(s);
+    console.log(sobj); //{name: 'miaoya', objs: {…}}
+
+
+
+
+    //定制化返回的数据
+
+
+
+    let pop = {
+        name: 'miaoya',
+        objs: {
+            ager: '19',
+            sex: '1',
+        },
+        //使用 toJSON 函数设置定制的返回函数
+        toJSON: function() {
+            return {
+                name: this.name,
+                objs: {
+                    ager: this.ager,
+                    sex: this.ager,
+                }
+            }
+        }
+    }
+
+
+    let names = JSON.stringify(pop, null, name);
+    // console.log(names);
+
+
+
+    //parse 有两个参数 第一个是 需要转换为对象的 json数据 
+    //第二个是 可以执行的一个回调函数 可以处理一些数据上的一些操作逻辑
+    JSON.parse(names, function(a, b) {
+        if (a == 'name') {
+            console.log(a = a + `:我的名字叫${b}`);
+
+
+        }
+    })
+</script>

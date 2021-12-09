@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    function miaoya(num) {
+        if (num == 1) {
+            return 1;
+        }
+        return num + miaoya(num - 1);
+    }
+
+
+    //代理函数
+    let proxy = new Proxy(miaoya, {
+        //第一个参数是函数代码块
+        //第二个参数是 函数的返回 this
+        //第三个参数是 proxy对象
+        //使用代理就是为了 在调用之前就处理一下函数等问题~
+        apply(a, b, c) {
+            return a.apply(this, c);
+
+        }
+    })
+
+
+    //代理需要使用 apply 进行调用
+    let s = proxy.apply(this, [5])
+    console.log(s); //15
+</script>

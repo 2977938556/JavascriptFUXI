@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    function Max(uname, ager) {
+        this.uname = uname;
+        this.ager = ager;
+        this.show = function() {
+            console.log('好好好好');
+        }
+    }
+
+    //在构造函数中的原型对象中添加一个 方法
+    Max.prototype.show = function() {
+        console.log('呵呵呵');
+    }
+
+    let a = new Max('哈哈哈', '16');
+
+
+    //在每一个对象中都有一个 属性__proto__指向构造函数的 prototype原型对象，之所以我们对象可以使用构造函数prototype 原型对象的属性与方法 ，
+    //就是因为对象中有一个__proto__ 原型的存在
+    a.show();
+    console.log(a);
+
+
+
+
+    //所以说 构造函数中的原型与实例对象中的原型对象是等价的
+    console.log(Max.prototype == a.__proto__); //true
+
+
+
+    //查找规则 
+    //首先先看 实例化的对象中是否有 show 这个方法 如果有就执行 
+    //如果没有show 方法，因为有 __proto__的存在，就去构造函数原型对象prototype身上查找
+
+
+
+    //prototype ：原型对象
+    //__porto__：对象的原型
+    //constructor:的作用是通过哪个构造函数创建的
+</script>
