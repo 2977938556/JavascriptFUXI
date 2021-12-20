@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 200px;
+            heigth: 200px;
+            border: 1px solid red;
+            background: #ffc7c7;
+            position: relative;
+            transition: all 0.5s;
+        overflow: hidden;
+        }
+
+
+
+
+    </style>
+</head>
+
+
+<body>
+<div class="box">
+    我是任务队列
+    我是任务队列
+    我是任务队列
+    我是任务队列
+    我是任务队列
+    我是任务队列
+    我是任务队列
+    我是任务队列
+    我是任务队列
+    我是任务队列
+    我是任务队列
+    我是任务队列
+    我是任务队列
+    我是任务队列
+</div>
+</body>
+</html>
+<script>
+    //设置一个 定时器 传入了一个 回调函数 和一个定时器的数值
+    function interval(checked, daya = 20) {
+        let id = setInterval(function () {
+            checked(id);
+        }, daya);
+    }
+
+
+    interval(function (name) {
+        //获取div与div距离左边的距离
+        let div = document.querySelector('div');
+        let left = div.offsetLeft;
+        div.style.left = left + 100 + "px"
+        console.log(div)
+
+
+        //数值达到了一定程度就将定时器给清除掉
+        if (left >= 300) {
+            //清除定时器
+            clearInterval(name)
+            //重新调用定时器
+            interval(function (id) {
+                //获取 宽度与高度 在后面修改数值产生一个效果
+                let width = div.offsetWidth;
+                let height = div.offsetHeight;
+                div.style.width = width - 10 + "px"
+                div.style.height = height - 10 + "px"
+
+                //当宽度小于 150像素的时候就 清除一下定时器
+                if (width <= 150) {
+                    clearInterval(id)
+                }
+            }, 100);
+
+
+        }
+    }, 10);
+
+
+    //定时器里面的是异步任务 系统会将主线程的任务执行完后再去任务队列中进行查找是否还有任务
+    console.log("我是首先执行的 因为我是主任务");
+
+
+
+    //1：以上任务出现了一些 函数相互的嵌套这样产生了一些问题 会导致代码结构不清晰
+    //JavaScript是一单线程的任务.
+
+
+</script>

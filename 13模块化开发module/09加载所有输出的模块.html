@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+</html>
+<script type="module">
+    //整体加载的写法 就在前面添加一个* 号 然后需要使用as 修改一下名称
+    import * as agg from "./module/09.js";
+
+    console.log(agg.a)//我是a
+    console.log(agg.b)//我是b
+
+
+    //下面是会报错的因为 agg是静态执行的  不允许运行时改变
+    agg.s = 1;
+</script>
+

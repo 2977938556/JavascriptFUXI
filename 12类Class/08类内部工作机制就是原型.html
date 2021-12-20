@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //类
+    class Ass {
+        constructor(name) {
+            this.name = name;
+        }
+        show() {
+            console.log(this.name);
+        }
+    }
+    //分别实例化对象 
+    let ass = new Ass('我是类的语法糖 Class')
+
+
+
+    //构造函数
+    function Bss(name) {
+        this.name = name;
+
+    }
+    Bss.prototype.show = function() {
+        console.log(this.name);
+    }
+    let bss = new Bss('我是构造函数 我将的原理就是class类的语法糖');
+
+
+
+    //原型的结构 下面两个原型的结构都是一样
+    console.dir(Ass);
+    console.dir(Bss);
+
+
+    //类与 构造函数的 构造器指向的位置都是一样的都是指回原来的函数
+    console.dir(Ass == Ass.prototype.constructor); //true
+    console.dir(Bss == Bss.prototype.constructor); //true
+
+
+    //getOwnPropertyNames 打印出对象中自己独有的属性与方法
+    //打印结果我们可以看到 下面的结果都是对象自己的方法 而原型对象内的方法show 没有打印出来
+    //这也证实了 类中添加的方法都是 添加在原型上的
+
+    //类中的
+    console.log(Object.getOwnPropertyNames(Ass)); //['length', 'name', 'prototype']
+    //构造函数
+    console.log(Object.getOwnPropertyNames(Bss)); // ['length', 'name', 'arguments', 'caller', 'prototype']
+
+
+
+    //类中的
+    console.log(Object.getOwnPropertyNames(Ass)); //['length', 'name', 'prototype']
+    //构造函数
+    console.log(Object.getOwnPropertyNames(Bss)); // ['length', 'name', 'arguments', 'caller', 'prototype']
+
+
+    //打印出 类与构造函数中方法与属性
+    //可以看出 show 方法是被添加到了 原型上面去了 
+
+
+    //类中的
+    console.log(Object.getOwnPropertyNames(Ass.prototype)); // ['constructor', 'show']
+    //构造函数
+    console.log(Object.getOwnPropertyNames(Bss.prototype)); // ['constructor', 'show']
+
+
+
+    //重复习一下 constructor 的指向 
+    //可以看出下面的constructor 的指向都是 回自己的函数中的 与 第一个打印对象属性与方法的是一致的输出结果
+
+    console.log(Object.getOwnPropertyNames(Ass.prototype.constructor)); // ['constructor', 'show']
+    console.log(Object.getOwnPropertyNames(Bss.prototype.constructor)); // ['constructor', 'show']
+</script>

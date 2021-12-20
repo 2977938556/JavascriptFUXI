@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //class类中的函数是不可以被遍历的 ,因为系统直接锁定了函数遍历特征
+    class User {
+        show() {
+            console.log('我是show方法我在类中的原型中我是不可以被遍历的');
+        }
+        hide() {
+            console.log('我是hide方法我在类中的原型中我是不可以被遍历的');
+        }
+    }
+
+    //可以看出 所有的方法的遍历特征被锁掉了
+    console.log(JSON.stringify(Object.getOwnPropertyDescriptors(User.prototype), null, 2));
+    /*
+        {
+            "constructor": {
+                "writable": true,
+                "enumerable": false,
+                "configurable": true
+            },
+            "show": {
+                "writable": true,
+                "enumerable": false,
+                "configurable": true
+            },
+            "hide": {
+                "writable": true,
+                "enumerable": false,
+                "configurable": true
+            }
+         }
+    */
+
+
+
+    let user = new User();
+
+
+    //修改遍历特征 都修改位 true 进行后期遍历属性
+    Object.defineProperties(User.prototype, {
+        show: {
+            writable: true,
+            enumerable: true,
+            configurable: true
+        },
+        hide: {
+            writable: true,
+            enumerable: true,
+            configurable: true
+        },
+        constructor: {
+            writable: true,
+            enumerable: true,
+            configurable: true
+        },
+    })
+
+
+
+
+    //在修改了 对象属性特征后 我们遍历对象 可以看到对象下的  这些属性都被遍历出来了
+    for (const key in user) {
+        console.log(key);
+        /*
+            constructor
+            show
+            hide
+        */
+    }
+
+
+
+
+
+
+
+
+    //总结 
+    // 类中内部定义所有的方法,都是不可以被遍历的(但是定义在构造器中的 属性是可以被遍历) ,官方语言就是 不可枚举的 non-enumerable
+    // 但是使用 构造函数 进行定义在原型上的方法就可以被遍历出来
+
+
+
+
+
+
+
+
+    //课外知识点
+
+    //在没有添加 constructor 这个属性的时候
+    //系统会自动的添加一个空的 constructor 这个属性
+
+    class Point {}
+    Object.defineProperties(Point.prototype, {
+        constructor: {
+            writable: true,
+            enumerable: true,
+            configurable: true
+        },
+    })
+    let point = new Point();
+    for (const key in point) {
+        console.log(key);
+        //constructor
+    }
+</script>

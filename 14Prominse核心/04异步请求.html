@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            transition: all 0.5s;
+        }
+        
+        .box {
+            width: auto;
+            height: auto;
+            background: gainsboro;
+        }
+        /* 搜索部分 */
+        
+        .foot {
+            width: 400px;
+            height: auto;
+            margin: 0 auto;
+            background: #f1c40f;
+            border-bottom: 4px solid #ecf0f1;
+            padding: 10px;
+            box-shadow: 0px 7px 7px 0px #0000004f;
+        }
+        
+        buttom {
+            width: 100px;
+            height: 20px;
+            background: yellow;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .conter {
+            width: 400px;
+            margin: 0 auto;
+            background: #caffb9;
+        }
+        
+        .ulli {
+            width: auto;
+            height: auto;
+        }
+        
+        .ulli ol {
+            margin: 10px;
+            padding: 10px;
+            border-bottom: 2px solid white;
+        }
+        
+        .ulli ol li {
+            list-style: none;
+        }
+        
+        .ulli ol li * {
+            display: inline;
+            list-style: none;
+        }
+        
+        .red {
+            /* background: red; */
+            background: yellow;
+        }
+        
+        .yellow {
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!--    搜索部分-->
+        <div class="foot">
+            <h4>单词查询English</h4>
+            <input type="text">
+            <buttom>查询</buttom>
+        </div>
+
+        <div class="conter">
+            <div class="ulli">
+
+            </div>
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>
+<script>
+    function Ajax_(url, ccallback) {
+        //创建一个 Ajax对象
+        let xhr = new XMLHttpRequest();
+
+
+        //设置请求方式
+        xhr.open("GET", url, true);
+
+        xhr.send(null)
+
+        //监听服务器发送过来的数据  处理数据
+        xhr.onload = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                    data = JSON.parse(xhr.responseText);
+                    console.log("数据请求成功")
+                    ccallback(data)
+                }
+            }
+        }
+    }
+
+
+    //当我们获取了 一个后端发送的数据后需要使用接收的数据继续发送请求数据
+    document.querySelector("buttom").addEventListener('click', function() {
+        //设置一个正则表达式
+        //表示必须输入英文并且 提交的时候必须要有一个
+        let reg = /[a-zA-Z]+/
+        let value = document.querySelector("input").value.trim();
+
+
+        //判断数值
+        if (!reg.test(value)) {
+            alert("输入的内容有误并且需要输入英文单词 长度应该保持在 4—50个字母");
+            return false;
+        }
+        Ajax_(`https://dict-mobile.iciba.com/interface/index.php?c=word&m=getsuggest&nums=10&is_need_mean=1&word=${value}`, function(data) {
+
+            //字符串数据
+            let str = null;
+
+
+            let ul = document.querySelector(".ulli");
+            //每次点击后先清空一下innerHTML数据
+            ul.innerHTML = "";
+
+
+
+            //全部查询的数据
+            let objsarr = data.message;
+            for (const key of objsarr) {
+                console.log(key);
+
+                let kyes = key.key;
+                let paraphrase = key.paraphrase;
+
+                ul.innerHTML += `
+                <ol>
+                    <li>
+                        <h6>搜索的新单词:<h4 class="red">${kyes}</4></h6>
+                    </li>
+                    <li>
+                        <h6>单词解释:<h4 class="yellow">${paraphrase}</4></h6>
+                    </li>
+                </ol>
+                `
+
+            }
+
+
+
+
+
+
+
+
+        });
+    })
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //class 类采用这种方式写 里面的方法只能通过类 来进行调用 直接 使用函数.方法是出不来效果的
+    let Wshanshu = class Mes {
+        getClassName() {
+            console.log('1=');
+        }
+    }
+
+    let init = new Wshanshu();
+    init.getClassName();
+    // Mes.getClassName()//错误的
+
+
+
+
+
+    //函数表达式 的立即执行
+    let person = new class {
+        constructor(name) {
+            this.name = name;
+        }
+        hide() {
+            console.log(this.name);
+        }
+    }('张三')
+
+    person.hide() //张三
+</script>

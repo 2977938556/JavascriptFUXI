@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+</html>
+<script>
+
+    function loadsatrin(url,resoves,reject) {
+        let script = document.createElement("script");
+        script.src = url;
+        document.body.appendChild(script);
+
+
+        //onload 是加载成功的意思
+        script.onload =resoves;
+        //onerror 是加载失败的意思
+        script.onerror = reject;
+    }
+
+
+
+    //执行函数第一次
+    //调用参数
+    //实现 文件 相互依赖 的关系的效果
+    loadsatrin("./js/01.js",()=>{
+        console.log("加载成功")
+        show()
+        //执行函数 第二次
+        //我们需要模块的依赖就需要将模块依赖的模块给提前加载出来
+        loadsatrin("./js/02.js",()=>{
+            console.log("加载成功");
+            hids()
+            //我们需要模块的依赖就需要将模块依赖的模块给提前加载出来
+        });
+    });
+
+
+    //通过以上代码我们知道 函数的相互嵌套调用 会导致代码的不方便阅读 也称之为”回调地狱“
+
+
+
+    //导入02 文件模块
+    //下面这种写法是错误的 因为有可能读取文件的时间是不一样的 可能导致错误
+
+   /* loadsatrin("./js/02.js",()=>{
+        console.log("加载成功")
+        hids()
+    },function (){
+        console.log("加载失败")
+    });*/
+
+
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //(1)不存在变量提升
+    //new User(); //报错
+    class User {};
+
+
+    //变量提升的的继承体现
+    {
+        let fors = class {};
+        class sum extends fors {};
+    }
+    //如果在class 类中有变量提升的话那么就会出现一些问题
+    //比如上面的 sum 继承了 for 如果 sum变量提升那么就会出现问题
+
+
+
+
+    //(2) name 属性 
+    //由于本质上，es6 的类只是在ES5的构造函数的一层包装，所以函数许多特性都被class继承了
+    //包括name属性
+    class Point {};
+    console.log(Point.name); //Poine
+</script>

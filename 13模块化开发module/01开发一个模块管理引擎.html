@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+</head>
+
+<body>
+<h1>111</h1>
+</body>
+<script type="module">
+    //模块就是一个独立的文件，里面是函数或者类库
+    // 虽然JS没有命名空间的概念， 使用模块可以解决全局变量冲突
+    // 模块需要隐藏内部实现， 只对外开发接口
+    // 模块可以避免滥用全局变量， 造成代码不可控
+    // 模块可以被不同的应用使用， 提高编码效率
+
+
+    //使用 import 进行导出模块
+    import {title, url, show} from "./module/01.js";
+
+    console.log(title)//后盾人
+    console.log(url)//www.baidu.com
+    show()//我是导出的模块
+</script>
+
+</html>
+
+

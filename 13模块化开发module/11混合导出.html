@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-d8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+</html>
+<script type="module">
+
+
+
+
+    // 第一个不在花括号里面的是默认导出，
+    //第二个在花括号里的是直接导出
+
+    //这种方法也称伪 混合导出
+    // import foo, {str} from "./module/11.js"
+
+    // foo()//我是默认导出
+    // console.log(str)//我是直接导出
+
+
+    //如果在模块导出的时候 设置了默认参数那么，并且输入的时候使用的是全局导出那么调用的时候就需要使用default 参数
+    import * as api from "./module/11.js";
+
+    console.log(api)
+
+    console.log(api.default());//我是默认导出
+    console.log(api.str);//我是直接导出
+
+</script>
+
+

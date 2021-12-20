@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    let p1 = new Promise((reolve, reject) => {
+        // reolve("成功")
+        reject("失败")
+    })
+
+
+
+    //.then 是可以传递两个函数的 
+    //如果只需要处理 成功那么就可以省略 错误的
+    //如果只需要设置失败的话那么就可以使用 null替代 掉第一个函数 
+    //当然如果你写了很多个.then 方法但是 因为 第一个.then 未处理 成功还是失败所以会
+    //向下执行
+    p1.then(null, name => {
+        console.log("我失败了", name); //我失败了 失败
+    }).then(null, name => {
+        console.log(name);
+    })
+</script>

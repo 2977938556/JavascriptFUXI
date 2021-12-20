@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+<script>
+    //我们将这个 promise 的状态中转到 下面的promise 进行处理
+    // let pa = new Promise((reolve, reject) => {
+    //     reolve("成功我是中转过来的")
+    // })
+
+
+
+
+
+    //promise 的状态一旦发生改变那么 就不会在变化了
+    let promsie = new Promise((reolve, reject) => {
+        reolve("成功")
+        reject("失败")
+    }).then(mase => {
+        console.log("mase:" + mase); //mase:成功我是中转过来的
+    }, error => {
+        console.log("error:" + error);
+    })
+
+    console.log("001");
+</script>

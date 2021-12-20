@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+</html>
+<script type="module">
+    import {api} from "./module/12.js";
+    console.log(api)
+
+    //模块 A中的数据
+    console.log(api.apiA.a)//我是12A模块的变量
+    console.log(api.apiA.defult())//我是12A模块的方法
+
+    //模块中 B的数据
+    console.log(api.apiB.b)//我是12B模块的变量
+    console.log(api.apiB.defult())//我是12B模块的方法
+
+
+
+
+</script>
+
+

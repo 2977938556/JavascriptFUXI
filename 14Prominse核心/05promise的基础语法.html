@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    // promise  里面有两个参数 参数分别是 成功与失败
+    let ps = new Promise(function(resolved, rejected) {
+        //在promise中 resoved 是 将 pending 从等待状态转换成成功状态
+        //pending 是等待 未完成
+        //resolved：成功
+        //rejected：失败
+        setTimeout(() => {
+            rejected({
+                name: 1
+            })
+        }, 3000)
+    });
+
+
+
+
+    //新建一个实例promise 后会立即执行
+    //.then 语法是可以将 成功 与失败的结果进行处理的
+    //.catch 可以处理失败的结果
+
+
+    //第一个是 成功
+    //第二个是失败
+    ps.then(function(data) {
+        console.log(data);
+    }, function(data) {
+        console.log(data);
+    }).then(function(name) {
+        console.log(name);
+    }, function(name) {
+        name
+    }).catch(function(name) {
+        console.log(name);
+    })
+</script>

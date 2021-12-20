@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        #loadin {
+            width: 100px;
+            height: 100px;
+            background: red;
+            font-size: 10px;
+            border-radius: 100px;
+            text-align: center;
+            line-height: 100px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loadin">loading...</div>
+</body>
+
+</html>
+
+
+<script>
+    function Ajax_(url, ccallback) {
+        //显示加载动画
+        loadin.style.display = "block"
+        return new Promise((resolve, reject) => {
+            //创建一个 Ajax对象
+            let xhr = new XMLHttpRequest();
+
+
+            //设置请求方式
+            xhr.open("GET", url, true);
+
+            xhr.send(null)
+
+            //监听服务器发送过来的数据  处理数据
+            xhr.onload = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                        data = JSON.parse(xhr.responseText);
+                        resolve(data)
+                    }
+                } else {
+                    reject("错误的")
+                }
+            }
+        })
+
+
+
+    }
+
+
+    Ajax_(`https://dict-mobile.iciba.com/interface/index.php?c=word&m=getsuggest&nums=10&is_need_mean=1&word=a`).then(value => {
+        console.log(value);
+
+        //fianlly 这个函数无论上方是对还是错都会执行的
+    }).finally((data) => {
+        let num = 4;
+
+        let s = setInterval(() => {
+            if (num <= 0) {
+                clearInterval(s)
+                loadin.style.display = "none"
+                document.body.innerHTML = "加载成功"
+            }
+
+            loadin.innerHTML = `还有${num = num -1 }s加载完成..`
+            return false;
+        }, 1000)
+
+
+
+
+    })
+</script>

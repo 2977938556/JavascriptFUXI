@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+</html>
+<script type="module">
+    //报错
+    let a = "./module/08.js"
+    // import {arr} from a;
+
+
+
+    //报错
+    import  {"ar" + "r"} from "./module/08.js"；
+
+
+    //报错
+    if (a === 1 ){
+        import{arr}from"./module/08.js";
+    } else {
+    import{arr}from"./module/05.js";
+    }
+
+    // 模块不允许在函数表达式中使用，因为他们都使用到了表达式，变量和if结构。
+    // 在静态分析阶段这些语法都是无法得到指的
+
+
+    //每次我们使用import 语句的时候就会执行所加载的模块，因此我们可以有以下这种写法
+    import  "./module/08.js"
+    //上面代码仅仅执行08模块，但是不输入任何值。
+
+
+
+
+
+
+</script>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //类中的总结
+
+    //字类继承
+    // 关键字 super 与 extends
+
+    class Father {
+        constructor(name, ager) {
+            this.name = name;
+            this.ager = ager
+        }
+        show() {
+            console.log("我是子集的方法");
+        }
+    }
+
+
+    class Sum extends Father {
+        constructor(a, b) {
+                //使用super并且传入参数进行设置一些方法  super 会自动调用 父级的 constructor 方法
+                super(a, b) //a,b 分别对应父级方法的 name  ager 属性
+                    //如果需要子集对进行一些属性的设置 也是可以的 但是需要写在super后面
+                this.a = a;
+                this.b = b;
+            }
+            //子集的
+        show() {
+            console.log("我是子集的方法");
+
+        }
+    }
+    let sum = new Sum('后盾人', '20');
+    console.log(sum); // Sum {name: '后盾人', ager: '20', a: '后盾人', b: '20'}
+
+
+
+    //在上面我们给子集与父级都设置了一个 show 函数，子集继承了 父级 将父级所有的方法的定义过来了
+    //如果父级和子集有重名的方法 那么 如果调用的时候 那么就会首先调用子集的而不是调用父级的方法
+    sum.show() //后盾人20
+
+
+
+
+
+    //2：循环与对象特征
+    class Ass {
+        constructor(a, b) {
+            this.a = a;
+            this.b = b;
+        }
+        show() {
+            console.log(a);
+        }
+        hide() {
+            console.log(b);
+        }
+    }
+
+    let ass = new Ass(1, 2);
+
+    //循环一个实例对象  
+    for (const key in ass) {
+        if (Object.getPrototypeOf(ass[key])) {
+            console.log('我是在实例对象上的'); // *2
+            console.log(key); // a b
+        }
+    }
+
+    //因为在类中设置的 属性是在类本身的，而设置的方法是设置在原型上的
+    //并且 clss 类设置了 不允许遍历的特征
+    //需要重新设置属性状态设置
+
+    //查看特征
+    let jsons = JSON.stringify(Object.getOwnPropertyDescriptors(Ass.prototype), null, 2)
+        /*
+            {
+        "constructor": {
+            "writable": true,
+            "enumerable": false,
+            "configurable": true
+        },
+        "show": {
+            "writable": true,
+            "enumerable": false,
+            "configurable": true
+        },
+        "hide": {
+            "writable": true,
+            "enumerable": false,
+            "configurable": true
+        }
+        }
+        */
+    console.log(jsons);
+
+
+
+
+
+
+
+    class Css {
+        constructor(a) {
+            this.a = a;
+        }
+    }
+    //静态属性 ：简单而言就是不通过对象调用的方法和属性那么就叫静态属性
+    Css.show = function() {
+        //这里的this指向于 class Css类中
+        console.log('我是');
+        console.log(this.a);
+    }
+
+    //实例化一个对象
+    let css = new Css('1')
+        //实例对象是调用不了 静态方法与属性的
+    Css.show()
+
+
+
+
+    //classs 类中的保护‘
+    class Dss {
+        constructor(a) {
+            this.data = {
+                a: a,
+            }
+        };
+        set a(value) {
+            if (value == "") {
+                throw new Error('数据不能为空')
+            }
+            return this.data.a = value;
+        }
+        get a() {
+            return this.data.a;
+        }
+        show() {
+            console.log(this.data.a);
+        }
+    }
+
+    let dss = new Dss('Miao');
+    dss.a = 1;
+    console.log(dss.a);
+</script>

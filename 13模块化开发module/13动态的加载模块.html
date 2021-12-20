@@ -9,17 +9,21 @@
 </head>
 
 <body>
-
+    <button>点我</button>
 </body>
-
 </html>
+<script type="module">
 
-<script>
-    function User(name) {
-        this.name = name;
-    }
 
-    let user = new User('用户1');
-    console.log(user);
-    console.log(user.__proto__.__proto__.constructor);
+
+
+    document.querySelector("button").addEventListener("click", () => {
+        //import 是可以让
+        let hd = import("./hd.js").then(module => {
+            console.log(module);
+        });
+    });
+
+
+
 </script>

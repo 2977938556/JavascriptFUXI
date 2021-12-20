@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+</html>
+<script type="module">
+    /*
+    * 本质上，export default就是输出一个叫做default的变量或方法，
+    * 然后系统允许你为它取任意名字。所以，下面的写法是有效的
+    * */
+
+
+
+    //使用 export default导出的 数据是不需要添加括号的
+    import miaoya from "./module/10.js";
+
+    miaoya()//我是 export default 命令导出的
+
+
+    //使用常规的方法必须添加花括号
+    import  {s} from "./module/10.js"
+    console.log(s)
+
+</script>

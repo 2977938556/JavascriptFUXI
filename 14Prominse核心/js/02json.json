@@ -1,0 +1,17 @@
+[{
+        "id": 1,
+        "lesson": [{
+            "javascript": 66,
+            "Node.js": 99,
+            "c#": 15
+        }]
+    },
+    {
+        "id": 2,
+        "lesson": [{
+            "javascript": 36,
+            "Node.js": 59,
+            "c#": 15
+        }]
+    }
+]

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let promise = new Promise((reolve, reject) => {
+        // resolve("成功的")
+
+        //在promise 中 如果代码错误了 会自动执行处理错误的代码
+        // hd + 1;
+        //相当于下面的 处理错误的一样
+        try {
+            hd + 1
+        } catch {
+            reject("错误的");
+        }
+    }).then(
+        //在设置错误的 状态的时候 可以给每一个处理错误的状态的函数但是不建议这样使用 
+        value => {
+            console.log(value);
+        }
+        // errors => {
+        //     console.log(errors.toString());
+        // }
+
+
+        //catch 也可以捕获对 then 抛出的错误处理
+
+
+        //使用 catch 可以处理全部的函数 
+    ).catch(error => {
+        console.log(error.toString());
+    })
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    const data = [{
+        name: "js",
+        price: 100
+    }, {
+        name: "mysql",
+        price: 212
+    }, {
+        name: "vue.js",
+        price: 98
+    }];
+
+
+
+
+
+    class Curriculum {
+        constructor(data) {
+                this.data = data;
+            }
+            //返回一个价格最高的产品
+        static Max = function(arr) {
+            let nb = 0;
+            let s = null;
+            arr.forEach(function(item, index, arr) {
+                if (nb < item.price) {
+                    nb = item.price;
+                    s = item;
+                }
+            });
+            return s;
+        }
+
+    }
+
+
+    //使用一个静态处理最大值的方法
+    let s = Curriculum.Max(data)
+    console.log(s); //{name: 'mysql', price: 212}
+
+
+    //实例化一个对象
+    let crucm = new Curriculum(data);
+</script>

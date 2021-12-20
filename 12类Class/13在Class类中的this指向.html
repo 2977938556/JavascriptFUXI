@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //构造函数中的this 指向
+    function Max(name) {
+        this.name = name;
+        this.show = function() {
+            function hide() {
+                //这里的this是指向 于window 
+                //很好理解 因为 他不是一个 函数中的一个方法是 而是一个函数中的另一个方法
+                console.log(this);
+            }
+            //这个this 是指向与实例对象
+            console.log(this);
+            hide()
+        }
+    }
+    let max = new Max('秒呀');
+    max.show()
+
+
+
+
+
+    //class 类中的函数
+    class User {
+        constructor(name) {
+                this.name = name;
+            }
+            // 方法外部的this 指向到 class 类中的 实例对象
+        show() {
+            //在函数的内部 中的this 指向是 undefined 的
+            function hide() {
+                console.log("我的this是" + this);
+            }
+            hide()
+        }
+    }
+
+
+    let user = new User('秒呀');
+    user.show()
+</script>

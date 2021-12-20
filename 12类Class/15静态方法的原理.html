@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //构造函数的体现
+    function User() {}
+
+
+    //原型上的一个show 方法
+    User.prototype.show = function() {
+        console.log('我是原型上的 一个show 方法');
+    }
+
+    //User 函数内的 一个静态方法("这个方法只能使用这个函数进行调用,对象是调用不了")
+    User.show = function() {
+        console.log("我是User 函数中的一个静态方法");
+    }
+
+
+    let user = new User();
+
+
+    //下面是使用实例对象进行 调用show 方法可以见到 输出的结果是原型的show 方法
+    user.show() //我是原型上的 一个show 方法
+    User.show() //我是User 函数中的一个静态方法
+
+
+    //输出函数与实例对象的 链条
+    console.dir(User); //在这个方法下面有一个 定义的静态的show 方法
+    console.dir(user); //在这个对象有一个 在prototype中有一个 show 方法
+
+
+
+
+    class Ass {
+        constructor(name) {
+            this.name = name;
+        };
+
+
+
+        //设置一个静态方法
+        static create = function(...names) {
+            //因为我们需要生成一个对象 而这里面的
+            //this是指向与 函数 所以可以直接使用 
+            //new this 新建一个实例对象
+            return new this(names);
+        }
+
+
+    }
+
+
+    //调用一个静态方法 创建元素
+    let xj = Ass.create('肥猫', '19');
+    console.log(xj);
+</script>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    成绩查询
+    <input type="text">
+    <button>搜索</button>
+
+    <table border="1">
+
+    </table>
+</body>
+
+</html>
+<script>
+    // 封装一个异步请求数据 的promise 函数
+
+
+    function _Xhr(url) {
+
+        //实例化一个promise 对象并且将其返回出去
+        return new Promise((reoslve, reject) => {
+            //创建一个 Ajax对象
+            let xhr = new XMLHttpRequest();
+
+
+            //设置请求方式
+            xhr.open("GET", url, true);
+
+            xhr.send(null)
+
+            //监听服务器发送过来的数据  处理数据
+            xhr.onload = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                        data = JSON.parse(xhr.responseText);
+                        reoslve(data) //成功就将数据返回出去
+                    } else {
+                        reject({
+                            mase: "404",
+                            name: "错误"
+                        })
+                    }
+                }
+            }
+        })
+    }
+
+
+    //调用获取基础的数据 
+    let s = _Xhr('./js/01json.json').then((data) => {
+        return {
+            xhe: _Xhr('./js/02json.JSON'),
+            data: data
+        };
+    }, (name) => {
+        console.log(name);
+    }).then(function({
+        xhe,
+        data
+    }) {
+        console.log(xhe, data);
+        return xhe;
+    }).then(data => {
+        console.log(data);
+    })
+
+    // //通过 
+    let nbs = s.then(name => {
+        let input = document.querySelector('input');
+        let btn = document.querySelector('button');
+
+        btn.addEventListener('click', function() {
+            let value = input.value.trim()
+            console.log(value);
+            if (value == "") {
+                alert("不可以为空")
+                return false;
+            } else {
+                _Xhr('./js/02json.json').then(datas => {
+                    datas.find(function(item, index, arr) {
+                        if (item.id == value) {
+                            let tables = document.querySelector('table')
+
+                            item.lesson.forEach(function(item, index, arr) {
+                                console.log(item);
+                                tables.innerHTML = ` <tr>
+                                                <td>科目:javascript</td>
+                                                <td>科目:Node.js</td>
+                                                <td>科目:c#</td>
+                                            </tr>
+                                            <tr>
+                                                <td>成绩:${item["javascript"]}</td>
+                                                <td>成绩:${item["Node.js"]}</td>
+                                                <td>成绩:${item["c#"]}</td>
+                                            </tr>
+                                             `
+                            });
+
+
+                            // console.log(item);
+                        }
+
+                    })
+
+
+
+                })
+            }
+
+        })
+
+
+
+    })
+
+
+    // let mns = nbs.then((data) => {
+    //     return data.find((item, index, arr) => {
+    //         if (item.id == "1") {
+    //             return item;
+    //         }
+    //     })
+    // })
+
+    // mns.then((data) => {
+    //     console.log(data);
+    // })
+</script>

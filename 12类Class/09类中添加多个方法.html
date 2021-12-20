@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    class User {
+        constructor(name) {
+            this.name = name;
+        }
+    }
+
+
+
+    //使用 Object.assign 可以给class 中的原型添加许多个方法
+    Object.assign(Object.prototype, {
+        show() {
+            console.log(this.name);
+        },
+        hide() {
+            console.log(this.name);
+        }
+    })
+
+    console.log(Object.getOwnPropertyNames(User));
+
+    let user = new User("我可以添加多个方法进入 类中");
+    user.show();
+    user.hide();
+
+
+
+
+
+
+    // 类中的原型的 构造器 constructor 也是指向回 class 本身
+    console.log(User.prototype.constructor == User);
+</script>

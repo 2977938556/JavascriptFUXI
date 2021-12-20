@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+<script>
+    let promise = new Promise((reolve, reject) => {
+        reolve("第一个promise 对象状态 是成功")
+    }).then((reolve, reject) => {
+
+
+        //三种 返回 promise的方式
+
+        //返回一个 then 对象 也是一个promise对象 并且会 被下一个then'进行处理的
+        // return {
+        //     then(reolve, reject) {
+        //         reolve("我是一个 thne但是我可以返回一个 promise对象")
+        //     }
+        // }
+
+
+        // return class user {
+        //     static then(resolve, reject) {
+        //         resolve("我是一个类 我里面有一个then静态方法他会给我返回一个promise 对象的")
+        //     }
+        // }
+
+
+        // return new class {
+        //     then(resolve, reject) {
+        //         resolve("我是一个类 我里面有一个then静态方法他会给我返回一个promise 对象的")
+        //     }
+        // }
+
+
+    }).then((names) => {
+        console.log(names);
+    })
+</script>

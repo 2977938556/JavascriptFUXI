@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+</html>
+<script>
+    function Imgload(url, resolve, reject) {
+        let img = new Image;
+        img.src = url;
+
+
+        //设置img 加载
+        img.onload = () => {
+            //成功就调用 一个成功的函数
+            resolve(img);
+        }
+
+        //设置img 加载失败
+        img.onerror = () => {
+            //失败就调用一个失败的函数
+            reject(new Error("load fail"));
+        };
+
+        document.body.appendChild(img)
+    }
+
+    //调用img 的加载方法   “此加载方法是一个 异步加载的 方法”
+    Imgload('./img/img.jpg', function (img) {
+        img.style.border = "solid 5px red";
+    }, function error(error) {
+        console.log(error)
+    })
+
+    console.log("我是主任务")
+</script>

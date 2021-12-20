@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //(01):promise只要被创建就会立即执行
+    //(02):js中 分 主 》 微 》 宏  三个任务队列
+    //(03):定时器是宏任务
+
+
+    let promise = new Promise((resolve, reject) => {
+        console.log("Feimao");
+
+
+
+        //在这里是涉及一些问题的  
+        // 分析
+        //因为当系统在执行宏任务的时候 而宏任务里面是有 一个微任务的，在执行宏任务的时候 会将宏任务抛到主线程进行执行 ，需要将主线程的工作都完成才会 创建微任务
+        setTimeout(() => {
+            console.log("成功");
+            resolve()
+        })
+
+    })
+
+
+    promise.then(() => {
+        console.log("@110");
+    })
+
+
+    console.log("肥猫");
+
+
+    /*
+        以上的结果是
+        Feimao
+        肥猫
+        成功
+        @110
+
+    
+    */
+</script>

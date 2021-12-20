@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    //原理实现
+    //静态方法就是 给类设置的属性 ,不是为实例对象进行生成的对象,
+    function User() {}
+    User.site = "123";
+    let user = new User();
+
+    //下面进行调用 可以看出 实例对象是不可以调用 User 函数中的数据 
+    console.log(User.site); //123
+    console.log(user.site); //123
+
+
+
+    //静态方法在类中的使用
+
+    //在 class 中为属性添加 static 关键字即声明为静态属性
+    class Userb {
+        //设置属性与方法 都为静态属性
+        static names = "123";
+        static show() {
+            console.log(this);
+        }
+    }
+
+    let userb = new Userb();
+
+    //静态方法只能使用类来进行调用不可使用 实例对象进行调用
+    console.log(Userb.names); //123
+    console.log(userb.names); //undefinef
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //<静态方法>
+    /*  
+      指通过类才能访问的方法,比如系统的mathc.random
+      这种就是静态方法
+
+      "一般的来说不需要对象属性参与计算就可以定义为 静态方法"
+      实例对象是不可以访问 静态属性的
+    */
+
+
+
+
+
+    //继承中 是可以 继承父级的 一个静态方法
+    class Foo {
+        static classMethod() {
+            return 'hello';
+        }
+    }
+
+    class Bar extends Foo {}
+
+    console.log(Bar.classMethod()); //hello
+
+
+
+    class Opp {
+        static max() {
+            return "233333333333333333";
+        }
+    }
+
+    class Poo extends Opp {
+        static min() {
+            super.max() + ''
+        }
+    }
+</script>

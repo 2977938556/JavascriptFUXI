@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    let p1 = new Promise((resolve, reject) => {
+        resolve("成功");
+        // reject("失败了")
+
+    })
+
+
+
+
+
+    //.then 也是一个promise对象会返回一个 promise对象，
+    //并且.then 进行两次调用的的时候 第二个.then 是执行上一次的promise的处理
+    //如果需要设置 .then 返回是成功还是失败需要设置一下 return 返回值
+
+
+    // .then 的状态取决于 第一个promise的执行状态
+    let p2 = p1.then(a => {
+        console.log(a);
+        return "成功了我将到下面去了"
+    }, b => {
+        console.log(b);
+        return "失败了我将到下面去了"
+
+    }).then(a => {
+        console.log(a);
+    }, b => {
+        console.log(b);
+    })
+
+
+
+
+    //放进定时器之前，打印的代码都是同步的，先于微任务执行，因此是p2 是pending状态
+    //以下输出的都是  成功状态哦
+    setTimeout(() => {
+        console.log(p1);
+        console.log(p2);
+    }, 2000)
+</script>

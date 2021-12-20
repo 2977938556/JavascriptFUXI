@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<!--
+    1：如果在 script标签后面未添加 ”模块的属性“，那么就会导致获取不到按钮
+    因为代码是从上往下执行的
+    2：而模块则需要将所有的模块加载后才会执行的，因为可能某些模块会依赖某些模块容易出问题
+-->
+
+<!--        模块-->
+        <script type="module">
+            //使用模块默认执行了严格模式
+         console.log(document.querySelector("button"));//Button
+
+            //比如在里面书写变量不写声明语句
+          let   str = "1";
+            console.log(str)
+
+        </script>
+
+<!--        非模块-->
+        <script>
+            console.log(document.querySelector("button"));//Button
+        </script>
+
+
+<body>
+<button>我是一个按钮</button>
+</body>
+</html>

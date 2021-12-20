@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    class User {
+        //私有方法就是在变量的开头添加一个_下划线来区分
+        //但是这种方法还是不保险的 因为这只是一个 用来
+        //区分的变量的而外部还是可以访问
+        //内部的变量
+        _hot = "https://baidu.com";
+        constructor(name) {
+            this.#opos("我是私有属性")
+            this.name = name;
+        }
+
+        //私有属性 另一种方式 在开头添加一个#
+        #
+        opos = (name) => {
+            console.log(name);
+        };
+    }
+
+    let user = new User('肥猫');
+    console.log(user._hot);
+    console.log(user.opos);
+</script>

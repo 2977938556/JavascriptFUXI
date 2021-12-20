@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+</html>
+<script type="module">
+
+    //无论被输入的方法还是属性在 吸收模块的前面执行调用的，都会有结果
+    //因为 import 是在命令编译阶段就执行了，在代码运行之前
+    console.log(arr)//[1, 2, 3, 4]
+    foo();//我被执行了
+    import {foo, arr} from "./module/07.js";
+
+
+</script>

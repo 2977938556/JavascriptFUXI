@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //定义一个 函数表达式
+    let hide = "miaoya1"
+
+    class Upload {
+        constructor(name) {
+            this.data = {
+                name: name,
+            }
+        };
+        //读取数据
+        get name() {
+            return this.data.name;
+        };
+        //写入数据
+        set name(value) {
+            if (value.trim() == "") {
+                throw new Error('数据错误');
+            }
+            this.data.name += value;
+        };
+
+        //函数 有些时候是可以通过 数组的方式进行传递的
+        ["hide"]() {
+            console.log('我是函数表达式');
+        }
+    }
+
+    let upload = new Upload('肥猫');
+
+    upload.name = '@110';
+    console.log(upload.name);
+
+    upload.hide() //我是函数表达式
+</script>

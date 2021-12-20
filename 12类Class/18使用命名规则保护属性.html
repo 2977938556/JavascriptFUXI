@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    class User {
+        //设置一个 普通url 参数
+        _url = 'https://www.baidu.com'
+
+
+        //进行一个 set 访问器的一个判断属性 
+        set url(url) {
+            //使用正则表达 进行判断前面是否是https：进行开头的否则报错
+            //没有错误就直接修改掉 _url 的属性
+            if (!/^https?:/i.test(url)) {
+                throw new Error("网址错误");
+            }
+            this._url = url;
+        }
+        get url() {
+            return _url;
+        }
+    }
+
+    let user = new User();
+    // log
+
+    user.url = 'https://www.hodunr.com'
+    console.log(user._url); //https://www.hodunr.com
+
+    // console.log(User == Object.getPrototypeOf(user).constructor);
+
+    Object.getPrototypeOf(user).show = function() {
+        console.log('111111111111');
+    }
+    user.show()
+</script>

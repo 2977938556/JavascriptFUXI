@@ -15,6 +15,8 @@
 </html>
 
 <script>
+
+
     let obja = {
         arr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         name: 'feimao',
@@ -32,24 +34,24 @@
 
 
     //深拷贝的第一种方法
-    // function copy(obj) {
-    //     //每次的数据就判断是否是数组还是对象
-    //     let res = obj instanceof Array ? [] : {};
-    //     //循环添加数据
-    //     for (let key in obj) {
-    //         //把数据添加到res 中 然后进行判断如果里面是对象的话那么就使用递归进行再次循环判断
-    //         res[key] = obj[key] instanceof Object ? copy(obj[key]) : obj[key];
-    //     }
+    function copy(obj) {
+        //每次的数据就判断是否是数组还是对象
+        let res = obj instanceof Array ? [] : {};
+        //循环添加数据
+        for (let key in obj) {
+            //把数据添加到res 中 然后进行判断如果里面是对象的话那么就使用递归进行再次循环判断
+            res[key] = obj[key] instanceof Object ? copy(obj[key]) : obj[key];
+        }
 
-    //     //返回数据
-    //     return res;
-    // }
-    // let s = copy(obja);
-    // //给深拷贝的数据中的arr添加 数据 
-    // s.arr.push(12);
-    // console.log(JSON.stringify(s, null, 2));
-    // //结果原拷贝的数据没有被 修改
-    // console.log(JSON.stringify(obja, null, 2));
+        //返回数据
+        return res;
+    }
+    let s = copy(obja);
+    //给深拷贝的数据中的arr添加 数据 
+    s.arr.push(12);
+    console.log(JSON.stringify(s, null, 2));
+    //结果原拷贝的数据没有被 修改
+    console.log(JSON.stringify(obja, null, 2));
 
 
 

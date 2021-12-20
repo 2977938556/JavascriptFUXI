@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .box {
+            width: 200px;
+            heigth: 200px;
+            border: 1px solid red;
+            background: #ffc7c7;
+            position: relative;
+            transition: all 0.5s;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="box">
+        我是任务队列 我是任务队列 我是任务队列 我是任务队列 我是任务队列 我是任务队列 我是任务队列 我是任务队列 我是任务队列 我是任务队列 我是任务队列 我是任务队列 我是任务队列 我是任务队列
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    let div = document.querySelector('div');
+
+    function interval(delay = 1000, callback) {
+        return new Promise(resolve => {
+            let id = setInterval(() => {
+                //回调函数将 定时器id与  成功状态返回出去
+                callback(id, resolve)
+            }, delay);
+        })
+    }
+
+
+    interval(1000, (id, resolve) => {
+        //获取div与div距离左边的距离
+        let left = div.offsetLeft;
+        div.style.left = left + 100 + "px"
+
+        //数值达到了一定程度就将定时器给清除掉
+        if (left > 300) {
+            //清除定时器
+            clearInterval(id)
+            resolve(div)
+        }
+    }).then(a => {
+        interval(500, (() => {
+            //获取 宽度与高度 在后面修改数值产生一个效果
+            let width = div.offsetWidth;
+            let height = div.offsetHeight;
+            div.style.width = width - 10 + "px"
+            div.style.height = height - 10 + "px"
+
+            //当宽度小于 150像素的时候就 清除一下定时器
+            if (width <= 150) {
+                clearInterval(id)
+            }
+        }))
+
+    })
+</script>

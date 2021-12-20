@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    //在promise 中 只要不是 resolved 与 rejected 和定时器 其他方法都是主线程任务 所以会先执行
+    //而 失败与 成功 这两个方法就是 微job(“工作”)   他们会最后执行
+    let promise = new Promise(function(resolved, rejected) {
+        setTimeout(function() {
+            console.log("01我是最先执行的");
+        }, 1000)
+
+        //当只有 设置了 成功与否才会将promise 进入到微任务中
+        rejected("02我最后执行")
+        console.log("03我是很快的");
+    })
+    console.log("04我是也是先执行的 但是我前面有一个promise 对象他比我更快执行的 但是他里面的 失败与成功的执行是比我更慢的");
+
+
+    promise.then(function(name) {
+        console.log(name);
+    }).catch(function(name) {
+        console.log(name);
+    })
+
+
+
+    /*
+        上面的结果依次是
+        03我是也是先执行的 但是我前面有一个promise 对象他比我更快执行的 但是他里面的 失败与成功的执行是比我更慢的
+        04我最后执行
+        01我是最先执行的
+        02我是很快的
+
+    */
+
+
+
+
+
+    //在promise 中 是一个微任务   而 定时器这些就是 宏任务
+
+    // 主线程》 微任务》 宏任务  这是执行顺序
+</script>

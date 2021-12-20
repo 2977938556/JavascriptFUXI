@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    function Max(name) {
+        Max.prototype.shwo = function() {
+            console.log('我是构造函数中的原型我是有被遍历的');
+        }
+        this.name = name;
+    }
+    Max.prototype.shwo = function() {
+        console.log('我是构造函数中的原型我是有被遍历的');
+    }
+    Max.prototype.shwo = function() {
+        console.log('我是构造函数中的原型我是有被遍历的');
+    }
+    Max.prototype.miao = function() {
+        console.log('我是构造函数中的原型我是有被遍历的');
+    }
+
+
+
+    let s = JSON.stringify(Object.getOwnPropertyDescriptors(Max.prototype), null, 2)
+    console.log(s);
+    //打印属性 可以看到我们的 在原型上定义的方法可以被遍历
+    /*
+    {
+        "constructor": {
+            "writable": true,
+            "enumerable": false,
+            "configurable": true
+        },
+        "shwo": {
+            "writable": true,
+            "enumerable": true,
+            "configurable": true
+        },
+        "miao": {
+            "writable": true,
+            "enumerable": true,
+            "configurable": true
+        }
+     }
+    */
+
+    let max = new Max('Cat'); //实例化对象
+    console.log(max);
+
+    //遍历对象 查看是否可以输出 每一个原型上的一个方法
+    for (const key in max) {
+        console.log(key);
+        //分别打印出了 构造函数中的属性
+        /*
+            name
+            shwo
+            miao
+        */
+    }
+</script>

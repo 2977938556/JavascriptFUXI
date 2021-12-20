@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    class User {
+        hoooooc = '秒呀~';
+        constructor(name) {
+            this.name = name
+        }
+        modify(value) {
+            this.hoooooc = value;
+        }
+    }
+
+
+
+    //每一个实例化的类对象 修改了类中的属性 ，其他实例化的对象的数值是不会变化的
+    //因为每一个实例对象中的属性都是独一无二的
+    let user = new User("我是类");
+    user.modify = ""
+
+
+
+    let userb = new User('我是语法糖');
+    userb.modify('我是FeiMao@110');
+
+    console.log(user);
+    console.log(userb);
+</script>

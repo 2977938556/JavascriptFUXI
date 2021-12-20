@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06异步加载图片的请求</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+    function promise(url) {
+        return new Promise(function(relove, rejecrt) {
+            let img = new Image();
+
+
+            //成功
+            img.onload = relove(img);
+            //失败
+            img.onerror = rejecrt("404")
+
+            img.src = url;
+        })
+
+    }
+
+    promise('./img/img.jpg').then((data) => {
+        console.log(data);
+        console.log(this);
+        if (data) {
+            document.body.appendChild(data)
+        }
+    }, () => {
+        console.log(this);
+        console.log(this);
+    })
+</script>
