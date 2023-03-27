@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>请求</button>
+</body>
+
+</html>
+
+<!-- 引入 Ajax获取数据的请求方法 -->
+<script src="./js/_Ajax.js">
+</script>
+
+
+<script>
+    //url参数就是需要请求的地址
+    function Getdata(url) {
+        //这里的变量是为了保存在本地数据 这里使用一个短路运算进行设置 
+        //这里的逻辑就是 
+        //当第一次请求的时候 因为函数中是没有 catchs属性的所以会自动执行后面的 新建一个 new map数据结构
+        //当第二次调用的时候 就因为函数中有catchs这个属性所以会直接将函数中的这个属性赋值给 catchs 变量
+        let catchs = Getdata.catchs || (Getdata.catchs = new Map);
+
+        //每次请求的时候会判断一下变量中是否包含了url 这个数据 
+        //如果有就 返回一个Promise成功调用的一个resolve 并且将之前已保存的 数据缓存返回出去
+        if (catchs.has(url)) {
+            console.log("走缓存了");
+            //这个方法其实就像下面的代码一样
+            // return Promise.resolve(catchs.get(url))
+            return new Promise(resolve => {
+                resolve(catchs.get(url))
+            })
+        }
+
+        //如果没有就执行一个 Ajax请求 获取数据
+        //因为封装的Ajax返回的是一个 promise对象所以可以使用.thne 获取数据
+        return _Xhr(url).then((daya) => {
+            //这里将获取的数据进行缓存并且 设置name的名称为 url 传入的参数也比较容易获取
+            console.log("不走缓存");
+            catchs.set(url, daya);
+            console.log(catchs);
+            return daya;
+        })
+    }
+
+
+    //设置一个按钮 点击的时候获取数据并且
+    let ben = document.querySelector('button');
+
+    ben.addEventListener('click', function() {
+        //设置传入的路径
+        Getdata("./js/01json.json").then(data => {
+            //打印出数据
+            console.log(data);
+        })
+    })
+
+
+
+    setTimeout(() => {
+        Getdata("./js/01json.json").then(data => {
+            //打印出数据
+            console.log(data);
+        })
+
+    }, 1000)
+</script>

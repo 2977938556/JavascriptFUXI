@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //使用 async 是直接返回一个promise对象并且对其进行promise的一些操作设置
+    // async function hd() {
+    //     return "aaaaaaa"
+    // }
+
+    // hd().then(value => {
+    //     console.log(value);
+    // })
+
+
+
+
+
+
+    //封装的一个函数
+    function maxs() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve("成功");
+            }, 1000);
+        })
+    }
+
+
+
+
+
+
+    //await 关键字后会等待promise完成
+    //await 后需要接收一个promise对象并且会直接获取数据 过来 替代then
+    //await 必须放在async定义的函数后面
+
+
+    //遇到这种情况可以使用 async 与 await进行操作
+    //await必须等待上一个promise对象处理完成才会执行下面一个函数
+    async function arrs() {
+        let a = await maxs();
+        let b = await maxs();
+        let c = await maxs();
+
+        //上面的函数调用都使用await进行调用
+        return [a, b, c];
+    }
+
+
+    arrs().then(value => {
+        console.log(value); // ['成功', '成功', '成功']
+    })
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点我</button>
+</body>
+
+</html>
+
+
+<script>
+    //设置元素的事件 比如点 击 双击 移出焦点 失去焦点
+
+    //事件有三部分组成
+    // 事件源  事件类型 事件处理程序  我们也称之为事件三要素
+
+    //1"事件对象
+    let btn = document.querySelector('button');
+    //2"事件类型 下面使用了点击事件
+    btn.onclick = function() {
+        //3"事件处理程序
+        console.log('1');
+    }
+
+
+    btn.onmousemove = function() {
+        console.log(000);
+    }
+</script>

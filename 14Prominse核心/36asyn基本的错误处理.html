@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="./js/_Ajax.js">
+</script>
+
+<script>
+    //在使用 async进行处理函数的时候如果在函数内部出现了错误那么我们可以在 调用函数的后
+    //方设置一个cathc 进行处理函数u
+    //async 内部发生的错误，会将必变promise对象为rejected 状态，所以可以使用catch 来处理
+
+
+
+
+    //使用catch 进行处理
+    async function gets(url) {
+        return await _Xhr(url);
+    }
+
+    gets('./js/01json2.json').then(value => {
+        console.log(value);
+    }).catch((err) => {
+        console.log("Error" + err);
+    })
+
+
+
+    //使用 try catch进行处理
+    async function Trys(name) {
+        try {
+            return await _Xhr(url);
+        } catch (error) {
+            console.log("用户不存在")
+        }
+    }
+    Trys('./js/01json.json');
+
+
+
+
+    async function loding() {
+        //如果前面的await出现了错误那么 后面的代码便不会执行了 “除非设置了处理错误的函数”
+        let a = await _Xhr('./js/01json2.json').catch(value => {
+            console.log(value);
+        })
+        let b = await _Xhr('./js/01json.json');
+    }
+    loding()
+</script>

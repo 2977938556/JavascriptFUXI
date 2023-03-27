@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        div {
+            width: 300px;
+            height: 300px;
+            background: red;
+        }
+        
+        .targer {
+            background: greenyellow;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div></div>
+    <button>点我</button>
+</body>
+<script>
+    let btn = document.querySelector('button');
+    let div = document.querySelector('div');
+    btn.onclick = function() {
+
+        //使用 修改class 类进行修改 
+        div.className = 'targer';
+
+        //使用 classlist进设置类
+        div.classList.add('targer');
+
+        //使用 classlist 移除类
+        div.classList.remove('targer');
+
+        //使用特定的样式进行修改
+        div.style.background = 'yellow';
+    }
+</script>
+
+</html>

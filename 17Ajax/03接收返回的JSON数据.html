@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>hello</h1>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+<script>
+    let h1 = document.querySelector('h1');
+    console.log(h1);
+    h1.onclick = function () {
+        //1:创建 Ajax对象
+        let xhr = new XMLHttpRequest();
+        //设置相应的数据的类型
+        xhr.responseType = 'json';
+
+        //2:初始化请求方式 与 url  /GIT POST
+        xhr.open('POST', 'http://192.168.1.105:8000/serverjson');
+        //3:发送
+        xhr.send();
+        //4:事件绑定 处理服务端返回的结果
+        xhr.onreadystatechange = function () {
+            //5:处理服务端返回的结果
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status <= 300) {
+                    // let data = xhr.response;
+                    // h1.innerHTML = JSON.parse(data).name
+
+
+                    h1.innerHTML = xhr.response.name;
+                } else {
+                    console.log("错误");
+                }
+            }
+        }
+
+    }
+</script>

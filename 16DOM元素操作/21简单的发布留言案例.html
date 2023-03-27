@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text"><button>提交</button>
+    <ul></ul>
+</body>
+<script>
+    let input = document.querySelector('input');
+    let btn = document.querySelector('button')
+    let ul = document.querySelector('ul');
+
+
+
+
+    btn.onclick = function() {
+        let str = `<li>${input.value}<a href="javascript:;">删除</a></li>`
+        ul.innerHTML += str;
+        let a = document.querySelectorAll('ul a');
+        a.forEach(function(item) {
+            item.onclick = function() {
+                this.parentNode.style.display = 'none'
+            }
+        })
+        console.log(a);
+
+    }
+</script>
+
+</html>

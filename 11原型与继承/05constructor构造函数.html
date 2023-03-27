@@ -24,14 +24,15 @@
 
 
     //添加太多方法到原型链上会特别麻烦且不好管理素以我们使用 赋值一个对象的方式
-    // Max.prototype.show = function() {
-    //     console.log('呵呵呵');
-    // }
+    Max.prototype.show = function() {
+        console.log('呵呵呵');
+    }
+
 
     //使用这种直接赋值对象的方式那么 "constructor构造函数 这个对象就指向与 赋值的对象 指向错了就需要修改成正确的构造函数"
     Max.prototype = {
         //修改原型回正确的构造函数中
-        // constructor: Max,
+        constructor: Max,
         shwo: function() {
             console.log('哈哈哈');
         },
@@ -41,30 +42,6 @@
     };
 
 
-
-
-
-
-
-
-
-
-
-
-    let a = new Max('哈哈哈', '16');
-
-
-
-    //construnctor 构造函数
-    //construnctor 指向还是构造函数本身
-    console.log(Max.prototype); //{show: ƒ, constructor: ƒ}
-    console.log(a.__proto__); // {show: ƒ, constructor: ƒ}
-
-
-
-
-    //下面测试 构造函数与实例对象 的constructor中的指向
-    //从输出的结果来看 “构造函数指向回构造函数本身”
-    console.dir(Max.prototype.constructor); //Max(uname, ager)
-    console.dir(a.__proto__.constructor); //Max(uname, ager)
+    let a = new Max('1', '2')
+    console.log(a.constructor);
 </script>

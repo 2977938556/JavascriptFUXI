@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>我在中间</li>
+    </ul>
+</body>
+<script>
+    let p = document.querySelector('ul');
+
+    // createElement创建元素
+    let html = document.createElement('h1');
+    html.innerText = "Hello World";
+
+
+    // 从元素最后插入元素appendChild 
+    p.appendChild(html)
+
+    // 从元素前面插入元素appendChild 
+    p.insertBefore(html, p.children[0]);
+</script>
+
+</html>

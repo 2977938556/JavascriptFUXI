@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="./js/_Ajax.js">
+</script>
+
+
+<script>
+    //如果我们需要在类中进行处理数据但是请求的数据又需要后面才会到所以需要使用await 与async
+    class Query {
+        async ques(name) {
+            //这里使用 await 获取数据 如果没有await那么此函数中的代码都是同步的代码，
+            //因此 修改数据 在未获取数据的时候 就修改了值会出现错误
+            let datas = await _Xhr(name);
+            datas.map(function(item) {
+                item.name = item.name + "FeiMao@110";
+            })
+            return datas;
+        }
+    }
+
+    let querys = new Query();
+    querys.ques('./js/01json.json').then(value => {
+        console.log(value);
+    })
+</script>

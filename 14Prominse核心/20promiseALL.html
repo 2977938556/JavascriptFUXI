@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    let pA = new Promise((resolve, reject) => {
+        resolve("成功PA");
+    })
+    let pB = new Promise((resolve, reject) => {
+        resolve("成功PB");
+    })
+    let pC = new Promise((resolve, reject) => {
+        reject("错误");
+        //当错误的promise对象以及被处理的话那么下面 all 就会返回一个undefined 因为已经处理过了
+    }).then(null, (e) => {
+        console.log(e);
+        // return Promise.resolve("成功")
+    })
+
+
+
+    //当传入的参数都为 正确的时候那那么就会返回给p一个全部正确的数组 
+    // let p = Promise.all([pA, pB, pC]).then(value => {
+    //     console.log(value);
+    // })
+
+
+    //当只要有一个错误的那么就会将第一个错误处理函数的返回出去
+    let D = Promise.all([pA, pB, pC]).then(value => {
+        console.log(value); //['成功PA', '成功PB', undefined]
+
+        //因为上面已经处理好了错误的请求 所以呢这里就不会被执行了
+        //如果上面已经处理好了正确的请求 那么all就不会返回他们的成功值而是将一个promise返回出来
+    }).catch(err => {
+        console.log(err);
+    })
+</script>

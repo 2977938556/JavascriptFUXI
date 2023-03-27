@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="./js/_Ajax.js"></script>
+<script>
+    //普通函数中的异步请求
+    // async function KKKO(url) {
+    //     let data = await _Xhr(url);
+    //     return Promise.resolve(data)
+    // }
+    // KKKO('./js/01json.json')
+
+
+
+    //立即执行函数中的异步请求
+    (async() => {
+        let datas = await _Xhr('./js/02json.json');
+        console.log(datas);
+    })()
+</script>

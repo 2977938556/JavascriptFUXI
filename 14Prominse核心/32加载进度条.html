@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            transition: all 0.5s;
+        }
+        
+        .divs {
+            width: 0%;
+            height: 40px;
+            background: greenyellow;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="divs">
+        100%
+    </div>
+</body>
+
+</html>
+
+
+<script src="./js/_Ajax.js">
+</script>
+<script>
+    function quersy(name) {
+        return _Xhr(name)
+    }
+
+
+
+    let divs = document.querySelector('.divs')
+
+    async function maps(arr) {
+        for (let index = 0; index < arr.length; index++) {
+            let use = await quersy(arr[index]);
+            let progress = ((index + 1) / arr.length * 100);
+            divs.style.width = progress + '%'
+            divs.innerHTML = Math.floor(progress) + '%'
+        }
+    }
+    maps(["./js/01json.json", './js/02json.json', './js/02json.json', './js/02json.json', './js/02json.json', './js/02json.json'])
+</script>

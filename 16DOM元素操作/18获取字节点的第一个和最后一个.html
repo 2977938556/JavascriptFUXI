@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <h4>最开头</h4>
+        <li>中间层</li>
+        <p>最后一个</p>
+    </ul>
+
+</body>
+<script>
+    let ul = document.querySelector('ul');
+    //firstElementChild 返回第一个元素
+    console.log(ul.firstElementChild); //h4
+
+
+    //lastElementChild 返回最后一个元素
+    console.log(ul.lastElementChild); //p
+</script>
+
+</html>

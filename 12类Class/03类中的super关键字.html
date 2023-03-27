@@ -27,19 +27,13 @@
         }
     }
 
-
-
-
     class Subset extends Father {
         constructor(a, b) {
             //字类想要继承父类的 的方法
             // 使用super 关键字
-
             //super 调用后会自动执行父类的constructor 这个函数
             //_并且将数值传入进去
             super(a, b);
-
-
             //如果字类想要自己的方法并且向要继承父类的方法那么就需要 
             //_需要将属性值 全部都写在”super“ 关键字下面 这样就不会报错了
             this.a = a;
@@ -49,6 +43,9 @@
             console.log("我是子集的方法", this.a > this.b ? this.a : this.b);
         }
     }
+
+
+
 
     let subset = new Subset(100, 200);
     //调用父类的方法

@@ -21,14 +21,17 @@
     function Max(uname, ager) {
         this.uname = uname;
         this.ager = ager;
-        // this.show = function() {
-        //     console.log('喵喵喵');
-        // }
+        this.show = function() {
+            console.log('喵喵喵');
+        }
     }
     let a = new Max('哈哈哈', '16');
     let b = new Max('嘿嘿嘿', '18');
     //由于在不同的地址所以就会 返回false
     console.log(a.show === b.show); //false
+
+
+
 
 
     //因此我们希望 所有的对象使用同一个函数 ，这样比较节约内存 

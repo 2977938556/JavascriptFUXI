@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script src="./js/_Ajax.js">
+</script>
+
+
+<script>
+    let promisers = ["./js/01json.json", "./js/05json.json"].map(item => {
+        return _Xhr(item)
+    })
+
+
+    //使用allSettled可以接收返回成功或者错误的数据(“这一点与all不一致因为all只要有一个错误就会中断执行”)
+    //allSettled 只要接收的promise对象的状态都发生改变那么就会返回一个数组 不管成功与否
+    let opo = Promise.allSettled(promisers).then(value => {
+        //在这里我们将成功的数据给过滤了一下只返回一个已经成功返回的值
+        let s = value.filter(item => {
+            if (item.status == "fulfilled") {
+                return item;
+            }
+        })
+        return s;
+    }).then(value => {
+        console.log(value); //{status: 'fulfilled', value: Array(2)}
+    })
+</script>

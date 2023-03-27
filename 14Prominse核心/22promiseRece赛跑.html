@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="./js/_Ajax.js">
+</script>
+
+<script>
+    let pa = new Promise((resolve, rekect) => {
+        setTimeout(() => {
+            resolve("成功pa");
+        }, 2000);
+    })
+    let pb = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject("成功pb")
+        }, 1000);
+    })
+
+
+
+    //race是赛跑的意思 就是只要那个请求速度快就返回谁的数据(不管是成功还是失败)
+    //如果上方请求经被处理那么下面返回的就是一个undefined
+    let po = Promise.race([pa, pb]).then(value => {
+        console.log(value);
+    }).catch(err => {
+        console.log(err, "错误");
+    })
+
+
+
+
+
+
+
+
+
+
+    //请求超时设置
+    //将promis储存在数组中 
+    let arrs = [
+        _Xhr('./js/01json.json'),
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject("请求超时")
+            }, 1000);
+        })
+    ]
+
+
+    // 使用race 方法如果谁快就使用谁的
+    //从而达到请求超时的作用
+    Promise.race(arrs).then(vakue => {
+        console.log(vakue);
+    })
+</script>

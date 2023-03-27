@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        div .toop {
+            width: 600px;
+            height: 40px;
+            display: flex;
+            border: 1px solid red;
+        }
+        
+        div .toop li {
+            width: 80px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            list-style: none;
+            border: 1px solid black;
+        }
+        
+        .change {
+            background: red;
+            color: white;
+            font-weight: 900;
+            cursor: pointer;
+        }
+        
+        .buttom li {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul class="toop">
+            <li class="change">首页</li>
+            <li>详情</li>
+            <li>miaoya</li>
+            <li>miaoya</li>
+            <li>miaoya</li>
+            <li>miaoya</li>
+            <li>miaoya</li>
+        </ul>
+        <ul class="buttom">
+            <li style="display: block;">首页首页首页首页</li>
+            <li>详情详情详情详情</li>
+            <li>miaoya</li>
+            <li>miaoya</li>
+            <li>miaoya</li>
+            <li>miaoya</li>
+            <li>miaoya</li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    let ulli = document.querySelectorAll('.toop li');
+    let btnulli = document.querySelectorAll('.buttom li');
+    for (let i = 0; i < ulli.length; i++) {
+        ulli[i].setAttribute('index', i);
+        ulli[i].onclick = function() {
+            let indexs = this.getAttribute('index');
+            for (let k = 0; k < ulli.length; k++) {
+                //设置点击按钮的类
+                ulli[k].className = "";
+                //设置下方内容的
+                btnulli[k].style.display = 'none'
+
+            }
+            this.className = 'change';
+            btnulli[indexs].style.display = 'block'
+        }
+    }
+</script>
+
+</html>

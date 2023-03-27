@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script src="./js/_Ajax.js"></script>
+
+<script>
+    let promise = [_Xhr("./js/03json.json"), _Xhr("./js/03json.json"), _Xhr("./js/03json.json")]
+
+    Promise.any(promise).then((value, item, ndex) => {
+        console.log(value, item, ndex);
+    })
+
+
+
+
+    //返回的是一个promise实例对象里面包含了promise对象的 状态以及获取的数据
+    setTimeout(() => {
+        console.log(promise);
+    }, 1000);
+
+    //Promise.any()跟Promise.race()方法很像，只有一点不同，
+    //就是Promise.any()不会因为某个 Promise 变成rejected状态而结束
+    //必须等到所有参数 Promise 变成rejected状态才会结束
+
+    //只要有一个为成功状态那么就 喜欢第一个 ，如果全部都为失败状态那么就会导致拒绝状态
+</script>

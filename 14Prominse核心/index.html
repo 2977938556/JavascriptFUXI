@@ -6,26 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            transition: all 0.5s;
+        }
+        
+        .divs {
+            width: 400px;
+            height: 400px;
+            background: red;
+            overflow: hidden;
+            transform: rotate(90deg);
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
-
+    <div class="divs">
+        <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1a.nipic.com%2F2008-10-29%2F200810299916212_2.jpg&refer=http%3A%2F%2Fpic1a.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1642852808&t=d2a5e6e1143f47f60a45eb46377aa907"
+            alt="">
+    </div>
+    <button>点击旋转</button>
 </body>
 
 </html>
+
+
 <script>
-    const someAsyncThing = function() {
-        return new Promise(function(resolve, reject) {
-            // 下面一行会报错，因为x没有声明
-            resolve(x + 2);
-        });
-    };
+    function random() {
+        let random = Math.random() * 1;
+        return random;
+    }
 
-    someAsyncThing().then(function() {
-        console.log('everything is great');
-    });
 
-    setTimeout(() => {
-        console.log(123)
-    }, 2000);
+    let btn = document.querySelector('button');
+    let divs = document.querySelector('.divs');
+    btn.addEventListener('click', (e) => {
+        divs.style.transform = `rotate(${random()}deg)`
+    })
 </script>

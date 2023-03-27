@@ -11,30 +11,11 @@
 <body>
 
 </body>
+
 </html>
 <script type="module">
-    //使用export命令定义了模块的对外接口以后，其他 JS 文件就可以通过import命令加载这个模块。
-    //在花括号中的 名称必须与 被导出的 06.js 的名称一致
-
-
-    //如果向要重新为输入的 变量重新取一个名字 这与 export方法中修改名称一致 as
-
-    //接收传递过来的参数  使用了 as 进行修改了原有名称
-    import {arr as array, show as hide, obj as objects} from "./module/06.js";
-
-    //2：因为在import中的数据都是只读的 ，因为他的本质是输入接口。
-    //也就是说不允许修改在加载模块里面的数据，改写接口
-    // array =null;//报错
-    //2_但是如果对面传入的是对象类型那么就可以修改数值
-
-    objects.name = "我被修改了";
-    console.log(objects)//{name: '我被修改了', ager: '19'}
-
-    //虽然上面代码中。objects 的属性可以被成功改写，但是其他模块
-
-
-    console.log(array)//[1,2,3,4,5,6];
-    hide()//我被导出了
+    //使用export命令定义了模块的对外接口以后，其他 JS 文件就可以通过import命令加载这个模块。 //在花括号中的 名称必须与 被导出的 06.js 的名称一致 //如果向要重新为输入的 变量重新取一个名字 这与 export方法中修改名称一致 as //接收传递过来的参数 使用了 as 进行修改了原有名称 import {arr as array, show as hide, obj as objects} from "./module/06.js"; //2：因为在import中的数据都是只读的
+    ，因为他的本质是输入接口。 //也就是说不允许修改在加载模块里面的数据，改写接口 // array =null;//报错 //2_但是如果对面传入的是对象类型那么就可以修改数值 objects.name = "我被修改了"; console.log(objects)//{name: '我被修改了', ager: '19'} //虽然上面代码中。objects 的属性可以被成功改写，但是其他模块 console.log(array)//[1,2,3,4,5,6]; hide()//我被导出了
 
 
 </script>

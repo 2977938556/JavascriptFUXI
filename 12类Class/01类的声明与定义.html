@@ -28,8 +28,9 @@
 
     }
 
-    //类是JavaScript中的一个 语法糖 可以实现继承操作比较方便
 
+
+    //类是JavaScript中的一个 语法糖 可以实现继承操作比较方便
     //声明类
     //第一种方式
     class User {
@@ -54,27 +55,25 @@
 
 
 
-
     class Usera {
         //属性不建议添加到这里 ，建议添加到constructor 中
         // ager = '1';
-
-
         //constructor
         //默认初始化参数 相当于构造函数中的this.name = name;这种自定义属性
         //以下的几个注意事项
         //通过class 创建出的 开头需要大写
         //类里面有一个 constructor 函数，这个函数可以接收我们传入的任何参数并且在实例化类的时候会会立即执行，同时返回实例对象
-
         constructor(name) {
             this.name = name;
             this.show = function() {
                 console.log('秒呀');
             }
         };
-
-
     }
+
+
+
+
 
     let usrb = new Usera('FeiMao@110');
     usrb.show();

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <table border="1" style="width: 800px;height: auto;">
+        <tr>
+            <td>姓名：</td>
+            <td>科目</td>
+            <td>成绩</td>
+            <td>操作</td>
+        </tr>
+
+    </table>
+</body>
+
+<script>
+    let obj = [{
+        name: "1",
+        kemu: "js",
+        cj: "59",
+    }, {
+        name: "2",
+        kemu: "html",
+        cj: "69",
+    }, {
+        name: "3",
+        kemu: "css",
+        cj: "56",
+    }];
+
+    let table = document.querySelector('table')
+
+
+    //渲染
+    for (let i = 0; i < obj.length; i++) {
+        //新建一个 tr行 插入
+        let tr = document.createElement('tr');
+        table.appendChild(tr)
+
+
+        //循环内部数据并且将数据插入到td里面
+        for (let k in obj[i]) {
+            let td = document.createElement('td');
+            td.innerHTML = obj[i][k];
+            tr.appendChild(td)
+
+
+
+        }
+        let tds = document.createElement('td');
+        tds.innerHTML += `<a href="javacript:;">删除</a>`;
+        tr.appendChild(tds)
+
+
+        shanchu(table);
+
+    }
+
+
+    //删除
+    function shanchu(table) {
+        let alls = document.querySelectorAll('tr td a');
+        for (let index = 0; index < alls.length; index++) {
+            alls[index].onclick = function() {
+                table.removeChild(this.parentNode.parentNode)
+            }
+        }
+
+
+    }
+</script>
+
+</html>

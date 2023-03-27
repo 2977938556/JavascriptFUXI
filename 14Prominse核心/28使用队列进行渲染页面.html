@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    class xuanrang {
+        _Ajax(name) {
+            let url = `https://dict-mobile.iciba.com/interface/index.php?c=word&m=getsuggest&nums=10&is_need_mean=1&word=${name}`
+            console.log(url);
+            return new Promise((reoslve, reject) => {
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", url, true);
+                xhr.send(null)
+                xhr.onload = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                            let data = JSON.parse(xhr.responseText);
+                            reoslve(data)
+                        } else {
+                            reject({
+                                mase: "404",
+                                name: "错误"
+                            })
+                        }
+                    }
+                }
+            })
+        };
+
+
+        //
+        query(arr) {
+            let promise = Promise.resolve();
+            arr.map(item => {
+
+                //方法2
+                //第一次循环使用 then 处理第一个promise对象 并且返回一个promise对象并且保存数据，并且调用渲染函数
+                //第二次循环的时候 因为第一次循环的时候 会产生一个promise对象所以第二次的then 处理的是第一次返回的一个promise对象
+                //返回数据后就调用渲染函数并且
+                promise = promise.then(() => {
+                    return this._Ajax(item);
+                }).then(value => {
+                    return this.view(value)
+                }).then(value => {
+                    console.log(value);
+                })
+
+
+                //方法1
+                // promise =  Promise(resolve => {
+                //     return this._Ajax(item);
+                // }).then((value) => {
+                //     return this.view(value)
+                // })
+
+
+
+            })
+        };
+        view(values) {
+            return new Promise((resolve, reject) => {
+                resolve(values)
+            })
+        }
+
+
+
+
+
+    }
+
+    let a = new xuanrang();
+    a.query(['age', 'sex'])
+</script>

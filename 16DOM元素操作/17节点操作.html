@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>11111111</li>
+        <li>11111111</li>
+        <li>11111111</li>
+        <li>11111111</li>
+    </ul>
+    <div class="box">
+        <p>
+            hhhh
+        </p>
+    </div>
+</body>
+
+<script>
+    //节点操作就是 获取 元素
+    //1,利用节点的父子关系进行擦偶哦
+
+
+    //获取离元素最近的父级节点parentNode
+    let parent = document.querySelector('p').parentNode;
+    console.log(parent);
+
+
+
+    //获取子节点 会获取 元素节点 和  文本节点
+    //由于获取的数据有些问题所以需要进行判断  但是我们一般不怎么使用
+    let ulli = document.querySelector('ul').childNodes;
+    let arr = [];
+    for (let index = 0; index < ulli.length; index++) {
+        if (ulli[index].nodeType == 1) {
+            arr[arr.length] = ulli[index];
+        }
+        console.log(arr); // 输出四个 [li, li, li, li]
+    }
+
+    //children 获取父级节点下的子元素  {非标准的}
+    let s = document.querySelector('ul').children;
+    console.log(s); //[li, li, li, li]
+
+
+
+
+    //
+</script>
+
+</html>

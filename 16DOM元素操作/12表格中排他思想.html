@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+        
+        table {
+            width: 600px;
+            height: auto;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td colspan=3>考试成绩</td>
+
+        </tr>
+        <tr>
+            <td>科目</td>
+            <td>Photoshop</td>
+            <td>94</td>
+        </tr>
+        <tr>
+            <td>科目</td>
+            <td>设计素描</td>
+            <td>86</td>
+        </tr>
+        <tr>
+            <td>科目</td>
+            <td>大学语文</td>
+            <td>76</td>
+        </tr>
+        <tr>
+            <td>科目</td>
+            <td>大学英语</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>科目</td>
+            <td>军事理论</td>
+            <td>60</td>
+        </tr>
+    </table>
+</body>
+
+
+<script>
+    //排他思想的运用
+    let table = document.querySelectorAll('table tr')
+    for (let index = 0; index < table.length; index++) {
+        table[index].onmouseover = function() {
+            for (let s = 0; s < table.length; s++) {
+                table[s].style.background = '';
+            }
+            this.style.background = 'yellow'
+        }
+
+    }
+</script>
+
+</html>

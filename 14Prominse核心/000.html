@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    let div = document.querySelector('div');
+
+    function max(item, callback) {
+        return new Promise(resolve => {
+            let id = setInterval(() => {
+
+                callback(id, resolve)
+            }, item)
+        })
+    }
+
+
+    max(1000, (id, resolve) => {
+        console.log(21);
+        //获取div与div距离左边的距离
+        let left = div.offsetLeft;
+        div.style.left = left + 100 + "px";
+        console.log(left);
+        console.log(div);
+        if (left > 300) {
+            //清除定时器
+            clearInterval(id)
+            resolve(div)
+        }
+
+
+
+        // resolve("我是一个返回promise 对象的函数")
+    }).then((a) => {
+        console.log(a);
+    })
+</script>

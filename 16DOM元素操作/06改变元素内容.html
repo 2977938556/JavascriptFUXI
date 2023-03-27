@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点我修改下方的h1标签</button>
+    <h1>我是被修改的</h1>
+</body>
+
+</html>
+
+<script>
+    let btn = document.querySelector('button');
+    let h1 = document.querySelector('h1')
+    btn.onclick = function() {
+
+        //innerHTML会识别 html 标签
+        h1.innerHTML += "<h5>秒呀~</h5>";
+        //innerText 不会识别 html 标签 自动转换为字符串
+        h1.innerText = "<h3>秒呀~</h3>";
+    }
+</script>

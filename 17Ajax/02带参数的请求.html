@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .divs {
+            width: auto;
+            height: 200px;
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="divs"></div>
+</body>
+<script>
+    let divs = document.querySelector('.divs');
+
+    divs.addEventListener('mouseover', () => {
+        //1:创建 Ajax对象
+        let xhr = new XMLHttpRequest();
+
+        //2:初始化请求方式 与 url  /GIT POST
+        xhr.open('POST', 'http://192.168.1.105:8000/server');
+        // 设置请求头
+        xhr.setRequestHeader('Content-Type', 'application/x-www-from-urlencoded')
+
+        //3:发送
+        //post 的请求参数是写在这里的  get 的请求数据是写早open的
+        xhr.send('a=100&b=200&c=300');
+
+
+        //4:事件绑定 处理服务端返回的结果
+        xhr.onreadystatechange = function () {
+            //5:处理服务端返回的结果
+            if (xhr.readyState === 4) {
+                if (xhr.status >= 200 && xhr.status <= 300) {
+                    divs.innerHTML = xhr.response
+                } else {
+                    console.log("错误");
+                }
+            }
+        }
+
+    })
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>Fetch</button>
+
+</body>
+
+</html>
+<script>
+    let btn = document.querySelectorAll('button');
+    //fetch是一种HTTP数据请求的方式，是XMLHttpRequest的一种替代方案
+    //返回的是一个 promise对象
+    btn[0].addEventListener('click',function(data){
+        fetch('http://192.168.1.105:8000/fetch?username=adimibn&password=2977938556',{
+            //请求类型
+            method:'POST',
+            //请求头
+            headers:{
+                name:"hodunr",
+            },
+            body:'username=adimibn&password=2977938556',
+        }).then((data)=>{
+
+            //这里的 data.json/.text 可以修改返回值的类型
+            return data.json();
+        }).then(value=>{
+            console.log(value);
+        })
+    })
+</script>

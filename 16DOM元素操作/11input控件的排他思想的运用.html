@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .box * {
+            display: block;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input id="all" type="checkbox">全选
+        <input id="noall" type="checkbox">全不选
+        <input id="fall" type="checkbox">反选
+    </div>
+
+    <div class="box">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+    </div>
+</body>
+
+<script>
+    let all = document.querySelector('#all');
+    let noall = document.querySelector('#noall');
+    let fall = document.querySelector('#fall');
+    let checkboxsss = document.querySelectorAll('.box input');
+
+
+
+
+
+
+
+
+    //全选
+    all.onclick = function() {
+        let checkboxs = document.querySelectorAll('.box input');
+        for (let i = 0; i < checkboxs.length; i++) {
+            checkboxs[i].checked = true;
+            noall.checked = false;
+            fall.checked = false;
+        }
+    }
+
+
+    //全不选
+    noall.onclick = function() {
+        let checkboxs = document.querySelectorAll('.box input');
+        for (let i = 0; i < checkboxs.length; i++) {
+            checkboxs[i].checked = false;
+            all.checked = false;
+            fall.checked = false;
+        }
+    }
+
+
+
+    fall.onclick = function() {
+        let checkboxs = document.querySelectorAll('.box input');
+        for (let i = 0; i < checkboxs.length; i++) {
+            // console.log(checkboxs[i].checked);
+            if (checkboxs[i].checked == false) {
+                checkboxs[i].checked = true;
+                all.checked = false;
+                noall.checked = false;
+            } else if (checkboxs[i].checked == true) {
+                checkboxs[i].checked = false;
+                all.checked = false;
+                noall.checked = false;
+            }
+        }
+    }
+
+
+    for (let i = 0; i < checkboxsss.length; i++) {
+        checkboxsss[i].onclick = function() {
+            all.checked = false;
+            noall.checked = false;
+            fall.checked = false;
+        }
+    }
+</script>
+
+</html>

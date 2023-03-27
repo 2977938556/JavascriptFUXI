@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=3, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>hhhhh</p>
+    <h1>hello world</h1>
+    <p>miaoya</p>
+</body>
+<script>
+    let h1 = document.querySelector('h1');
+
+    //nextSibling 获取下一个兄弟节点 会包括文本节点
+    console.log(h1.nextSibling);;
+
+
+    //previousSibling 获取上一个兄弟节点 包括文本节点
+    console.log(h1.previousSibling);;
+
+
+    //获取兄弟的元素节点
+    console.log(h1.nextElementSibling);
+    console.log(h1.previousElementSibling);
+</script>
+
+</html>

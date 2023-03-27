@@ -20,8 +20,7 @@
 
     //2.类里面的共有属性和方法一定需要添加this 
 
-
-
+    //3:类中的this指向于 实例化的对象
 
     class Father {
         constructor(a, b) {
@@ -42,6 +41,5 @@
     }
 
     let father = new Father('刘德华', '19岁');
-
-    console.log(father.data === father); // true
+    console.log(father.data === father); //类中的this指向与 true
 </script>

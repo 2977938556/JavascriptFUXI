@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    let quersa = new Promise((resolve, reject) => {
+        reject("失败")
+    }).catch(err => {
+        console.log(err);
+    })
+    let quersb = new Promise((resolve, reject) => {
+        resolve("成功")
+    });
+
+
+    //promise.all  里面传入 一个需要执行的一个promise对象
+    //返回的值是一个 数组
+    //疑惑1 :如果请求的promise是一个错误处理请求那么就在then后面添加catch 处理错误数据
+    //疑惑2 :如果我把错误的请求处理方式提起修改了，那么 catch 和 thne返回的都是一个 promise对象
+    Promise.all([quersa, quersb]).then(value => {
+        console.log(value); // [undefined, '成功']
+    }).catch(err => {
+        console.log(err);
+    })
+
+
+
+
+    //总计
+    //all可以将多个promise 实例包装成以一个新的promise对象，
+    //同时返回的值是不一样的，如果全部都为成功状态那么就返回一个成功的数组
+    //如果有一个错误的话那么就返回第一个错误的数据
+
+    //使用用途 
+    //在使用 all可以接收返回的多个异步请求，比如在一个页面上需要
+    // 有一个或者多个Ajax请求那么就可以使用 all用来请求
+    //在此之前就使用 loading图标显示
+</script>

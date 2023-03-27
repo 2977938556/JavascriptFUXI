@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2Ftp02%2F1Z91P02I21Y9-0-lp.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1644839347&t=2797dacdbcbcc5e0a260cfc44e6c268c"
+        alt="">
+    <button>点击我修改图片</button>
+</body>
+
+<script>
+    let img = document.querySelector('img');
+    let btn = document.querySelector('button');
+    let url = 'https://img1.baidu.com/it/u=1300395605,1606358972&fm=253&fmt=auto&app=138&f=PNG?w=691&h=500'
+    btn.onclick = function() {
+        img.src = url
+    }
+</script>
+
+</html>
